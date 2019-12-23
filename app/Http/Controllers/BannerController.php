@@ -52,6 +52,9 @@ class BannerController extends Controller
         }
         $item->texto1 = $request->texto1;
         $item->texto2 = $request->texto2;
+        if($request->imagen != null){
+             $item->imagen = $request->imagen->store('public/imagenes/home');
+        }
         $item->save();
         return redirect()->route('adm.banner')->with('success', 'Se añadio una <strong>Banner</strong> con exitó.');
     }

@@ -29,7 +29,9 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Nombre</th>
+                    <th>IMAGEN</th>
+                    <th>TEXTO 1</th>
+                    <th>TEXTO 2</th>
                     <th class="no-sort"></th>
                 </tr>
             </thead>
@@ -37,7 +39,9 @@
                 @foreach ($data as $item)
                 <tr>
                     <td>{{ $item->id }}</td>
+                    <td>{{ $item->imagen }}</td>
                     <td>{{ $item->texto1 }}</td>
+                    <td>{{ $item->texto2 }}</td>
                     <td>
                         @if (!$item->trashed())
                         <a href="{{ route('adm.banner.edit', [$item->id]) }}" class="btn btn-primary btn-sm">
