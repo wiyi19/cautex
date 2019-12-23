@@ -3,17 +3,17 @@
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <div>
         @if (isset($trash) && $trash == true)
-        <a href="{{ route('adm.banner') }}" class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm">
+        <a href="{{ route('adm.productohome') }}" class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm">
             <i class="fas fa-step-backward fa-sm text-white-50"></i>
             Salir de la Papelera
         </a>
         @else
-        <a href="{{ route('adm.banner.trash') }}" class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm">
+        <a href="{{ route('adm.productohome.trash') }}" class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm">
             <i class="fas fa-trash fa-sm text-white-50"></i>
             Papelera
         </a>
         @endif
-        <a href="{{ route('adm.banner.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+        <a href="{{ route('adm.productohome.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
             <i class="fas fa-plus fa-sm text-white-50"></i>
             Añadir
         </a>
@@ -30,8 +30,7 @@
                 <tr>
                     <th>ID</th>
                     <th>IMAGEN</th>
-                    <th>TEXTO 1</th>
-                    <th>TEXTO 2aa</th>
+                    <th>PRODUCTO</th>
                     <th class="no-sort"></th>
                 </tr>
             </thead>
@@ -40,8 +39,7 @@
                 <tr>
                     <td>{{ $item->id }}</td>
                     <td><img src=" {{ asset(Storage::url($item->imagen))}}" width="100" height="100"></td>
-                    <td>{{ $item->texto1 }}</td>
-                    <td>{{ $item->texto2 }}</td>
+                    <td>{{ $item->productoproductohome }}</td>
                     <td>
                         @if (!$item->trashed())
                         <a href="{{ route('adm.banner.edit', [$item->id]) }}" class="btn btn-primary btn-sm">

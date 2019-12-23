@@ -21,6 +21,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+  <main class="py-4">
     <div id="app">
   <!-- Page Wrapper -->
   <div id="wrapper">
@@ -83,7 +84,8 @@
       </div>
     </div>
   </div>
-    </div>
+</main>
+</div>
 
 </body>
 </html>

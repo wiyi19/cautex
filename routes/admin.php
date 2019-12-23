@@ -33,4 +33,42 @@ Route::group([
     Route::get ('/{id}/restore', 'BannerController@restore')->name('.restore');
 });
 
+
+Route::group([
+    'prefix' => 'soluciones',
+    'as' => 'soluciones',
+], function() {
+    Route::get ('/', 'SolucionesController@index');
+    Route::get ('/create', 'SolucionesController@create')->name('.create');
+    Route::get ('/create2', 'SolucionesController@create2')->name('.create2');
+    Route::post('/', 'SolucionesController@store')->name('.store');
+    Route::get ('/{id}/edit', 'SolucionesController@edit')->name('.edit');
+    Route::get ('/{id}/edit2', 'SolucionesController@edit2')->name('.edit2');
+    Route::post('/{id?}', 'SolucionesController@store')->name('.update');
+    //
+    Route::get ('/{id}/delete', 'SolucionesController@destroy')->name('.destroy');
+    Route::get ('/{id}/delete2', 'SolucionesController@destroy2')->name('.destroy2');
+    Route::get ('/trash', 'SolucionesController@trash')->name('.trash');
+    Route::get ('/trash2', 'SolucionesController@trash2')->name('.trash2');
+    Route::get ('/{id}/restore', 'SolucionesController@restore')->name('.restore');
+    Route::get ('/{id}/restore2', 'SolucionesController@restore2')->name('.restore2');
+});
+
+
+Route::group([
+    'prefix' => 'productohome',
+    'as' => 'productohome',
+], function() {
+    Route::get ('/', 'ProductohomeController@index');
+    Route::get ('/create', 'ProductohomeController@create')->name('.create');
+    Route::post('/', 'ProductohomeController@store')->name('.store');
+    Route::get ('/{id}/edit', 'ProductohomeController@edit')->name('.edit');
+    Route::post('/{id?}', 'ProductohomeController@store')->name('.update');
+    //
+    Route::get ('/{id}/delete', 'ProductohomeController@destroy')->name('.destroy');
+    Route::get ('/trash', 'ProductohomeController@trash')->name('.trash');
+    Route::get ('/{id}/restore', 'ProductohomeController@restore')->name('.restore');
+});
+
+
 Route::get('/', 'HomeController@index')->name('home');

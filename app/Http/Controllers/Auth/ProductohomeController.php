@@ -6,9 +6,9 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-use App\Banner;
+use App\Productohome;
 
-class BannerController extends Controller
+class ProductohomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,8 @@ class BannerController extends Controller
      */
     public function index()
     {
-        $data = Banner::get();
-        return view('adm.banner.index', [
+        $data = Productohome::get();
+        return view('adm.productohome.index', [
             'data'     => $data,
         ]);
     }
@@ -30,7 +30,7 @@ class BannerController extends Controller
      */
     public function create()
     {
-        return view('adm.banner.create', [
+        return view('adm.productohome.create', [
             'category_id' => request()->category_id
         ]);
     }
@@ -46,17 +46,16 @@ class BannerController extends Controller
     public function store(Request $request, $id = false)
     {
         if($id){
-            $item = Banner::find($id);
+            $item = Productohome::find($id);
         } else {
-            $item = new Banner;
+            $item = new Productohome;
         }
-        $item->texto1 = $request->texto1;
-        $item->texto2 = $request->texto2;
+        $item->producto = $request->producto;
         if($request->imagen != null){
              $item->imagen = $request->imagen->store('public/imagenes/home/banner1');
         }
         $item->save();
-        return redirect()->route('adm.banner')->with('success', 'Se añadio una <strong>Banner</strong> con exitó.');
+        return redirect()->route('adm.productohome')->with('success', 'Se añadio una <strong>Producto</strong> con exitó.');
     }
 
     /**
@@ -67,8 +66,8 @@ class BannerController extends Controller
      */
     public function edit($id)
     {
-        return view('adm.banner.edit', [
-            'element' => Banner::find($id),
+        return view('adm.productohome.edit', [
+            'element' => Productohome::find($id),
         ]);
     }
     /**
@@ -79,28 +78,28 @@ class BannerController extends Controller
      */
     public function destroy($id)
     {
-        Banner::find($id)->delete();
-        return redirect()->route('adm.banner')->with('success', 'Se ha eliminado un <strong>Articulo</strong> con exitó.');
+        Productohome::find($id)->delete();
+        return redirect()->route('adm.productohome')->with('success', 'Se ha eliminado un <strong>Producto</strong> con exitó.');
     }
     public function trash()
     {
-        $data = Banner::onlyTrashed()->get();
-        return view('adm.banner.index', [
+        $data = Productohome::onlyTrashed()->get();
+        return view('adm.productohome.index', [
             'data' => $data,
             'trash'=> true,
         ]);
     }
     public function restore($id)
     {
-        $item = Banner::withTrashed()->find($id);
+        $item = Productohome::withTrashed()->find($id);
         $item->deleted_at = null;
         $item->save();
-        return redirect()->route('adm.banner.trash')->with('success', 'Se ha restaurado un <strong>Articulo</strong> con exitó.');
+        return redirect()->route('adm.productohome.trash')->with('success', 'Se ha restaurado un <strong>Producto</strong> con exitó.');
     }
     public function copy($id)
     {
-        $new = Banner::find($id)->replicate();
+        $new = Productohome::find($id)->replicate();
         $new->save();
-        return redirect()->route('adm.banner.edit', $new->id)->with('success', 'Se ha duplicado un <strong>Articulo</strong> con exitó.');
+        return redirect()->route('adm.productohome.edit', $new->id)->with('success', 'Se ha duplicado un <strong>Producto</strong> con exitó.');
     }
 }

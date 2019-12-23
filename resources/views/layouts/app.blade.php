@@ -56,6 +56,11 @@
             <a class="collapse-item" href="{{ route('adm.banner') }}">Banner</a>
           </div>
         </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="{{ route('adm.soluciones') }}">Soluciones</a>
+          </div>
+        </div>
       </li>
 
       <!-- Nav Item - Utilities Collapse Menu -->

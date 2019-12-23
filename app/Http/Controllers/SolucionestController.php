@@ -6,9 +6,9 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-use App\Banner;
+use App\Solucionest;
 
-class BannerController extends Controller
+class SolucionestController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +17,9 @@ class BannerController extends Controller
      */
     public function index()
     {
-        $data = Banner::get();
-        return view('adm.banner.index', [
-            'data'     => $data,
+        $data = solucionest::get();
+        return view('adm.solucionest.index', [
+            'data2'     => $data,
         ]);
     }
 
@@ -30,7 +30,7 @@ class BannerController extends Controller
      */
     public function create()
     {
-        return view('adm.banner.create', [
+        return view('adm.solucionest.create', [
             'category_id' => request()->category_id
         ]);
     }
@@ -46,17 +46,13 @@ class BannerController extends Controller
     public function store(Request $request, $id = false)
     {
         if($id){
-            $item = Banner::find($id);
+            $item2 = solucionest::find($id);
         } else {
-            $item = new Banner;
+            $item2 = new solucionest;
         }
-        $item->texto1 = $request->texto1;
-        $item->texto2 = $request->texto2;
-        if($request->imagen != null){
-             $item->imagen = $request->imagen->store('public/imagenes/home/banner1');
-        }
-        $item->save();
-        return redirect()->route('adm.banner')->with('success', 'Se añadio una <strong>Banner</strong> con exitó.');
+        $item2->texto1 = $request->texto1;
+        $item2->save();
+        return redirect()->route('adm.solucionest')->with('success', 'Se añadio una <strong>Banner</strong> con exitó.');
     }
 
     /**
@@ -67,8 +63,8 @@ class BannerController extends Controller
      */
     public function edit($id)
     {
-        return view('adm.banner.edit', [
-            'element' => Banner::find($id),
+        return view('adm.solucionest.edit', [
+            'element' => solucionest::find($id),
         ]);
     }
     /**
@@ -79,28 +75,28 @@ class BannerController extends Controller
      */
     public function destroy($id)
     {
-        Banner::find($id)->delete();
-        return redirect()->route('adm.banner')->with('success', 'Se ha eliminado un <strong>Articulo</strong> con exitó.');
+        solucionest::find($id)->delete();
+        return redirect()->route('adm.solucionest')->with('success', 'Se ha eliminado un <strong>Articulo</strong> con exitó.');
     }
     public function trash()
     {
-        $data = Banner::onlyTrashed()->get();
-        return view('adm.banner.index', [
+        $data = solucionest::onlyTrashed()->get();
+        return view('adm.solucionest.index', [
             'data' => $data,
             'trash'=> true,
         ]);
     }
     public function restore($id)
     {
-        $item = Banner::withTrashed()->find($id);
+        $item = solucionest::withTrashed()->find($id);
         $item->deleted_at = null;
         $item->save();
-        return redirect()->route('adm.banner.trash')->with('success', 'Se ha restaurado un <strong>Articulo</strong> con exitó.');
+        return redirect()->route('adm.solucionest.trash')->with('success', 'Se ha restaurado un <strong>Articulo</strong> con exitó.');
     }
     public function copy($id)
     {
-        $new = Banner::find($id)->replicate();
+        $new = solucionest::find($id)->replicate();
         $new->save();
-        return redirect()->route('adm.banner.edit', $new->id)->with('success', 'Se ha duplicado un <strong>Articulo</strong> con exitó.');
+        return redirect()->route('adm.solucionest.edit', $new->id)->with('success', 'Se ha duplicado un <strong>Articulo</strong> con exitó.');
     }
 }
