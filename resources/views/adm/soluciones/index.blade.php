@@ -34,7 +34,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($data as $item)
+                @foreach ($data2 as $item)
                 <tr>
                     <td>{{ $item->id }}</td>
                     <td>{{ $item->texto1 }}</td>
@@ -96,7 +96,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($data2 as $item)
+                @foreach ($data as $item)
                 <tr>
                     <td>{{ $item->id }}</td>
                     <td><img src=" {{ asset(Storage::url($item->imagen))}}" width="20" height="20"></td>
