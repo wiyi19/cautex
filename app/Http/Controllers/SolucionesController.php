@@ -18,9 +18,11 @@ class SolucionesController extends Controller
      */
     public function index()
     {
-        $data = soluciones::get();
+        $data  = soluciones::get();
+        $data2 = Solucionest::get();
         return view('adm.soluciones.index', [
             'data'     => $data,
+            'data2'    => $data2,
         ]);
     }
 
@@ -63,7 +65,7 @@ class SolucionesController extends Controller
              $item->imagen = $request->imagen->store('public/imagenes/home/soluciones');
         }
         $item->save();
-        return redirect()->route('adm.soluciones')->with('success', 'Se añadio una <strong>Banner</strong> con exitó.');
+        return redirect()->route('adm.soluciones')->with('success', 'Se añadio una <strong>Texto</strong> con exitó.');
     }
 
      public function store2(Request $request, $id = false)
@@ -75,7 +77,7 @@ class SolucionesController extends Controller
         }
         $item->texto1 = $request->texto1;
         $item->save();
-        return redirect()->route('adm.soluciones')->with('success', 'Se añadio una <strong>Banner</strong> con exitó.');
+        return redirect()->route('adm.soluciones')->with('success', 'Se añadio una <strong>Texto</strong> con exitó.');
     }
 
     /**

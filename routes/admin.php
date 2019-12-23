@@ -56,6 +56,39 @@ Route::group([
 
 
 Route::group([
+    'prefix' => 'matrides',
+    'as' => 'matrides',
+], function() {
+    Route::get ('/', 'MatridesController@index');
+    Route::get ('/create', 'MatridesController@create')->name('.create');
+    Route::post('/', 'MatridesController@store')->name('.store');
+    Route::get ('/{id}/edit', 'MatridesController@edit')->name('.edit');
+    Route::post('/{id?}', 'MatridesController@store')->name('.update');
+    //
+    Route::get ('/{id}/delete', 'MatridesController@destroy')->name('.destroy');
+    Route::get ('/trash', 'MatridesController@trash')->name('.trash');
+    Route::get ('/{id}/restore', 'MatridesController@restore')->name('.restore');
+});
+
+/////==================================Empresa===============================================
+Route::group([
+    'prefix' => 'bannerempresa',
+    'as' => 'bannerempresa',
+], function() {
+    Route::get ('/', 'BanerempresaController@index');
+    Route::get ('/create', 'BanerempresaController@create')->name('.create');
+    Route::post('/', 'BanerempresaController@store')->name('.store');
+    Route::get ('/{id}/edit', 'BanerempresaController@edit')->name('.edit');
+    Route::post('/{id?}', 'BanerempresaController@store')->name('.update');
+    //
+    Route::get ('/{id}/delete', 'BanerempresaController@destroy')->name('.destroy');
+    Route::get ('/trash', 'BanerempresaController@trash')->name('.trash');
+    Route::get ('/{id}/restore', 'BanerempresaController@restore')->name('.restore');
+});
+
+
+
+Route::group([
     'prefix' => 'productohome',
     'as' => 'productohome',
 ], function() {

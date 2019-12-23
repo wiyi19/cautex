@@ -9,4 +9,5 @@ class Solucionest extends Model
 {
 	use SoftDeletes;
     //
+    public $table = "solucionest";
 }
