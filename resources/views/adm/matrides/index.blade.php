@@ -28,6 +28,12 @@
                             <input type="file" class="form-control" id="imagen" name="imagen" value="{{ old('imagen', isset($element) ? $element->imagen : null) }}">
                         </div>
                     </div>
+                    <div class="col-xl-12 col-md-12 mb-12">
+                        <div class="form-group">
+                           <img src=" {{ asset(Storage::url($textos->imagen))}}" width="100" height="100">
+                        </div>
+                    </div>
+                    
                     <div class="col-xl-12 col-lg-12 d-sm-flex align-items-center justify-content-end">
                         <button class="d-none d-sm-inline-block btn btn-lg btn-primary shadow-sm">
                             <i class="fas fa-save fa-sm text-white-50"></i>
