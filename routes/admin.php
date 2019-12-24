@@ -104,6 +104,21 @@ Route::group([
     Route::get ('/{id}/restore', 'BannerempresaController@restore')->name('.restore');
 });
 
+Route::group([
+    'prefix' => 'empresa',
+    'as' => 'empresa',
+], function() {
+    Route::get ('/', 'EmpresaController@index');
+    Route::get ('/create', 'EmpresaController@create')->name('.create');
+    Route::post('/', 'EmpresaController@store')->name('.store');
+    Route::get ('/{id}/edit', 'EmpresaController@edit')->name('.edit');
+    Route::post('/{id?}', 'EmpresaController@store')->name('.update');
+    //
+    Route::get ('/{id}/delete', 'EmpresaController@destroy')->name('.destroy');
+    Route::get ('/trash', 'EmpresaController@trash')->name('.trash');
+    Route::get ('/{id}/restore', 'EmpresaController@restore')->name('.restore');
+});
+
 
 Route::group([
     'prefix' => 'imagenempresa',
