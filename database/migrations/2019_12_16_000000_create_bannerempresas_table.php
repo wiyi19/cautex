@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBannerempresaTable extends Migration
+class CreateBannerempresasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateBannerempresaTable extends Migration
      */
     public function up()
     {
-        Schema::create('bannerempresa', function (Blueprint $table) {
+        Schema::create('bannerempresas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('orden')->nullable();
             $table->string('texto1')->nullable();
@@ -31,6 +31,6 @@ class CreateBannerempresaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bannerempresa');
+        Schema::dropIfExists('bannerempresas');
     }
 }

@@ -93,15 +93,15 @@ Route::group([
     'prefix' => 'bannerempresa',
     'as' => 'bannerempresa',
 ], function() {
-    Route::get ('/', 'BanerempresaController@index');
-    Route::get ('/create', 'BanerempresaController@create')->name('.create');
-    Route::post('/', 'BanerempresaController@store')->name('.store');
-    Route::get ('/{id}/edit', 'BanerempresaController@edit')->name('.edit');
-    Route::post('/{id?}', 'BanerempresaController@store')->name('.update');
+    Route::get ('/', 'BannerempresaController@index');
+    Route::get ('/create', 'BannerempresaController@create')->name('.create');
+    Route::post('/', 'BannerempresaController@store')->name('.store');
+    Route::get ('/{id}/edit', 'BannerempresaController@edit')->name('.edit');
+    Route::post('/{id?}', 'BannerempresaController@store')->name('.update');
     //
-    Route::get ('/{id}/delete', 'BanerempresaController@destroy')->name('.destroy');
-    Route::get ('/trash', 'BanerempresaController@trash')->name('.trash');
-    Route::get ('/{id}/restore', 'BanerempresaController@restore')->name('.restore');
+    Route::get ('/{id}/delete', 'BannerempresaController@destroy')->name('.destroy');
+    Route::get ('/trash', 'BannerempresaController@trash')->name('.trash');
+    Route::get ('/{id}/restore', 'BannerempresaController@restore')->name('.restore');
 });
 
 

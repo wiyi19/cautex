@@ -3,17 +3,17 @@
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <div>
         @if (isset($trash) && $trash == true)
-        <a href="{{ route('adm.banner') }}" class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm">
+        <a href="{{ route('adm.bannerempresa') }}" class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm">
             <i class="fas fa-step-backward fa-sm text-white-50"></i>
             Salir de la Papelera
         </a>
         @else
-        <a href="{{ route('adm.banner.trash') }}" class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm">
+        <a href="{{ route('adm.bannerempresa.trash') }}" class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm">
             <i class="fas fa-trash fa-sm text-white-50"></i>
             Papelera
         </a>
         @endif
-        <a href="{{ route('adm.banner.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+        <a href="{{ route('adm.bannerempresa.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
             <i class="fas fa-plus fa-sm text-white-50"></i>
             Añadir
         </a>
@@ -44,16 +44,16 @@
                     <td>{{ $item->texto2 }}</td>
                     <td>
                         @if (!$item->trashed())
-                        <a href="{{ route('adm.banner.edit', [$item->id]) }}" class="btn btn-primary btn-sm">
+                        <a href="{{ route('adm.bannerempresa.edit', [$item->id]) }}" class="btn btn-primary btn-sm">
                             <i class="fas fa-sm text-white-50 fa-edit"></i>
                             Editar
                         </a>
-                        <a href="{{ route('adm.banner.destroy', [$item->id]) }}" class="btn btn-danger btn-sm">
+                        <a href="{{ route('adm.bannerempresa.destroy', [$item->id]) }}" class="btn btn-danger btn-sm">
                             <i class="fas fa-sm text-white-50 fa-trash-alt"></i>
                             Eliminar
                         </a>
                         @else
-                        <a href="{{ route('adm.banner.restore', [$item->id]) }}" class="btn btn-warning btn-sm">
+                        <a href="{{ route('adm.bannerempresa.restore', [$item->id]) }}" class="btn btn-warning btn-sm">
                             <i class="fas fa-sm text-white-50 fa-trash-restore"></i>
                             Restaurar
                         </a>
