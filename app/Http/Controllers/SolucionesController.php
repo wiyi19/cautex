@@ -18,11 +18,11 @@ class SolucionesController extends Controller
      */
     public function index()
     {
-        $textos = soluciones::firstOrNew();
-        $data2  = Solucionest::get();
+        $textos = Soluciones::firstOrNew([]);
+        $data  = Solucionest::get();
         return view('adm.soluciones.index', [
             'textos' => $textos,
-            'data2'  => $data2,
+            'data'  => $data,
         ]);
     }
 
@@ -37,14 +37,6 @@ class SolucionesController extends Controller
             'category_id' => request()->category_id
         ]);
     }
-
-    public function create2()
-    {
-        return view('adm.soluciones.create2', [
-            'category_id' => request()->category_id
-        ]);
-    }
-
 
     /**
      * Store a newly created resource in storage.
@@ -67,17 +59,16 @@ class SolucionesController extends Controller
         $item->save();
         return redirect()->route('adm.soluciones')->with('success', 'Se añadio una <strong>Texto</strong> con exitó.');
     }
-
-     public function store2(Request $request, $id = false)
+    public function storeTextos(Request $request)
     {
-        if($id){
-            $item = solucionest::find($id);
-        } else {
-            $item = new solucionest;
-        }
+        $item = Soluciones::firstOrNew([]);
         $item->texto1 = $request->texto1;
+        $item->texto2 = $request->texto2;
+        if($request->imagen != null){
+             $item->imagen = $request->imagen->store('public/imagenes/home/soluciones');
+        }
         $item->save();
-        return redirect()->route('adm.soluciones')->with('success', 'Se añadio una <strong>Texto</strong> con exitó.');
+        return redirect()->route('adm.soluciones')->with('success', 'Se actualizaron los <strong>Textos</strong> con exitó.');
     }
 
     /**
@@ -93,12 +84,6 @@ class SolucionesController extends Controller
         ]);
     }
 
-    public function edit2($id)
-    {
-        return view('adm.soluciones.edit2', [
-            'element' => solucionest::find($id),
-        ]);
-    }
     /**
      * Remove the specified resource from storage.
      *
@@ -108,12 +93,6 @@ class SolucionesController extends Controller
     public function destroy($id)
     {
         soluciones::find($id)->delete();
-        return redirect()->route('adm.soluciones')->with('success', 'Se ha eliminado un <strong>Articulo</strong> con exitó.');
-    }
-
-    public function destroy2($id)
-    {
-        solucionest::find($id)->delete();
         return redirect()->route('adm.soluciones')->with('success', 'Se ha eliminado un <strong>Articulo</strong> con exitó.');
     }
 
@@ -127,29 +106,12 @@ class SolucionesController extends Controller
     }
 
 
-    public function trash2()
-    {
-        $data2 = solucionest::onlyTrashed()->get();
-        return view('adm.soluciones.index', [
-            'data' => $data2,
-            'trash'=> true,
-        ]);
-    }
-
     public function restore($id)
     {
         $item = soluciones::withTrashed()->find($id);
         $item->deleted_at = null;
         $item->save();
         return redirect()->route('adm.soluciones.trash')->with('success', 'Se ha restaurado un <strong>Articulo</strong> con exitó.');
-    }
-
-    public function restore2($id)
-    {
-        $item = solucionest::withTrashed()->find($id);
-        $item->deleted_at = null;
-        $item->save();
-        return redirect()->route('adm.soluciones.trash2')->with('success', 'Se ha restaurado un <strong>Articulo</strong> con exitó.');
     }
 
     public function copy($id)

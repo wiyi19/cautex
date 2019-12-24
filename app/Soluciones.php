@@ -3,10 +3,16 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Soluciones extends Model
 {
-	use SoftDeletes;
-    //
+    public $table = "soluciones";
+	protected $fillable = [
+        'orden',
+        'texto1',
+        'texto2',
+        'imagen',
+	];
+	protected $casts = [
+	];
 }

@@ -39,7 +39,7 @@ Route::group([
     'as' => 'soluciones',
 ], function() {
     Route::get ('/', 'SolucionesController@index');
-    Route::post('/store-textos', 'SolucionesController@store')->name('.textos.store');
+    Route::post('/store-textos', 'SolucionesController@storeTextos')->name('.textos.store');
     // Añadir items
     Route::get ('/create', 'SolucionesController@create')->name('.create');
     Route::post('/', 'SolucionesController@store')->name('.store');
