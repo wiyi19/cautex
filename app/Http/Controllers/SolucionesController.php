@@ -18,11 +18,11 @@ class SolucionesController extends Controller
      */
     public function index()
     {
-        $data  = soluciones::get();
-        $data2 = Solucionest::get();
+        $textos = soluciones::firstOrNew();
+        $data2  = Solucionest::get();
         return view('adm.soluciones.index', [
-            'data'     => $data,
-            'data2'    => $data2,
+            'textos' => $textos,
+            'data2'  => $data2,
         ]);
     }
 

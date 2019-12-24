@@ -17,6 +17,7 @@ class CreateSolucionestTable extends Migration
             $table->bigIncrements('id');
             $table->string('orden')->nullable();
             $table->string('texto1')->nullable();
+            $table->string('imagen')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -39,19 +39,17 @@ Route::group([
     'as' => 'soluciones',
 ], function() {
     Route::get ('/', 'SolucionesController@index');
+    Route::post('/store-textos', 'SolucionesController@store')->name('.textos.store');
+    // Añadir items
     Route::get ('/create', 'SolucionesController@create')->name('.create');
-    Route::get ('/create2', 'SolucionesController@create2')->name('.create2');
     Route::post('/', 'SolucionesController@store')->name('.store');
+    // Editar Items
     Route::get ('/{id}/edit', 'SolucionesController@edit')->name('.edit');
-    Route::get ('/{id}/edit2', 'SolucionesController@edit2')->name('.edit2');
     Route::post('/{id?}', 'SolucionesController@store')->name('.update');
     //
     Route::get ('/{id}/delete', 'SolucionesController@destroy')->name('.destroy');
-    Route::get ('/{id}/delete2', 'SolucionesController@destroy2')->name('.destroy2');
     Route::get ('/trash', 'SolucionesController@trash')->name('.trash');
-    Route::get ('/trash2', 'SolucionesController@trash2')->name('.trash2');
     Route::get ('/{id}/restore', 'SolucionesController@restore')->name('.restore');
-    Route::get ('/{id}/restore2', 'SolucionesController@restore2')->name('.restore2');
 });
 
 
