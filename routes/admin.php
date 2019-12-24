@@ -105,6 +105,22 @@ Route::group([
 });
 
 
+Route::group([
+    'prefix' => 'imagenempresa',
+    'as' => 'imagenempresa',
+], function() {
+    Route::get ('/', 'ImagenempresaController@index');
+    Route::get ('/create', 'ImagenempresaController@create')->name('.create');
+    Route::post('/', 'ImagenempresaController@store')->name('.store');
+    Route::get ('/{id}/edit', 'ImagenempresaController@edit')->name('.edit');
+    Route::post('/{id?}', 'ImagenempresaController@store')->name('.update');
+    //
+    Route::get ('/{id}/delete', 'ImagenempresaController@destroy')->name('.destroy');
+    Route::get ('/trash', 'ImagenempresaController@trash')->name('.trash');
+    Route::get ('/{id}/restore', 'ImagenempresaController@restore')->name('.restore');
+});
+
+
 
 Route::group([
     'prefix' => 'productohome',

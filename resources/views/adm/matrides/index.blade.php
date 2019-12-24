@@ -22,6 +22,7 @@
                             <textarea class="form-control" id="texto2" name="texto2">{{ old('texto2', isset($textos) ? $textos->texto2 : null) }}</textarea>
                         </div>
                     </div>
+                @if (!$textos->imagen==null)
                     <div class="col-xl-12 col-md-12 mb-12">
                         <div class="form-group">
                             <label for="imagen">Imagen</label>
@@ -33,7 +34,14 @@
                            <img src=" {{ asset(Storage::url($textos->imagen))}}" width="100" height="100">
                         </div>
                     </div>
-                    
+                    @else
+                    <div class="col-xl-12 col-md-12 mb-12">
+                        <div class="form-group">
+                            <label for="imagen">Imagen</label>
+                            <input type="file" class="form-control" id="imagen" name="imagen" value="{{ old('imagen', isset($element) ? $element->imagen : null) }}">
+                        </div>
+                    </div>
+                 @endif    
                     <div class="col-xl-12 col-lg-12 d-sm-flex align-items-center justify-content-end">
                         <button class="d-none d-sm-inline-block btn btn-lg btn-primary shadow-sm">
                             <i class="fas fa-save fa-sm text-white-50"></i>

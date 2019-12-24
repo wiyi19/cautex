@@ -71,7 +71,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="{{ route('adm.bannerempresa') }}">Banner</a>
             <a class="collapse-item" href="{{ route('adm.soluciones') }}">Quienes Somos</a>
-            <a class="collapse-item" href="{{ route('adm.matrides') }}">Imagen</a>
+            <a class="collapse-item" href="{{ route('adm.imagenempresa') }}">Imagen</a>
           </div>
         </div>
       </li>
