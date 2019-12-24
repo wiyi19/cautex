@@ -17,9 +17,9 @@ class MatridesController extends Controller
      */
     public function index()
     {
-        $data = Matrides::get();
+        $textos = Matrides::firstOrNew([]);
         return view('adm.matrides.index', [
-            'data'     => $data,
+            'textos' => $textos,
         ]);
     }
 
@@ -45,18 +45,14 @@ class MatridesController extends Controller
     
     public function store(Request $request, $id = false)
     {
-        if($id){
-            $item = Matrides::find($id);
-        } else {
-            $item = new Matrides;
-        }
+        $item = Matrides::firstOrNew([]);
         $item->texto1 = $request->texto1;
         $item->texto2 = $request->texto2;
         if($request->imagen != null){
-             $item->imagen = $request->imagen->store('public/imagenes/home/info');
+             $item->imagen = $request->imagen->store('public/imagenes/home/matriceria');
         }
         $item->save();
-        return redirect()->route('adm.matrides')->with('success', 'Se añadio una <strong>informacion</strong> con exitó.');
+        return redirect()->route('adm.matrides')->with('success', 'Se actualizaron los <strong>Textos</strong> con exitó.');
     }
 
     /**

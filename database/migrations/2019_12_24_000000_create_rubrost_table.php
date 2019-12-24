@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSolucionesTable extends Migration
+class CreateRubrostTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateSolucionesTable extends Migration
      */
     public function up()
     {
-        Schema::create('soluciones', function (Blueprint $table) {
+        Schema::create('rubrost', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('orden')->nullable();
             $table->string('texto1')->nullable();
-            $table->string('texto2')->nullable();
+            $table->string('imagen')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -30,6 +30,6 @@ class CreateSolucionesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('soluciones');
+        Schema::dropIfExists('rubrost');
     }
 }

@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Soluciones extends Model
+class Rubros extends Model
 {
-    public $table = "soluciones";
+    public $table = "rubros";
 	protected $fillable = [
         'orden',
         'texto1',

@@ -6,10 +6,10 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-use App\Soluciones;
-use App\Solucionest;
+use App\Rubros;
+use App\Rubrost;
 
-class SolucionesController extends Controller
+class RubrosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,9 +18,9 @@ class SolucionesController extends Controller
      */
     public function index()
     {
-        $textos = Soluciones::firstOrNew([]);
-        $data  = Solucionest::get();
-        return view('adm.soluciones.index', [
+        $textos = Rubros::firstOrNew([]);
+        $data  = Rubrost::get();
+        return view('adm.rubros.index', [
             'textos' => $textos,
             'data'  => $data,
         ]);
@@ -33,7 +33,7 @@ class SolucionesController extends Controller
      */
     public function create()
     {
-        return view('adm.soluciones.create', [
+        return view('adm.rubros.create', [
             'category_id' => request()->category_id
         ]);
     }
@@ -48,24 +48,23 @@ class SolucionesController extends Controller
     public function store(Request $request, $id = false)
     {
         if($id){
-            $item = solucionest::find($id);
+            $item = rubrost::find($id);
         } else {
-            $item = new solucionest;
+            $item = new rubrost;
         }
         $item->texto1 = $request->texto1;
         if($request->imagen != null){
-             $item->imagen = $request->imagen->store('public/imagenes/home/soluciones');
+             $item->imagen = $request->imagen->store('public/imagenes/home/rubros');
         }
         $item->save();
-        return redirect()->route('adm.soluciones')->with('success', 'Se añadio una <strong>Texto</strong> con exitó.');
+        return redirect()->route('adm.rubros')->with('success', 'Se añadio una <strong>Imagen y Texto</strong> con exitó.');
     }
     public function storeTextos(Request $request)
     {
-        $item = Soluciones::firstOrNew([]);
+        $item = Rubros::firstOrNew([]);
         $item->texto1 = $request->texto1;
-        $item->texto2 = $request->texto2;
         $item->save();
-        return redirect()->route('adm.soluciones')->with('success', 'Se actualizaron los <strong>Textos</strong> con exitó.');
+        return redirect()->route('adm.rubros')->with('success', 'Se actualizo el <strong>Texto</strong> con exitó.');
     }
 
     /**
@@ -76,8 +75,8 @@ class SolucionesController extends Controller
      */
     public function edit($id)
     {
-        return view('adm.soluciones.edit', [
-            'element' => soluciones::find($id),
+        return view('adm.rubros.edit', [
+            'element' => rubros::find($id),
         ]);
     }
 
@@ -89,14 +88,14 @@ class SolucionesController extends Controller
      */
     public function destroy($id)
     {
-        soluciones::find($id)->delete();
-        return redirect()->route('adm.soluciones')->with('success', 'Se ha eliminado un <strong>Articulo</strong> con exitó.');
+        rubros::find($id)->delete();
+        return redirect()->route('adm.rubros')->with('success', 'Se ha eliminado un <strong>Imagen y Texto</strong> con exitó.');
     }
 
     public function trash()
     {
-        $data = soluciones::onlyTrashed()->get();
-        return view('adm.soluciones.index', [
+        $data = rubros::onlyTrashed()->get();
+        return view('adm.rubros.index', [
             'data' => $data,
             'trash'=> true,
         ]);
@@ -105,16 +104,16 @@ class SolucionesController extends Controller
 
     public function restore($id)
     {
-        $item = soluciones::withTrashed()->find($id);
+        $item = rubros::withTrashed()->find($id);
         $item->deleted_at = null;
         $item->save();
-        return redirect()->route('adm.soluciones.trash')->with('success', 'Se ha restaurado un <strong>Articulo</strong> con exitó.');
+        return redirect()->route('adm.rubros.trash')->with('success', 'Se ha restaurado una <strong>Imagen y Texto</strong> con exitó.');
     }
 
     public function copy($id)
     {
-        $new = soluciones::find($id)->replicate();
+        $new = rubros::find($id)->replicate();
         $new->save();
-        return redirect()->route('adm.soluciones.edit', $new->id)->with('success', 'Se ha duplicado un <strong>Articulo</strong> con exitó.');
+        return redirect()->route('adm.rubros.edit', $new->id)->with('success', 'Se ha duplicado una <strong>Imagen y Texto</strong> con exitó.');
     }
 }

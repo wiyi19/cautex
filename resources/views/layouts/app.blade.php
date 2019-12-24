@@ -56,7 +56,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="{{ route('adm.banner') }}">Banner</a>
             <a class="collapse-item" href="{{ route('adm.soluciones') }}">Soluciones</a>
-            <a class="collapse-item" href="{{ route('adm.matrides') }}">Rubros</a>
+            <a class="collapse-item" href="{{ route('adm.rubros') }}">Rubros</a>
             <a class="collapse-item" href="{{ route('adm.matrides') }}">Matriceria y desarrollo</a>
           </div>
         </div>

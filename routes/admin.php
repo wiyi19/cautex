@@ -52,6 +52,26 @@ Route::group([
     Route::get ('/{id}/restore', 'SolucionesController@restore')->name('.restore');
 });
 
+Route::group([
+    'prefix' => 'rubros',
+    'as' => 'rubros',
+], function() {
+    Route::get ('/', 'RubrosController@index');
+    Route::post('/store-textos', 'RubrosController@storeTextos')->name('.textos.store');
+    // Añadir items
+    Route::get ('/create', 'RubrosController@create')->name('.create');
+    Route::post('/', 'RubrosController@store')->name('.store');
+    // Editar Items
+    Route::get ('/{id}/edit', 'RubrosController@edit')->name('.edit');
+    Route::post('/{id?}', 'RubrosController@store')->name('.update');
+    //
+    Route::get ('/{id}/delete', 'RubrosController@destroy')->name('.destroy');
+    Route::get ('/trash', 'RubrosController@trash')->name('.trash');
+    Route::get ('/{id}/restore', 'RubrosController@restore')->name('.restore');
+});
+
+
+
 
 Route::group([
     'prefix' => 'matrides',
