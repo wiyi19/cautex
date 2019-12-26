@@ -230,8 +230,23 @@ Route::group([
     Route::get ('/{id}/restore', 'InfoempresaController@restore')->name('.restore');
 });
 
+/////================================Productos===============================================
 
 
+Route::group([
+    'prefix' => 'familia',
+    'as' => 'familia',
+], function() {
+    Route::get ('/', 'FamiliaController@index');
+    Route::get ('/create', 'FamiliaController@create')->name('.create');
+    Route::post('/', 'FamiliaController@store')->name('.store');
+    Route::get ('/{id}/edit', 'FamiliaController@edit')->name('.edit');
+    Route::post('/{id?}', 'FamiliaController@store')->name('.update');
+    //
+    Route::get ('/{id}/delete', 'FamiliaController@destroy')->name('.destroy');
+    Route::get ('/trash', 'FamiliaController@trash')->name('.trash');
+    Route::get ('/{id}/restore', 'FamiliaController@restore')->name('.restore');
+});
 
 
 

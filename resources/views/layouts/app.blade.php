@@ -83,8 +83,8 @@
         </a>
         <div id="collapseProductos" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="{{ route('adm.bannerempresa') }}">Banner</a>
-            <a class="collapse-item" href="{{ route('adm.empresa') }}">Quienes Somos</a>
+            <a class="collapse-item" href="{{ route('adm.bannerempresa') }}">Familia</a>
+            <a class="collapse-item" href="{{ route('adm.empresa') }}">Productos</a>
             <a class="collapse-item" href="{{ route('adm.imagenempresa') }}">Imagen</a>
           </div>
         </div>
