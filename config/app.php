@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
@@ -165,6 +165,9 @@ return [
         /*
          * Package Service Providers...
          */
+        Junges\ACL\ACLServiceProvider::class,
+        Junges\ACL\ACLAuthServiceProvider::class,
+        Junges\ACL\ACLEventsServiceProvider::class,
 
         /*
          * Application Service Providers...
