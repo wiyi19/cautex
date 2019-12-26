@@ -7,7 +7,7 @@
             <div class="card-header">
                 Imagen
             </div>
-            <form class="card-body" method="POST" action="{{ route('adm.imagenempresa.store') }}" enctype="multipart/form-data">
+            <form class="card-body" method="POST" action="{{ route('adm.imagenmatriceria.store') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     @if (!$textos->imagen==null)

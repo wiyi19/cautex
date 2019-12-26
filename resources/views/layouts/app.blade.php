@@ -76,6 +76,60 @@
         </div>
       </li>
 
+       <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProductos" aria-expanded="true" aria-controls="collapseProductos">
+          <i class="fas fa-dolly"></i>
+          <span>Productos</span>
+        </a>
+        <div id="collapseProductos" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="{{ route('adm.familia') }}">Familia</a>
+            <a class="collapse-item" href="{{ route('adm.empresa') }}">Productos</a>
+            <a class="collapse-item" href="{{ route('adm.imagenempresa') }}">Imagen</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMateriales" aria-expanded="true" aria-controls="collapseMateriales">
+          <i class="fas fa-boxes"></i>
+          <span>Materiales</span>
+        </a>
+        <div id="collapseMateriales" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="{{ route('adm.materiales') }}">Materiales</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMatriceria" aria-expanded="true" aria-controls="collapseMatriceria">
+          <i class="fas fa-cogs"></i>
+          <span>Matriceria Propia</span>
+        </a>
+        <div id="collapseMatriceria" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="{{ route('adm.imagenmatriceria') }}">Imagen</a>
+            <a class="collapse-item" href="{{ route('adm.icono') }}">Iconos</a>
+            <a class="collapse-item" href="{{ route('adm.infomatriceria') }}">Información</a>
+            <a class="collapse-item" href="{{ route('adm.solicitudpre') }}">Presupuesto</a>
+          </div>
+        </div>
+      </li>
+
+       <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInfoempresa" aria-expanded="true" aria-controls="collapseInfoempresa">
+          <i class="fas fa-edit"></i>
+          <span>Información Empresa</span>
+        </a>
+        <div id="collapseInfoempresa" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="{{ route('adm.infoempresa') }}">Información</a>
+          </div>
+        </div>
+      </li>
+
+      
       <!-- Nav Item - Utilities Collapse Menu -->
 
       <!-- Divider -->
