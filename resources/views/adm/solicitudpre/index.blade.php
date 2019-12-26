@@ -5,9 +5,9 @@
     <div class="col-md-12">
         <div class="card mb-4">
             <div class="card-header">
-                Matriceria y Desarrollo
+                Solicitud de Presupuesto
             </div>
-            <form class="card-body" method="POST" action="{{ route('adm.matrides.store') }}" enctype="multipart/form-data">
+            <form class="card-body" method="POST" action="{{ route('adm.solicitudpre.store') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-xl-12 col-md-12 mb-12">
@@ -22,23 +22,43 @@
                             <textarea class="form-control" id="texto2" name="texto2">{{ old('texto2', isset($textos) ? $textos->texto2 : null) }}</textarea>
                         </div>
                     </div>
-                @if (!$textos->imagen==null)
+                @if (!$textos->imagen1==null)
                     <div class="col-xl-12 col-md-12 mb-12">
                         <div class="form-group">
-                            <label for="imagen">IMAGEN</label>
-                            <input type="file" class="form-control" id="imagen" name="imagen" value="{{ old('imagen', isset($element) ? $element->imagen : null) }}">
+                            <label for="imagen1">ICONO</label>
+                            <input type="file" class="form-control" id="imagen1" name="imagen1" value="{{ old('imagen1', isset($element) ? $element->imagen1 : null) }}">
                         </div>
                     </div>
                     <div class="col-xl-12 col-md-12 mb-12">
                         <div class="form-group">
-                           <img src=" {{ asset(Storage::url($textos->imagen))}}" width="200" height="100">
+                           <img src=" {{ asset(Storage::url($textos->imagen1))}}" width="50" height="50">
                         </div>
                     </div>
                     @else
                     <div class="col-xl-12 col-md-12 mb-12">
                         <div class="form-group">
-                            <label for="imagen">IMAGEN</label>
-                            <input type="file" class="form-control" id="imagen" name="imagen" value="{{ old('imagen', isset($element) ? $element->imagen : null) }}">
+                            <label for="imagen1">ICONO</label>
+                            <input type="file" class="form-control" id="imagen1" name="imagen1" value="{{ old('imagen1', isset($element) ? $element->imagen1 : null) }}">
+                        </div>
+                    </div>
+                 @endif    
+                @if (!$textos->imagen2==null)
+                    <div class="col-xl-12 col-md-12 mb-12">
+                        <div class="form-group">
+                            <label for="imagen2">IMAGEN</label>
+                            <input type="file" class="form-control" id="imagen2" name="imagen2" value="{{ old('imagen2', isset($element) ? $element->imagen2 : null) }}">
+                        </div>
+                    </div>
+                    <div class="col-xl-12 col-md-12 mb-12">
+                        <div class="form-group">
+                           <img src=" {{ asset(Storage::url($textos->imagen2))}}" width="200" height="100">
+                        </div>
+                    </div>
+                    @else
+                    <div class="col-xl-12 col-md-12 mb-12">
+                        <div class="form-group">
+                            <label for="imagen2">IMAGEN</label>
+                            <input type="file" class="form-control" id="imagen2" name="imagen2" value="{{ old('imagen2', isset($element) ? $element->imagen2 : null) }}">
                         </div>
                     </div>
                  @endif    

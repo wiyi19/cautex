@@ -66,7 +66,7 @@
                 @foreach ($data as $item)
                 <tr>
                     <td>{{ $item->id }}</td>
-                    <td><img src=" {{ asset(Storage::url($item->imagen))}}" width="100" height="100"></td>
+                    <td><img src=" {{ asset(Storage::url($item->imagen))}}" width="200" height="100"></td>
                     <td>{{ $item->texto1 }}</td>
                     <td>
                         @if (!$item->trashed())

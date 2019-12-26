@@ -14,8 +14,14 @@
 		</div>
 		<div class="col-md-12">
 			<div class="form-group">
-                <label for="imagen">IMAGEN</label>
-                <input type="file" class="form-control" id="imagen" name="imagen" value="{{ old('imagen', isset($element) ? $element->imagen : null) }}">
+                <label for="imagen1">Icono</label>
+                <input type="file" class="form-control" id="imagen1" name="imagen1" value="{{ old('imagen1', isset($element) ? $element->imagen1 : null) }}">
+            </div>
+		</div>
+		<div class="col-md-12">
+			<div class="form-group">
+                <label for="imagen2">IMAGEN</label>
+                <input type="file" class="form-control" id="imagen2" name="imagen2" value="{{ old('imagen2', isset($element) ? $element->imagen2 : null) }}">
             </div>
 		</div>
 	</div>
