@@ -52,7 +52,7 @@ class SolicitudpreController extends Controller
              $item->imagen1 = $request->imagen1->store('public/imagenes/matriceria/presupuesto');
         }
         if($request->imagen2 != null){
-             $item->imagen2 = $request->imagen2->store('public/imagenes/matriceria/presipuesto');
+             $item->imagen2 = $request->imagen2->store('public/imagenes/matriceria/presupuesto');
         }
         $item->save();
         return redirect()->route('adm.solicitudpre')->with('success', 'Se actualizaro la <strong>Información</strong> con exitó.');
