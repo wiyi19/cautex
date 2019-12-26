@@ -12,7 +12,7 @@
                 <div class="row">
                     <div class="col-xl-12 col-md-12 mb-12">
                         <div class="form-group">
-                            <label for="texto1">TEXTO</label>
+                            <label for="texto1">Texto</label>
                             <input type="text" class="form-control" id="texto1" name="texto1" value="{{ old('texto1', isset($textos) ? $textos->texto1 : null) }}">
                         </div>
                     </div>

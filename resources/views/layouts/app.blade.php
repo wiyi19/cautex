@@ -117,6 +117,18 @@
         </div>
       </li>
 
+       <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInfoempresa" aria-expanded="true" aria-controls="collapseInfoempresa">
+          <i class="fas fa-edit"></i>
+          <span>Información Empresa</span>
+        </a>
+        <div id="collapseInfoempresa" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="{{ route('adm.infoempresa') }}">Información</a>
+          </div>
+        </div>
+      </li>
+
       
       <!-- Nav Item - Utilities Collapse Menu -->
 

@@ -72,8 +72,6 @@ Route::group([
 });
 
 
-
-
 Route::group([
     'prefix' => 'matrides',
     'as' => 'matrides',
@@ -215,6 +213,25 @@ Route::group([
     Route::get ('/trash', 'SolicitudpreController@trash')->name('.trash');
     Route::get ('/{id}/restore', 'SolicitudpreController@restore')->name('.restore');
 });
+
+/////================================Informacion Empresa===============================================
+Route::group([
+    'prefix' => 'infoempresa',
+    'as' => 'infoempresa',
+], function() {
+    Route::get ('/', 'InfoempresaController@index');
+    Route::get ('/create', 'InfoempresaController@create')->name('.create');
+    Route::post('/', 'InfoempresaController@store')->name('.store');
+    Route::get ('/{id}/edit', 'InfoempresaController@edit')->name('.edit');
+    Route::post('/{id?}', 'InfoempresaController@store')->name('.update');
+    //
+    Route::get ('/{id}/delete', 'InfoempresaController@destroy')->name('.destroy');
+    Route::get ('/trash', 'InfoempresaController@trash')->name('.trash');
+    Route::get ('/{id}/restore', 'InfoempresaController@restore')->name('.restore');
+});
+
+
+
 
 
 

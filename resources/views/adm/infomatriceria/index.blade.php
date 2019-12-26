@@ -5,14 +5,14 @@
     <div class="col-md-12">
         <div class="card mb-4">
             <div class="card-header">
-                Matriceria Propia
+                Información Matriceria Propia
             </div>
             <form class="card-body" method="POST" action="{{ route('adm.infomatriceria.store') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-xl-12 col-md-12 mb-12">
                         <div class="form-group">
-                            <label for="texto1">TEXTO 1</label>
+                            <label for="texto1">Texto</label>
                             <textarea class="ckeditor" id="texto1" name="texto1">{{ old('texto1', isset($textos) ? $textos->texto1 : null) }}</textarea>
                         </div>
                     </div>
