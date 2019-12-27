@@ -54,7 +54,7 @@
                            <img src=" {{ asset(Storage::url($textos->imagen2))}}" width="200" height="100">
                         </div>
                     </div>
-                    @else
+                @else
                     <div class="col-xl-12 col-md-12 mb-12">
                         <div class="form-group">
                             <label for="imagen2">Imagen</label>

@@ -251,18 +251,18 @@ Route::group([
 
 
 Route::group([
-    'prefix' => 'productohome',
-    'as' => 'productohome',
+    'prefix' => 'producto',
+    'as' => 'producto',
 ], function() {
-    Route::get ('/', 'ProductohomeController@index');
-    Route::get ('/create', 'ProductohomeController@create')->name('.create');
-    Route::post('/', 'ProductohomeController@store')->name('.store');
-    Route::get ('/{id}/edit', 'ProductohomeController@edit')->name('.edit');
-    Route::post('/{id?}', 'ProductohomeController@store')->name('.update');
+    Route::get ('/', 'ProductoController@index');
+    Route::get ('/create', 'ProductoController@create')->name('.create');
+    Route::post('/', 'ProductoController@store')->name('.store');
+    Route::get ('/{id}/edit', 'ProductoController@edit')->name('.edit');
+    Route::post('/{id?}', 'ProductoController@store')->name('.update');
     //
-    Route::get ('/{id}/delete', 'ProductohomeController@destroy')->name('.destroy');
-    Route::get ('/trash', 'ProductohomeController@trash')->name('.trash');
-    Route::get ('/{id}/restore', 'ProductohomeController@restore')->name('.restore');
+    Route::get ('/{id}/delete', 'ProductoController@destroy')->name('.destroy');
+    Route::get ('/trash', 'ProductoController@trash')->name('.trash');
+    Route::get ('/{id}/restore', 'ProductoController@restore')->name('.restore');
 });
 
 

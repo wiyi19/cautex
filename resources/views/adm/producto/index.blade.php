@@ -3,17 +3,17 @@
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <div>
         @if (isset($trash) && $trash == true)
-        <a href="{{ route('adm.productohome') }}" class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm">
+        <a href="{{ route('adm.producto') }}" class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm">
             <i class="fas fa-step-backward fa-sm text-white-50"></i>
             Salir de la Papelera
         </a>
         @else
-        <a href="{{ route('adm.productohome.trash') }}" class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm">
+        <a href="{{ route('adm.producto.trash') }}" class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm">
             <i class="fas fa-trash fa-sm text-white-50"></i>
             Papelera
         </a>
         @endif
-        <a href="{{ route('adm.productohome.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+        <a href="{{ route('adm.producto.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
             <i class="fas fa-plus fa-sm text-white-50"></i>
             Añadir
         </a>
@@ -28,9 +28,11 @@
         <table class="data_table table table-striped table-bordered display">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>IMAGEN</th>
-                    <th>PRODUCTO</th>
+                    <th>Id</th>
+                    <th>Nombre Prodcuto</th>
+                    <th>Familia Producto</th>
+                    <th>Caracteristica</th>
+                    <th>Imagen</th>
                     <th class="no-sort"></th>
                 </tr>
             </thead>
@@ -38,20 +40,22 @@
                 @foreach ($data as $item)
                 <tr>
                     <td>{{ $item->id }}</td>
+                    <td>{{ $item->texto1 }}</td>
+                    <td>{{ $item->familia->texto1 }}</td>
+                    <td>{{ $item->texto2 }}</td>
                     <td><img src=" {{ asset(Storage::url($item->imagen))}}" width="100" height="100"></td>
-                    <td>{{ $item->productoproductohome }}</td>
                     <td>
                         @if (!$item->trashed())
-                        <a href="{{ route('adm.banner.edit', [$item->id]) }}" class="btn btn-primary btn-sm">
+                        <a href="{{ route('adm.producto.edit', [$item->id]) }}" class="btn btn-primary btn-sm">
                             <i class="fas fa-sm text-white-50 fa-edit"></i>
                             Editar
                         </a>
-                        <a href="{{ route('adm.banner.destroy', [$item->id]) }}" class="btn btn-danger btn-sm">
+                        <a href="{{ route('adm.producto.destroy', [$item->id]) }}" class="btn btn-danger btn-sm">
                             <i class="fas fa-sm text-white-50 fa-trash-alt"></i>
                             Eliminar
                         </a>
                         @else
-                        <a href="{{ route('adm.banner.restore', [$item->id]) }}" class="btn btn-warning btn-sm">
+                        <a href="{{ route('adm.producto.restore', [$item->id]) }}" class="btn btn-warning btn-sm">
                             <i class="fas fa-sm text-white-50 fa-trash-restore"></i>
                             Restaurar
                         </a>
