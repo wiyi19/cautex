@@ -10,6 +10,20 @@ const mix = require('laravel-mix');
  | file for the application as well as bundling up all the JS files.
  |
  */
-
-mix.js('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css');
+mix.autoload({
+    jquery: ['$',
+    'window.jQuery',
+    "jQuery",
+    "window.$",
+    "jquery",
+    "window.jquery",
+    'global.jQuery',
+    "global.$",
+    "global.jquery"
+    ]
+});
+mix.js('resources/js/website.js', 'public/js')
+	.sass('resources/sass/website.scss', 'public/css')
+	.js('resources/js/admin.js', 'public/js')
+	.sass('resources/sass/admin.scss', 'public/css')
+	.options({ processCssUrls: false });
