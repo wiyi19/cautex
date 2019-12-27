@@ -8,6 +8,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="public-path" content="{{ asset('/') }}">
+    <meta name="storage-path" content="{{ asset(Storage::url('/')) }}">
 
     <!-- Scripts -->
     <script src="{{ asset('js/admin.js') }}" defer></script>

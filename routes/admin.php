@@ -263,6 +263,9 @@ Route::group([
     Route::get ('/{id}/delete', 'ProductoController@destroy')->name('.destroy');
     Route::get ('/trash', 'ProductoController@trash')->name('.trash');
     Route::get ('/{id}/restore', 'ProductoController@restore')->name('.restore');
+    //
+    Route::get ('api/data/{id?}', 'ProductoController@data')->name('.data');
+    Route::get ('/{id}/copy', 'ProductoController@copy')->name('.copy');
 });
 
 

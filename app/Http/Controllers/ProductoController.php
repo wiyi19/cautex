@@ -52,14 +52,33 @@ class ProductoController extends Controller
         } else {
             $item = new Producto;
         }
-        $item->texto1 = $request->texto1;
-        $item->idfamilia = $request->idfamilia;
-        $item->texto2 = $request->texto2;
-        if($request->imagen != null){
-             $item->imagen = $request->imagen->store('public/imagenes/productos/producto');
+        if($request->imagenes != null){
+            foreach ($request->imagenes as $key => $value) {
+                if(is_string($value)) {
+                    $imagenes[$key] = $value;
+                } else {
+                    $path = $value->store('public/productos/imagenes/');
+                    $imagenes[$key] = $path;
+                }
+            }
+            $item->imagenes = $imagenes;
         }
+        if($request->imagen != null){
+            if(is_string($request->imagen)) {
+                if ($request->imagen == '--remove--') {
+                    $item->imagen = null;
+                }
+            } else {
+                $path = $request->imagen->store('public/productos/imagen/');
+                $item->imagen = $path;
+            }
+        }
+        $item->orden      = $request->orden;
+        $item->texto1     = $request->texto1;
+        $item->texto2     = $request->texto2;
+        $item->familia_id = $request->familia_id;
         $item->save();
-        return redirect()->route('adm.producto')->with('success', 'Se añadio una <strong>Producto</strong> con exitó.');
+        return response()->json(['message' => 'guardado']);
     }
 
     /**
@@ -106,5 +125,47 @@ class ProductoController extends Controller
         $new = Producto::find($id)->replicate();
         $new->save();
         return redirect()->route('adm.producto.edit', $new->id)->with('success', 'Se ha duplicado un <strong>Articulo</strong> con exitó.');
+    }
+    public function data($id = false)
+    {
+        $languages = [];
+        $content = null;
+        if($id) {
+            $content = [];
+            foreach (Producto::find($id)->getAttributes() as $key => $value) {
+                if ($key == 'imagenes') {
+                    if($value != null){
+                        foreach (json_decode($value) as $lang => $image) {
+                            $content[$key][] = [
+                                'url'  => asset(Storage::url($image)),
+                                'path' => $image,
+                                'type' => Storage::mimeType($image)
+                            ];
+                        }
+                    } else {
+                        $content[$key] = [];
+                    }
+                } elseif($key == 'imagen') {
+                    if($value != null && $value != '') {
+                        $content[$key] = [
+                            'url'  => asset(Storage::url($value)),
+                            'path' => $value,
+                            'type' => Storage::mimeType($value)
+                        ];
+                    }
+                } else {
+                    $content[$key] = $value;
+                }
+            }
+        }
+        foreach (LaravelLocalization::getLocalesOrder() as $key => $value) {
+            $languages[$key] = $value['name'];
+        }
+        return response()->json([
+            'languages' => $languages,
+            'config' => [],
+            'familias'=> Familia::get(['id', 'texto1 as text'])->toArray(),
+            'content' => $content,
+        ]);
     }
 }

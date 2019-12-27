@@ -17,9 +17,10 @@ class CreateProductosTable extends Migration
             $table->bigIncrements('id');
             $table->string('orden')->nullable();
             $table->string('texto1')->nullable();
-            $table->integer('idfamilia')->nullable();
             $table->string('texto2')->nullable();
             $table->string('imagen')->nullable();
+            $table->json('imagenes')->nullable();
+            $table->bigInteger('familia_id', false, true)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
