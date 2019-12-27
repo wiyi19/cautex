@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Banner;
 
 class WebsiteController extends Controller
 {
@@ -23,6 +24,7 @@ class WebsiteController extends Controller
      */
     public function home()
     {
-        return view('website.home');
+        $banner = Banner::get();
+        return view('website.home', ['banner' => $banner]);
     }
 }

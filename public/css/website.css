@@ -10421,7 +10421,7 @@ h3 {
 .navbar-top-bg {
   background-color: rgba(56, 56, 56, 0.84);
   color: rgba(255, 255, 255, 0.7);
-  padding-top: 10px;
+  overflow: hidden;
 }
 
 .btn-header-presupuesto {
@@ -10435,6 +10435,9 @@ h3 {
   display: flex;
   -webkit-box-align: center;
           align-items: center;
+  white-space: nowrap;
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
 }
 .btn-header-presupuesto:hover {
   color: white;
@@ -10447,7 +10450,7 @@ h3 {
 
 ul.navbar-top-ul {
   padding: 0;
-  margin: 15px 0 0 0;
+  margin: 0;
   list-style: none;
   display: -webkit-box;
   display: flex;
@@ -10465,4 +10468,79 @@ ul.navbar-top-ul li a:hover {
   color: white;
   background-color: #F07D00;
   text-decoration: none;
+}
+
+@media (min-width: 992px) {
+  .navbar-fixed {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
+}
+
+.display-menu-mobile {
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: flex;
+}
+
+.display-menu-mobile-btn {
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  font-size: 18px;
+  border: 1px solid #F07D00;
+  padding: 5px 15px;
+  border-radius: 10px;
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
+}
+.display-menu-mobile-btn:hover {
+  color: white;
+  background-color: #F07D00;
+  text-decoration: none;
+}
+.display-menu-mobile-btn i {
+  margin-right: 5px;
+}
+
+#modalNavbarTop .modal-header {
+  border-bottom: 1px solid #F07D00;
+  background-color: #383838;
+}
+#modalNavbarTop .modal-header #modalNavbarTopTitle {
+  font-weight: 500;
+  color: #fff;
+  font-size: 23px;
+  color: #ffffffbd;
+}
+#modalNavbarTop .modal-header button span {
+  font-size: 36px;
+  color: #ffffffbd;
+}
+#modalNavbarTop .modal-body {
+  padding: 0;
+}
+#modalNavbarTop #navbar-modal-items .navbar-item {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 12px 0;
+  background-color: #383838;
+  color: #FFF;
+  font-size: 22px;
+  font-weight: 400;
+  margin: 0;
+  border-bottom: 1px solid #F07D00;
+}
+
+.carousel-item {
+  background-repeat: no-repeat;
+  background-size: cover;
 }
