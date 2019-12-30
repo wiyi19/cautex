@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Banner;
+use App\Familia;
+use App\Materiales;
 
 class WebsiteController extends Controller
 {
@@ -25,6 +27,8 @@ class WebsiteController extends Controller
     public function home()
     {
         $banner = Banner::get();
-        return view('website.home', ['banner' => $banner]);
+        $familias = Familia::get();
+        $materiales = Materiales::get();
+        return view('website.home', ['banner' => $banner, 'familias' => $familias, 'materiales' => $materiales]);
     }
 }

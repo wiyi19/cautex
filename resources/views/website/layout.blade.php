@@ -26,6 +26,7 @@
     @endforeach
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Jura:300,400,500,600,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css" crossorigin="anonymous">
     <!-- Styles -->
     <link href="{{ asset('css/website.css') }}?{{ $assets_version }}" rel="stylesheet">

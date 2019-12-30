@@ -1,4 +1,31 @@
-.carousel-item {
-	background-repeat: no-repeat;
-	background-size: cover;
+.carousel-inner {
+	.carousel-item {
+		background-repeat: no-repeat;
+		background-size: cover;
+		position: relative;
+	}
+}
+.carousel-content {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    width: 100%;
+}
+.carousel-texto-1 {
+    background-color: #F07D00;
+    font-size: 20px;
+    font-family: 'Jura', sans-serif;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    font-weight: lighter;
+    display: inline-block;
+    padding: 5px 14px;
+    letter-spacing: 1px;
+}
+.carousel-texto-2 {
+    letter-spacing: 2px;
+    font-size: 38px;
+    font-family: 'Jura', sans-serif;
+    color: rgba(255, 255, 255, 1);
+    max-width: 50%;
 }
