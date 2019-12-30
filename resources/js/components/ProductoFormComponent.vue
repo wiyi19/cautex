@@ -62,6 +62,24 @@
                         </div>
                         <input-file-image label="Fotos miniatura caja (Alto 200px)" :model.sync="content.imagen" class="mt-3"></input-file-image>
                         <custom-gallery label="Fotos del Producto" :model.sync="content.imagenes" class="mt-3"></custom-gallery>
+                        <fieldset>
+                            <legend>Medidas</legend>
+                            <fieldset v-for="(presentacion, index) in content.medidas" class="pb-5">
+                                <button @click="removePresentacion(index)" class="btn btn-danger btn-delete-item"><i class="fas fa-trash"></i></button>
+                                <legend>{{ presentacion.titulo }}</legend>
+                                Presentación: <input type="text" v-model="presentacion.titulo" name="" class="form-group">
+                                <div class="row mx-1">
+                                    <fieldset class="col-md-4" v-for="(medida, index) in presentacion.elementos">
+                                        <legend>{{ medida.texto }}</legend>
+                                        Medida: <input type="text" v-model="medida.texto" name="" class="form-group">
+                                        <input-file-image-card label="Imagen de la medida (200px X 200px)" :model.sync="medida.imagen"></input-file-image-card>
+                                    </fieldset>
+                                </div>
+                                <button @click="addMedida(index)" class="btn btn-primary btn-add-medida"><i class="fas fa-plus"></i> Añadir Medida</button>
+
+                            </fieldset>
+                            <button @click="addPresentacion()" class="btn btn-primary mt-2"><i class="fas fa-plus"></i> Añadir Presentación</button>
+                        </fieldset>
                     </div>
                 </div>
             </div>
@@ -86,8 +104,7 @@
 <script>
     import CustomGallery from '../hard/CustomGalleryComponent';
     import InputFileImage from '../hard/InputFileImageComponent';
-    import Select2 from '../hard/Select2Component';
-    import draggable from 'vuedraggable'
+    import InputFileImageCard from './InputFileImageCardComponent';
     import fichas from '../hard/FichaComponent'
 
     var publicPATH = document.head.querySelector('meta[name="public-path"]').content;
@@ -99,11 +116,10 @@
             formName: '',
         },
         components: {
-            'select2': Select2,
             'custom-gallery': CustomGallery,
             'input-file-image': InputFileImage,
-            draggable,
-            fichas,
+            'input-file-image-card': InputFileImageCard,
+            fichas
         },
         data(){
             return{
@@ -115,6 +131,7 @@
                     texto2: '',
                     imagen: '',
                     imagenes: [],
+                    medidas: [],
                     familia_id: '',
                 },
                 familias: [],
@@ -122,6 +139,7 @@
                 languages: {},
                 defaultLang: '',
                 loaded: 0,
+                publicPATH: publicPATH
             }
         },
         created() {
@@ -173,6 +191,27 @@
                         form.append('imagen', '--remove--');
                     }
                 }
+                // medidas
+                if (this.content.medidas.length) {
+                    this.content.medidas.forEach(function(presentacion, pindex){
+                        form.append('medidas['+pindex+'][titulo]', presentacion.titulo);
+                        if (presentacion.elementos.length) {
+                            presentacion.elementos.forEach(function(medida, mindex){
+                                form.append('medidas['+pindex+'][elementos]['+mindex+'][texto]', medida.texto);
+                                if (medida.imagen && medida.imagen instanceof File) {
+                                    form.append('medidas['+pindex+'][elementos]['+mindex+'][imagen]', medida.imagen);
+                                }
+                                if (typeof medida.imagen === 'string' || medida.imagen instanceof String) {
+                                    form.append('medidas['+pindex+'][elementos]['+mindex+'][imagen]', medida.imagen);
+                                }
+                                if (typeof medida.imagen === 'object' || medida.imagen instanceof Object) {
+                                    form.append('medidas['+pindex+'][elementos]['+mindex+'][imagen]', medida.imagen.path);
+                                }
+                            })
+                        }
+                    })
+                }
+                // end medidas
                 form.append('orden',      this.content.orden);
                 form.append('texto1',     this.content.texto1);
                 form.append('texto2',     this.content.texto2);
@@ -181,15 +220,42 @@
                     this.loaded = 3
                     setTimeout(function(){
                         //this.loaded = 1
-                        window.location.href = this.urlBack
-                    }.bind(this), 1000);
+                       window.location.href = this.urlBack
+                    }.bind(this), 1000)
                 })
                 //this.loaded = 1
             },
+            addPresentacion() {
+                this.content.medidas.push({
+                    titulo: '',
+                    elementos: []
+                })
+            },
+            removePresentacion(index) {
+                this.content.medidas.splice(index, 1)
+            },
+            addMedida(index) {
+               this.content.medidas[index].elementos.push({texto:'', imagen:''})
+            }
         }
   }
 </script>
 <style lang="scss" scoped>
+    fieldset{
+        position: relative;
+    }
+    .btn-delete-item {
+        position: absolute;
+        right: 0;
+        top: 0;
+        border-radius: 0;
+    }
+    .btn-add-medida {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        border-radius: 0;
+    }
     .gallery-item {
         position: relative;
         width: 100%;

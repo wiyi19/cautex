@@ -16,10 +16,12 @@ class Producto extends Model
         'texto2',
         'imagen',
         'imagenes',
+        'medidas',
         'familia_id',
 	];
 	protected $casts = [
 		'imagenes' => 'array',
+		'medidas'  => 'array',
 	];
 
 	public function familia()

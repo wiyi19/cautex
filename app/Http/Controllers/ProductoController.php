@@ -53,6 +53,7 @@ class ProductoController extends Controller
             $item = new Producto;
         }
         if($request->imagenes != null){
+            $imagenes = [];
             foreach ($request->imagenes as $key => $value) {
                 if(is_string($value)) {
                     $imagenes[$key] = $value;
@@ -72,6 +73,24 @@ class ProductoController extends Controller
                 $path = $request->imagen->store('public/productos/imagen/');
                 $item->imagen = $path;
             }
+        }
+        if($request->medidas != null){
+            $medidas = [];
+            foreach ($request->medidas as $pindex => $presentacion) {
+                $medidas[$pindex]['titulo'] = $presentacion['titulo'];
+                if($presentacion['elementos'] != null){
+                    foreach ($presentacion['elementos'] as $mindex => $medida) {
+                        $medidas[$pindex]['elementos'][$mindex]['texto'] = $medida['texto'];
+                        if(is_string($medida['imagen'])) {
+                            $medidas[$pindex]['elementos'][$mindex]['imagen'] = $medida['imagen'];
+                        } else {
+                            $path = $medida['imagen']->store('public/productos/medidas/');
+                            $medidas[$pindex]['elementos'][$mindex]['imagen'] = $path;
+                        }
+                    }
+                }
+            }
+            $item->medidas = $medidas;
         }
         $item->orden      = $request->orden;
         $item->texto1     = $request->texto1;
