@@ -10917,6 +10917,11 @@ footer a:hover {
   font-weight: 300;
 }
 
+.imagenempresa {
+  width: 100%;
+  height: 100%;
+}
+
 .section-title {
   color: #575656;
   text-align: center;

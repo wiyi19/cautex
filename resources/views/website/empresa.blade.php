@@ -19,13 +19,7 @@
 	</div>
 </div>
 <div>
-	<div class="container py-4">
-		<div class="row">
-   			 <div class="col-md-12">
-   			 	<img class="img-responsive" src="{{ asset(Storage::url($imagenempresa->imagen))}}" >
-    		</div>
-    	</div>
-    </div>
+	<img class="w-100" src="{{ asset(Storage::url($imagenempresa->imagen))}}">
 </div>
 
 @endsection
