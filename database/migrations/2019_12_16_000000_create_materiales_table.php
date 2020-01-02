@@ -19,7 +19,7 @@ class CreateMaterialesTable extends Migration
             $table->string('texto1')->nullable();
             $table->string('texto2')->nullable();
             $table->string('imagen')->nullable();
-            $table->string('texto3')->nullable();
+            $table->longtext('texto3')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

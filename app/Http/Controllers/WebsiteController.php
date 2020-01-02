@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Banner;
 use App\Familia;
 use App\Materiales;
+use App\Empresa;
+use App\Imagenempresa;
 use App\Rubros;
 use App\Rubrost;
 use App\Matrides;
@@ -44,5 +46,14 @@ class WebsiteController extends Controller
             'banner_rubros_texto' => $banner_rubros_texto,
             'matrices' => $matrices,
         ]);
+    }
+
+
+    public function empresa()
+    {
+        $banner = Banner::get();
+        $empresa = Empresa::firstOrNew([]);
+        $imagenempresa = Imagenempresa::firstOrNew([]);
+        return view('website.empresa', ['banner' => $banner,'empresa' => $empresa,'imagenempresa' => $imagenempresa, ]);
     }
 }

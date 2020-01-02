@@ -17,7 +17,7 @@ class CreateProductosTable extends Migration
             $table->bigIncrements('id');
             $table->string('orden')->nullable();
             $table->string('texto1')->nullable();
-            $table->string('texto2')->nullable();
+            $table->longtext('texto2')->nullable();
             $table->string('imagen')->nullable();
             $table->json('imagenes')->nullable();
             $table->json('medidas')->nullable();

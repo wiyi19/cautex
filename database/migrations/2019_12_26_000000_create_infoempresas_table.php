@@ -17,8 +17,14 @@ class CreateInfoempresasTable extends Migration
             $table->bigIncrements('id');
             $table->string('orden')->nullable();
             $table->string('texto1')->nullable();
+            $table->string('imagen1')->nullable();
             $table->string('texto2')->nullable();
             $table->string('texto3')->nullable();
+            $table->string('texto4')->nullable();
+            $table->string('texto5')->nullable();
+            $table->string('texto6')->nullable();
+            $table->string('texto7')->nullable();
+            $table->string('imagen2')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

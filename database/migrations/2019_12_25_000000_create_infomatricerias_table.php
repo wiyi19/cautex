@@ -16,7 +16,7 @@ class CreateInfomatriceriasTable extends Migration
         Schema::create('infomatricerias', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('orden')->nullable();
-            $table->string('texto1')->nullable();
+            $table->longtext('texto1')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -12,6 +12,9 @@
 */
 
 Route::get('/', 'WebsiteController@home')->name('website.home');
+
+Route::get('/empresa', 'WebsiteController@empresa')->name('website.empresa');
+
 Route::get('/home', function () {
     return redirect()->route('adm.home');
 });
