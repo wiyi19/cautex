@@ -25,6 +25,7 @@ class CreateInfoempresasTable extends Migration
             $table->string('texto6')->nullable();
             $table->string('texto7')->nullable();
             $table->string('imagen2')->nullable();
+            $table->longtext('texto8')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -64,11 +64,14 @@ class WebsiteController extends Controller
         $banner = Banner::get();
         $empresa = Empresa::firstOrNew([]);
         $imagenempresa = Imagenempresa::firstOrNew([]);
+        $infoempresa   = Infoempresa::firstOrNew([]);
 
         return view('website.empresa', [
             'banner'                 => $banner,
             'empresa'                => $empresa,
-            'imagenempresa'          => $imagenempresa, ]);
+            'imagenempresa'          => $imagenempresa,
+            'infoempresa'            => $infoempresa, 
+        ]);
     }
 
     public function presupuesto() {
@@ -85,5 +88,5 @@ class WebsiteController extends Controller
     public function contactoStore() {
         return true;
     }
-    
+
 }

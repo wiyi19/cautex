@@ -33,7 +33,7 @@
                     <div class="col-xl-12 col-md-12 mb-12">
                         <div class="form-group">
                             <label for="imagen1">Logo Header</label>
-                            <input type="file" class="form-control" id="imagen1" name="imagen" value="{{ old('imagen1', isset($textos) ? $textos->imagen : null) }}">
+                            <input type="file" class="form-control" id="imagen1" name="imagen1" value="{{ old('imagen1', isset($textos) ? $textos->imagen1 : null) }}">
                         </div>
                     </div>
                 @endif
@@ -82,7 +82,7 @@
                     <div class="col-xl-12 col-md-12 mb-12">
                         <div class="form-group">
                             <label for="imagen2">Logo Footer</label>
-                            <input type="file" class="form-control" id="imagen2" name="imagen" value="{{ old('imagen2', isset($textos) ? $textos->imagen2 : null) }}">
+                            <input type="file" class="form-control" id="imagen2" name="imagen2" value="{{ old('imagen2', isset($textos) ? $textos->imagen2 : null) }}">
                         </div>
                     </div>
                 @endif
@@ -93,7 +93,7 @@
     <div class="col-md-12">
         <div class="card mb-4">
             <div class="card-header">
-                Información de Empresa
+                Información de Contacto
             </div>
           <div class="card-body">
             <div class="row">
@@ -113,6 +113,12 @@
                     <div class="form-group">
                         <label for="texto7">Email</label>
                         <input type="text" class="form-control" id="texto7" name="texto7" value="{{ old('texto7', isset($textos) ? $textos->texto7 : null) }}">
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="texto8">Mapa</label>
+                        <textarea class="form-control" id="texto8" name="texto8">{{ old('texto8', isset($textos) ? $textos->texto8 : null) }}</textarea>
                     </div>
                 </div>
             </div>
