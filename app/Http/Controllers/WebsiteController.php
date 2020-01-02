@@ -11,6 +11,10 @@ use App\Imagenempresa;
 use App\Rubros;
 use App\Rubrost;
 use App\Matrides;
+use App\Soluciones;
+use App\Solucionest;
+use App\Infoempresa;
+
 
 class WebsiteController extends Controller
 {
@@ -37,6 +41,9 @@ class WebsiteController extends Controller
         $banner_rubros        = Rubrost::get();
         $banner_rubros_texto  = Rubros::firstOrNew([]);
         $matrices             = Matrides::firstOrNew([]);
+        $soluciones_textos    = Soluciones::firstOrNew([]);
+        $soluciones_iconos    = Solucionest::get();
+        $infoempresa          = Infoempresa::firstOrNew([]);
 
         return view('website.home', [
             'banner'              => $banner,
@@ -44,7 +51,10 @@ class WebsiteController extends Controller
             'materiales'          => $materiales,
             'banner_rubros'       => $banner_rubros,
             'banner_rubros_texto' => $banner_rubros_texto,
-            'matrices' => $matrices,
+            'matrices'            => $matrices,
+            'soluciones_textos'   => $soluciones_textos,
+            'soluciones_iconos'   => $soluciones_iconos,
+            'infoempresa'         => $infoempresa,
         ]);
     }
 
@@ -54,6 +64,12 @@ class WebsiteController extends Controller
         $banner = Banner::get();
         $empresa = Empresa::firstOrNew([]);
         $imagenempresa = Imagenempresa::firstOrNew([]);
-        return view('website.empresa', ['banner' => $banner,'empresa' => $empresa,'imagenempresa' => $imagenempresa, ]);
+
+        return view('website.empresa', [
+            'banner'                 => $banner,
+            'empresa'                => $empresa,
+            'imagenempresa'          => $imagenempresa, ]);
     }
+
+
 }

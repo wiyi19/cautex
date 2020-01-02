@@ -26,21 +26,21 @@
 						<img src="{{ asset('img/website/icon-direccion.png') }}">
 						<div class="footer__info__content">
 							<div class="footer__title">DIRECCIÓN</div>
-							<div class="footer__info__text">12 de Octubre 569, Dock Sud, Buenos Aires</div>
+							<div class="footer__info__text">{{$infoempresa->texto2}}</div>
 						</div>
 					</div>
 					<div class="col-md-4 footer__info">
 						<img src="{{ asset('img/website/icon-phone.png') }}">
 						<div class="footer__info__content">
 							<div class="footer__title">TELÉFONO</div>
-							<div class="footer__info__text">(54 011) 7-520-3572</div>
+							<div class="footer__info__text">{{$infoempresa->texto3}}</div>
 						</div>
 					</div>
 					<div class="col-md-4 footer__info">
 						<img src="{{ asset('img/website/icon-mail.png') }}">
 						<div class="footer__info__content">
 							<div class="footer__title">E-MAIL</div>
-							<div class="footer__info__text">info@cautex.com.ar</div>
+							<div class="footer__info__text">{{$infoempresa->texto4}}</div>
 						</div>
 					</div>
 				</div>

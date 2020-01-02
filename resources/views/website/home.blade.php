@@ -35,27 +35,17 @@
 	<div class="container py-12">
 		<div class="row home-soluciones">
 			<div class="col-md-6">
-				<div class="home-soluciones-titulo">Ofrecemos un alto desempeño en soluciones de caucho</div>
+				<div class="home-soluciones-titulo">{{$soluciones_textos->texto1}}</div>
 				<div>Contacte a nuestros especialistas (54 011) 7520-3572</div>
 			</div>
+			@foreach ($soluciones_iconos as $item)
 			<div class="col-md-6">
 				<div class="home-soluciones-item">
-					<img src="{{ asset('img/website/soluciones-1.png')}}">
-					<span>Amplia variedad de materiales</span>
-				</div>
-				<div class="home-soluciones-item">
-					<img src="{{ asset('img/website/soluciones-2.png')}}">
-					<span>Abastecedores de las industrias más exigentes</span>
-				</div>
-				<div class="home-soluciones-item">
-					<img src="{{ asset('img/website/soluciones-3.png')}}">
-					<span>Aseguramos rapidez en las entregas</span>
-				</div>
-				<div class="home-soluciones-item">
-					<img src="{{ asset('img/website/soluciones-4.png')}}">
-					<span>Desarrollos integrales de alta calidad</span>
+					<img src="{{ asset(Storage::url($item->imagen))}}">
+					<span>{{ $item->texto1 }}</span>
 				</div>
 			</div>
+			@endforeach
 		</div>
 	</div>
 </div>
