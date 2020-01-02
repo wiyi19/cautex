@@ -14,6 +14,7 @@
         "laravel/tinker": "^1.0",
         "mateusjunges/laravel-acl": "^2.2",
         "mcamara/laravel-localization": "^1.4",
+        "orangehill/iseed": "^2.6",
         "spatie/laravel-translatable": "^4.2"
     },
     "require-dev": {
