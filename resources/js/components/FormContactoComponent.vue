@@ -1,18 +1,6 @@
 <template>
-<div>
     <div class="row">
-        <div class="col-md-2">
-            <div class="presupuesto-title">
-                <div :class="'presupuesto-title__image color--'+step1">
-                    <img :src="publicPATH + '/img/website/presupuesto-step-1-'+step1+'.png'">
-                </div>
-                <hr :class="'color--'+step1">
-            </div>
-        </div>
-        <div :class="'col-md-10 presupuesto-title__text color--'+step1">DATOS</div>
-    </div>
-    <div class="row">
-        <div :class="'offset-md-2 col-md-10'">
+        <div class="col-md-12">
             <div class="row">
                 <div class="form-group col-md-6">
                     <label :for="nombre">Nombre</label>
@@ -47,18 +35,6 @@
                     >
                 </div>
                 <div class="form-group col-md-6">
-                    <label :for="direccion">Dirección</label>
-                    <input
-                        type="text"
-                        class="form-control"
-                        :id="direccion"
-                        :name="direccion"
-                        v-model="direccion"
-                    >
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-group col-md-6">
                     <label :for="email">Email</label>
                     <input
                         type="text"
@@ -68,25 +44,7 @@
                         v-model="email"
                     >
                 </div>
-                <div class="col-md-6 d-flex align-items-end justify-content-end mb-3" v-if="step == 1" @click="goStep2()">
-                    <button class="btn btn--outline-orange btn--style-custom">Siguiente</button>
-                </div>
             </div>
-        </div>
-    </div>
-    <div class="row" v-if="step == 2">
-        <div class="col-md-2">
-            <div class="presupuesto-title">
-                <div :class="'presupuesto-title__image color--'+step2">
-                    <img :src="publicPATH + '/img/website/presupuesto-step-1-'+step2+'.png'">
-                </div>
-                <hr :class="'color--'+step2">
-            </div>
-        </div>
-        <div :class="'col-md-10 presupuesto-title__text color--'+step2">CONSULTA</div>
-    </div>
-    <div class="row" v-if="step == 2">
-        <div :class="'offset-md-2 col-md-10'">
             <div class="row">
                 <div class="form-group col-md-12">
                     <label :for="consulta">Escriba acá su consulta</label>
@@ -121,7 +79,6 @@
             </div>
         </div>
     </div>
-</div>
 </template>
 
 <script>

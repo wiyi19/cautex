@@ -10922,6 +10922,11 @@ footer a:hover {
   height: 100%;
 }
 
+.contacto-info {
+  color: #575656;
+  font-size: 16px;
+}
+
 .section-title {
   color: #575656;
   text-align: center;
