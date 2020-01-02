@@ -1,4 +1,4 @@
-<div class="navbar-top-bg navbar-fixed">
+<div class="navbar-top-bg {{ isset($navbar_fixed)&&$navbar_fixed==true?'navbar-fixed':'' }}">
 	<div class="container position-relative">
 		<div class="row pt-3 mb-3">
 			<div class="col d-none d-lg-flex justify-content-start align-items-end">
@@ -8,7 +8,7 @@
 				<a href="{{ route('website.home') }}"><img src="{{ asset('img/website/logo.png') }}"></a>
 			</div>
 			<div class="col d-none d-lg-flex justify-content-end align-items-end">
-				<a href="" class="btn-header-presupuesto">
+				<a href="{{ route('website.presupuesto') }}" class="btn-header-presupuesto">
 					<img src="{{ asset('img/website/icon-calc.png') }}">
 					SOLICITUD DE PRESUPUESTO
 				</a>
@@ -26,7 +26,7 @@
 					<li><a href="">PRODUCTOS</a></li>
 					<li><a href="">MATERIALES</a></li>
 					<li><a href="">MATRICERIA PROPIA</a></li>
-					<li><a href="">CONTACTO</a></li>
+					<li><a href="{{ route('website.contacto') }}">CONTACTO</a></li>
 				</ul>
 			</div>
 		</div>
@@ -43,12 +43,12 @@
       </div>
       <div class="modal-body">
 		<div id="navbar-modal-items">
-			<a href="" class="navbar-item ">HOME</a>
+			<a href="{{ route('website.home') }}" class="navbar-item ">HOME</a>
 			<a href="{{ route('website.empresa') }}" class="navbar-item ">EMPRESA</a>
 			<a href="" class="navbar-item ">PRODUCTOS</a>
 			<a href="" class="navbar-item ">MATERIALES</a>
 			<a href="" class="navbar-item ">MATRICERIA PROPIA</a>
-			<a href="" class="navbar-item ">CONTACTO</a>
+			<a href="{{ route('website.contacto') }}" class="navbar-item ">CONTACTO</a>
 		</div>
       </div>
     </div>

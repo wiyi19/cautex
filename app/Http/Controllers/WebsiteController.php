@@ -56,4 +56,19 @@ class WebsiteController extends Controller
         $imagenempresa = Imagenempresa::firstOrNew([]);
         return view('website.empresa', ['banner' => $banner,'empresa' => $empresa,'imagenempresa' => $imagenempresa, ]);
     }
+
+    public function presupuesto() {
+
+        return view('website.presupuesto');
+    }
+    public function presupuestoStore() {
+        return true;
+    }
+    public function contacto() {
+
+        return view('website.contacto');
+    }
+    public function contactoStore() {
+        return true;
+    }
 }

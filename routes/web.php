@@ -15,6 +15,12 @@ Route::get('/', 'WebsiteController@home')->name('website.home');
 
 Route::get('/empresa', 'WebsiteController@empresa')->name('website.empresa');
 
+Route::get('/presupuesto', 'WebsiteController@presupuesto')->name('website.presupuesto');
+Route::post('/presupuesto', 'WebsiteController@presupuestoStore');
+
+Route::get('/contacto', 'WebsiteController@contacto')->name('website.contacto');
+Route::post('/contacto', 'WebsiteController@contactoStore');
+
 Route::get('/home', function () {
     return redirect()->route('adm.home');
 });

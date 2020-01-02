@@ -10481,7 +10481,7 @@ h3 {
 }
 
 .navbar-top-bg {
-  background-color: rgba(56, 56, 56, 0.84);
+  background: #383838;
   color: rgba(255, 255, 255, 0.7);
   overflow: hidden;
 }
@@ -10532,6 +10532,9 @@ ul.navbar-top-ul li a:hover {
   text-decoration: none;
 }
 
+.navbar-fixed {
+  background-color: rgba(56, 56, 56, 0.84);
+}
 @media (min-width: 992px) {
   .navbar-fixed {
     position: absolute;
@@ -35187,4 +35190,13 @@ $spacers: map-merge(
   letter-spacing: 2px;
   font-weight: 300;
   font-size: 17px;
+}
+
+.btn--outline-orange {
+  border-color: #F07D00;
+  color: #F07D00;
+}
+.btn--outline-orange:hover {
+  background-color: #F07D00;
+  color: #FFF;
 }
