@@ -24,8 +24,8 @@
 					<li><a href="{{ route('website.home') }}">HOME</a></li>
 					<li><a href="{{ route('website.empresa') }}">EMPRESA</a></li>
 					<li><a href="">PRODUCTOS</a></li>
-					<li><a href="">MATERIALES</a></li>
-					<li><a href="">MATRICERIA PROPIA</a></li>
+					<li><a href="{{ route('website.materiales') }}">MATERIALES</a></li>
+					<li><a href="{{ route('website.matriceria') }}">MATRICERIA PROPIA</a></li>
 					<li><a href="{{ route('website.contacto') }}">CONTACTO</a></li>
 				</ul>
 			</div>

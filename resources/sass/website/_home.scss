@@ -61,6 +61,22 @@
 		border-top: 1px solid #575656;
 		width: 25px;
 	}
+	&--materiales {
+		border: 1px solid #CCC;
+		padding-top: 50px;
+		padding-bottom: 25px;
+		margin: 0 7.5px;
+		&:hover {
+			background-color: #F7F7F7;
+			border-color: #F7F7F7;
+		}
+		&:first-child {
+			margin-left: 0;
+		}
+		&:last-child {
+			margin-right: 0;
+		}
+	}
 }
 // Soluciones
 .home-soluciones {

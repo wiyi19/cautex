@@ -21,6 +21,10 @@ Route::post('/presupuesto', 'WebsiteController@presupuestoStore');
 Route::get('/contacto', 'WebsiteController@contacto')->name('website.contacto');
 Route::post('/contacto', 'WebsiteController@contactoStore');
 
+Route::get('/materiales', 'WebsiteController@materiales')->name('website.materiales');
+
+Route::get('/matriceria-propia', 'WebsiteController@matriceria')->name('website.matriceria');
+
 Route::get('/home', function () {
     return redirect()->route('adm.home');
 });

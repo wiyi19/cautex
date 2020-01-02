@@ -78,11 +78,19 @@ class WebsiteController extends Controller
         return true;
     }
     public function contacto() {
-
         return view('website.contacto');
     }
     public function contactoStore() {
         return true;
+    }
+    public function materiales() {
+        $materiales = Materiales::get();
+        return view('website.materiales', [
+            'materiales' => $materiales
+        ]);
+    }
+    public function matriceria() {
+        return view('website.matriceria');
     }
 
 }
