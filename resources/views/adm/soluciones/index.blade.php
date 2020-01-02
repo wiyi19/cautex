@@ -19,7 +19,7 @@
                     <div class="col-xl-12 col-md-12 mb-12">
                         <div class="form-group">
                             <label for="texto2">Texto 2</label>
-                            <textarea class="form-control" id="texto2" name="texto2">{{ old('texto2', isset($textos) ? $textos->texto2 : null) }}</textarea>
+                            <textarea class="ckeditor" id="texto2" name="texto2">{{ old('texto2', isset($textos) ? $textos->texto2 : null) }}</textarea>
                         </div>
                     </div>
                     <div class="col-xl-12 col-lg-12 d-sm-flex align-items-center justify-content-end">

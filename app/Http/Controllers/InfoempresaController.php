@@ -18,9 +18,11 @@ class InfoempresaController extends Controller
     public function index()
     {
         $textos = Infoempresa::firstOrNew([]);
+        //print_r($textos);
         return view('adm.infoempresa.index', [
             'textos' => $textos,
         ]);
+
     }
 
     /**
@@ -47,10 +49,17 @@ class InfoempresaController extends Controller
     {
         $item = Infoempresa::firstOrNew([]);
         $item->texto1 = $request->texto1;
+        if($request->imagen1 != null){
+             $item->imagen1 = $request->imagen1->store('public/imagenes/empresa');
+        }
         $item->texto2 = $request->texto2;
         $item->texto3 = $request->texto3;
-        if($request->imagen != null){
-             $item->imagen = $request->imagen->store('public/imagenes/home/matriceria');
+        $item->texto4 = $request->texto4;
+        $item->texto5 = $request->texto5;
+        $item->texto6 = $request->texto6;
+        $item->texto7 = $request->texto7;
+        if($request->imagen2 != null){
+             $item->imagen2 = $request->imagen2->store('public/imagenes/empresa');
         }
         $item->save();
         return redirect()->route('adm.infoempresa')->with('success', 'Se actualizo la<strong>Información</strong> con exitó.');

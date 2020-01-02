@@ -88,7 +88,6 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="{{ route('adm.familia') }}">Familia</a>
             <a class="collapse-item" href="{{ route('adm.producto') }}">Productos</a>
-            <a class="collapse-item" href="{{ route('adm.imagenempresa') }}">Imagen</a>
           </div>
         </div>
       </li>

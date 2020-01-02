@@ -35,13 +35,25 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="form-group col-md-12">
-                                <label :for="'texto1'">texto1</label>
+                                <label :for="'texto1'">Texto1</label>
                                 <input
                                     type="text"
                                     class="form-control"
                                     :id="'texto1'"
                                     :name="'texto1'"
                                     v-model="content.texto1"
+                                >
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-12">
+                                <label :for="'texto2'">Texto2</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    :id="'texto2'"
+                                    :name="'texto2'"
+                                    v-model="content.texto2"
                                 >
                             </div>
                         </div>

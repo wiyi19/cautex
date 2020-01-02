@@ -10674,6 +10674,16 @@ ul.navbar-top-ul li a:hover {
           align-items: center;
 }
 
+.empresa {
+  font-size: 21px;
+  color: #575656;
+  font-weight: 300;
+}
+
+.img-responsive {
+  display: inline-block;
+}
+
 .section-title {
   color: #575656;
   text-align: center;

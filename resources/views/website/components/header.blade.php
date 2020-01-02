@@ -22,7 +22,7 @@
 			<div class="col-12">
 				<ul class="navbar-top-ul d-none d-lg-flex">
 					<li><a href="">HOME</a></li>
-					<li><a href="">EMPRESA</a></li>
+					<li><a href="{{ route('website.empresa') }}">EMPRESA</a></li>
 					<li><a href="">PRODUCTOS</a></li>
 					<li><a href="">MATERIALES</a></li>
 					<li><a href="">MATRICERIA PROPIA</a></li>
@@ -44,7 +44,7 @@
       <div class="modal-body">
 		<div id="navbar-modal-items">
 			<a href="" class="navbar-item ">HOME</a>
-			<a href="" class="navbar-item ">EMPRESA</a>
+			<a href="{{ route('website.empresa') }}" class="navbar-item ">EMPRESA</a>
 			<a href="" class="navbar-item ">PRODUCTOS</a>
 			<a href="" class="navbar-item ">MATERIALES</a>
 			<a href="" class="navbar-item ">MATRICERIA PROPIA</a>

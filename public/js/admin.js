@@ -2113,6 +2113,18 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -42805,7 +42817,7 @@ var render = function() {
                     _c("div", { staticClass: "row" }, [
                       _c("div", { staticClass: "form-group col-md-12" }, [
                         _c("label", { attrs: { for: "texto1" } }, [
-                          _vm._v("texto1")
+                          _vm._v("Texto1")
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -42828,6 +42840,40 @@ var render = function() {
                               _vm.$set(
                                 _vm.content,
                                 "texto1",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "form-group col-md-12" }, [
+                        _c("label", { attrs: { for: "texto2" } }, [
+                          _vm._v("Texto2")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.content.texto2,
+                              expression: "content.texto2"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", id: "texto2", name: "texto2" },
+                          domProps: { value: _vm.content.texto2 },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.content,
+                                "texto2",
                                 $event.target.value
                               )
                             }
