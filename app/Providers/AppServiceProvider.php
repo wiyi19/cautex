@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Infoempresa;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -33,8 +34,8 @@ class AppServiceProvider extends ServiceProvider
             view()->share([
                 //'active' => '',
                 'assets_version' => $assets_version,
-                //'query_search'  => '',
-                //'areas_navbar'   => collect(Area::get(['id', 'nombre', 'slug'])->toArray())
+                'query_search'   => '',
+                'infoempresa'   => Infoempresa::firstOrNew([])
             ]);
             /*view()->composer('*', function ($view)
             {

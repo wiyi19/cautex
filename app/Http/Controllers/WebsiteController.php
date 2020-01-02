@@ -43,7 +43,6 @@ class WebsiteController extends Controller
         $matrices             = Matrides::firstOrNew([]);
         $soluciones_textos    = Soluciones::firstOrNew([]);
         $soluciones_iconos    = Solucionest::get();
-        $infoempresa          = Infoempresa::firstOrNew([]);
 
         return view('website.home', [
             'banner'              => $banner,
@@ -54,7 +53,6 @@ class WebsiteController extends Controller
             'matrices'            => $matrices,
             'soluciones_textos'   => $soluciones_textos,
             'soluciones_iconos'   => $soluciones_iconos,
-            'infoempresa'         => $infoempresa,
         ]);
     }
 
@@ -64,13 +62,11 @@ class WebsiteController extends Controller
         $banner = Banner::get();
         $empresa = Empresa::firstOrNew([]);
         $imagenempresa = Imagenempresa::firstOrNew([]);
-        $infoempresa   = Infoempresa::firstOrNew([]);
 
         return view('website.empresa', [
             'banner'                 => $banner,
             'empresa'                => $empresa,
             'imagenempresa'          => $imagenempresa,
-            'infoempresa'            => $infoempresa, 
         ]);
     }
 

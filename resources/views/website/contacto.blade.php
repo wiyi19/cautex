@@ -32,7 +32,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-md-8"><form-contacto class="my-5"></form-contacto></div>
+		<div class="col-md-8"><form-contacto></form-contacto></div>
 	</div>
 </div>
 @endsection
