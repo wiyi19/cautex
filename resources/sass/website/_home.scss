@@ -76,6 +76,7 @@
 }
 .home-soluciones-item {
 	display: flex;
+	align-items: center;
 	&:nth-child(n+2) {
 		margin-top: 34px;
 	}
@@ -89,7 +90,13 @@
 }
 
 // custom-carousel-indicators
-
+.banner-rubros__overlay {
+	padding-bottom: 30%;
+	width: 100%;
+	@include media-breakpoint-down(md) {
+		padding-bottom: 70%;
+	}
+}
 .custom-carousel-indicators {
 	top: 0;
 	right: auto;
@@ -97,6 +104,12 @@
 	justify-content: flex-start;
 	align-items: stretch;
 	overflow: hidden;
+	@include media-breakpoint-down(md) {
+		position: initial;
+		flex-direction: row;
+		flex-wrap: wrap;
+		margin: 20px;
+	}
 	li {
 		background-color: #F07D00;
 		padding: 10px 60px 10px 40px;
@@ -114,6 +127,14 @@
 		margin-top: 20px;
 		&.active {
 			background-color: #7A7A7A;
+		}
+		@include media-breakpoint-down(md) {
+			padding: 10px 10px 10px 10px;
+			width: 50%;
+			font-size: 15px;
+			border: 2px solid transparent;
+			box-sizing: border-box;
+			margin: 0;
 		}
 	}
 }
@@ -156,9 +177,13 @@
 	justify-content: center;
 	width: min-content;
 	margin: auto;
+	@include media-breakpoint-down(md) {
+		width: 100%;
+		padding: 0 15px;
+	}
 }
 .home-matrices-texto1 {
-	font-size: 27px;
+	font-size: 30px;
 	color: #FFF;
 	line-height: 27px;
 	margin-bottom: 25px;
@@ -167,9 +192,13 @@
 	display: inline-block;
 	padding: 0 76px;
 	white-space: nowrap;
+	@include media-breakpoint-down(md) {
+		white-space: normal;
+		padding: 0;
+	}
 }
 .home-matrices-texto2 {
-	font-size: 16px;
+	font-size: 18px;
 	color: #FFF;
 	//line-height: 27px;
 	font-weight: 300;

@@ -23,7 +23,7 @@
 	<h3 class="section-title mt-10 mb-5">MATERIALES</h3>
 	<div class="row">
 		@foreach ($materiales as $material)
-		<div class="col home-materiales-box">
+		<div class="col-12 col-md-4 col-lg home-materiales-box">
 			<img src="{{ asset(Storage::url($material->imagen))}}">
 			<span>{{ $material->texto2 }}</span>
 			<hr>
@@ -73,7 +73,7 @@
 	<div class="carousel-inner">
 		@foreach ($banner_rubros as $item)
 		<div class="carousel-item {{ $loop->first?'active':'' }}" style="background-image: url({{ asset(Storage::url($item->imagen))}});">
-			<div style="padding-bottom: 30%; width: 100%;">
+			<div class="banner-rubros__overlay">
 			</div>
 			<div class="carousel-content">
 				<div class="container">
