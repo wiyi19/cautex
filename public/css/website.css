@@ -10760,7 +10760,6 @@ footer a:hover {
           align-items: center;
 }
 
-<<<<<<< HEAD
 .banner-rubros__overlay {
   padding-bottom: 30%;
   width: 100%;
@@ -10771,18 +10770,6 @@ footer a:hover {
   }
 }
 
-=======
-<<<<<<< HEAD
-.empresa {
-  font-size: 21px;
-  color: #575656;
-  font-weight: 300;
-}
-
-.img-responsive {
-  display: inline-block;
-=======
->>>>>>> 8af9614064701db7cdd0191c88cb97cc2aede019
 .custom-carousel-indicators {
   top: 0;
   right: auto;
@@ -10919,7 +10906,12 @@ footer a:hover {
   font-weight: 300;
   margin-bottom: 25px;
   text-align: center;
->>>>>>> 4f2e487d3349ee8bc19ba737eb449ddc353b2b0f
+}
+
+.empresa {
+  font-size: 21px;
+  color: #575656;
+  font-weight: 300;
 }
 
 .section-title {

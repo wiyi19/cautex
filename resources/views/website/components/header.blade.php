@@ -21,7 +21,7 @@
 		<div class="row">
 			<div class="col-12">
 				<ul class="navbar-top-ul d-none d-lg-flex">
-					<li><a href="">HOME</a></li>
+					<li><a href="{{ route('website.home') }}">HOME</a></li>
 					<li><a href="{{ route('website.empresa') }}">EMPRESA</a></li>
 					<li><a href="">PRODUCTOS</a></li>
 					<li><a href="">MATERIALES</a></li>
