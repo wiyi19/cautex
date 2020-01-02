@@ -14,8 +14,11 @@
     <meta name="keywords" content="@yield('keywords', __meta('default', 'keywords'))">
     <meta name="author" content="@yield('author', __meta('default', 'author'))">
 
+    <meta name="public-path" content="{{ asset('/') }}">
+    <meta name="storage-path" content="{{ asset(Storage::url('/')) }}">
+
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="@yield('author', __meta('default', 'author'))" />
+    <meta property="og:site_name" content=" @yield('author', __meta('default', 'author'))" />
     <meta property="og:title" content="@yield('title', __meta('default', 'title'))" />
     <meta property="og:description" content="@yield('description', __meta('default', 'description'))" />
     <meta property="og:locale" content="{{ LaravelLocalization::getCurrentLocale() }}">
@@ -33,10 +36,11 @@
 </head>
 <body>
     <div id="app">
-        @include('website.components.header')
+        @include('website.components.header', ['navbar_fixed' => $__env->yieldContent('navbar_fixed', false)])
         @yield('content')
         @include('website.components.footer')
     </div>
+    <script src="https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit" async defer></script> 
     <script type="text/javascript" src="{{ asset('js/website.js').'?'.$assets_version }}"></script>
     @yield('scripts')
 </body>

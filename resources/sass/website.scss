@@ -133,3 +133,11 @@ $spacers: map-merge(
     font-weight: 300;
     font-size: 17px;
 }
+.btn--outline-orange {
+    border-color: $theme-orange;
+    color: $theme-orange;
+    &:hover {
+        background-color: $theme-orange;
+        color: #FFF;
+    }
+}

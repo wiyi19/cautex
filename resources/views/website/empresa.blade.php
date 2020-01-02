@@ -19,13 +19,7 @@
 	</div>
 </div>
 <div>
-	<div class="container-fluid">
-	 	<div class="row imagenempresa">
-			<div class="col-md-12">
-   				<img src="{{ asset(Storage::url($imagenempresa->imagen))}}">
-   			</div>
-   		<div>
-    </div>
+	<img class="w-100" src="{{ asset(Storage::url($imagenempresa->imagen))}}">
 </div>
 
 @endsection

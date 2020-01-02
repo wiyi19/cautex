@@ -3,6 +3,7 @@
 @section('description', 'Seleccione un Perfil')
 @section('keywords',    'Perfiles')
 @section('author',      'Klockmetal')
+@section('navbar_fixed', true)
 
 @section('content')
 @include('website.components.banner')

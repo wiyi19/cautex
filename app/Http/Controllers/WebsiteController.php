@@ -71,5 +71,19 @@ class WebsiteController extends Controller
             'imagenempresa'          => $imagenempresa, ]);
     }
 
+    public function presupuesto() {
 
+        return view('website.presupuesto');
+    }
+    public function presupuestoStore() {
+        return true;
+    }
+    public function contacto() {
+
+        return view('website.contacto');
+    }
+    public function contactoStore() {
+        return true;
+    }
+    
 }
