@@ -95,11 +95,13 @@
 		</div>
 	</div>
 </div>
-<div class="home-matrices" style="background-image: url({{ asset(Storage::url($matrices->imagen))}});">
+<div class="home-matrices mt-10" style="background-image: url({{ asset(Storage::url($matrices->imagen))}});">
 	<div class="home-matrices-overlay">
-		<div class="home-matrices-title">{{ $matrices->texto1 }}</div>
-		<div class="home-matrices-title">{{ $matrices->texto2 }}</div>
-		<a href="">Ingresar</a>
+		<div class="home-matrices-container">
+			<div class="home-matrices-texto1">{{ $matrices->texto1 }}</div>
+			<div class="home-matrices-texto2">{{ $matrices->texto2 }}</div>
+			<a href="" class="btn btn-outline-light btn--style-custom">Ingresar</a>
+		</div>
 	</div>
 </div>
 @endsection

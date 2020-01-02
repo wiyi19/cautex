@@ -8,7 +8,8 @@ $font-family-sans-serif: 'Jura', sans-serif;
 @import '~bootstrap/scss/bootstrap';
 
 @import "website/components/header";
-@import "website/components/banner";
+@import "website/components/header";
+@import "website/components/footer";
 
 @import "website/home";
 
@@ -108,4 +109,23 @@ $spacers: map-merge(
     //   margin-left: auto !important;
     // }
   }
+}
+
+// .rounded-100 {
+//     border-radius: 1000px;
+// }
+// @for $i from 0 through 10 {
+//     .border-width-#{$i} {
+//         border-width: $i * 1px !important;
+//     }
+// }
+
+.btn--style-custom {
+    border-radius: 1000px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-width: 3px;
+    letter-spacing: 2px;
+    font-weight: 300;
+    font-size: 17px;
 }
