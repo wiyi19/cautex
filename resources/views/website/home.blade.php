@@ -39,14 +39,14 @@
 				<div class="home-soluciones-titulo">{{$soluciones_textos->texto1}}</div>
 				<div>{!! $soluciones_textos->texto2 !!}</div>
 			</div>
-			@foreach ($soluciones_iconos as $item)
 			<div class="col-md-6">
+				@foreach ($soluciones_iconos as $item)
 				<div class="home-soluciones-item">
 					<img src="{{ asset(Storage::url($item->imagen))}}">
 					<span>{{ $item->texto1 }}</span>
 				</div>
+				@endforeach
 			</div>
-			@endforeach
 		</div>
 	</div>
 </div>

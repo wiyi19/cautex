@@ -10752,6 +10752,9 @@ footer a:hover {
   font-weight: 300;
   color: #575656;
 }
+.home-soluciones p {
+  margin: 0;
+}
 
 .home-soluciones-titulo {
   font-size: 27px;
