@@ -10730,6 +10730,22 @@ footer a:hover {
   border-top: 1px solid #575656;
   width: 25px;
 }
+.home-materiales-box--materiales {
+  border: 1px solid #CCC;
+  padding-top: 50px;
+  padding-bottom: 25px;
+  margin: 0 7.5px;
+}
+.home-materiales-box--materiales:hover {
+  background-color: #F7F7F7;
+  border-color: #F7F7F7;
+}
+.home-materiales-box--materiales:first-child {
+  margin-left: 0;
+}
+.home-materiales-box--materiales:last-child {
+  margin-right: 0;
+}
 
 .home-soluciones {
   font-size: 19px;
