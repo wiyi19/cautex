@@ -35,3 +35,10 @@ Route::get('/home', function () {
 Route::get('/login', function () {
     return redirect()->route('adm.login');
 })->name('login');
+
+
+Route::get('/install-storage', function () {
+	return response()->json([
+		'storage:link' => Artisan::call('storage:link')
+	]);
+});
