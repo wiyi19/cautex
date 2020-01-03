@@ -12,7 +12,7 @@
 					<div class="col-md-3"><a href="">Matriceria propia</a></div>
 				</div>
 				<div class="row">
-					<div class="col-md-3"><a href="">Empresa</a></div>
+					<div class="col-md-3"><a href="{{ route('website.empresa') }}">Empresa</a></div>
 					<div class="col-md-3"><a href="">Materiales</a></div>
 					<div class="col-md-3"><a href="">Contacto</a></div>
 				</div>
