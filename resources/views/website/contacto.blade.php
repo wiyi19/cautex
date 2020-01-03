@@ -1,8 +1,8 @@
 @extends('website.layout')
-@section('title',       'Nuestros Perfiles')
+@section('title',       'Contacto')
 @section('description', 'Seleccione un Perfil')
 @section('keywords',    'Perfiles')
-@section('author',      'Klockmetal')
+@section('author',      'Cautex')
 
 @section('content')
 <iframe src="{{$infoempresa->texto8}}" height="350" frameborder="0" style="border:0; width: 100%;" allowfullscreen=""></iframe>

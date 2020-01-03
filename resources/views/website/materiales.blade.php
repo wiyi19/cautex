@@ -1,8 +1,8 @@
 @extends('website.layout')
-@section('title',       'Nuestros Perfiles')
+@section('title',       'Materiales')
 @section('description', 'Seleccione un Perfil')
 @section('keywords',    'Perfiles')
-@section('author',      'Klockmetal')
+@section('author',      'Cautex')
 
 @section('content')
 <div class="container my-5">

@@ -1,8 +1,8 @@
 @extends('website.layout')
-@section('title',       'Nuestros Perfiles')
-@section('description', 'Seleccione un Perfil')
+@section('title',       'Cautex')
+@section('description', 'Fabricantes de burletes para empresas y mayoristas')
 @section('keywords',    'Perfiles')
-@section('author',      'Klockmetal')
+@section('author',      'Cautex')
 @section('navbar_fixed', true)
 
 @section('content')

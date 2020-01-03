@@ -1,8 +1,8 @@
 @extends('website.layout')
-@section('title',       'Nuestros Perfiles')
+@section('title',       'Matriceria Propia')
 @section('description', 'Seleccione un Perfil')
 @section('keywords',    'Perfiles')
-@section('author',      'Klockmetal')
+@section('author',      'Cautex')
 @section('navbar_fixed', true)
 
 @section('content')
