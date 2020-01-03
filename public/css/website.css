@@ -10956,12 +10956,13 @@ footer a:hover {
   padding-bottom: 70%;
 }
 .producto-box .producto-box-text {
-  color: #F07D00;
+  color: #383838;
   position: absolute;
   bottom: 10px;
-  width: calc(100% - 30px);
+  width: 100%;
   text-align: center;
-  font-size: 25px;
+  font-size: 20px;
+  font-weight: 700;
 }
 .producto-box .producto-box-overlay {
   position: absolute;
@@ -10984,6 +10985,73 @@ footer a:hover {
 }
 .producto-box:hover .producto-box-overlay {
   opacity: 1;
+}
+
+.menu-producto {
+  background-color: #F9F9F9;
+  padding: 3px;
+  font-size: 16px;
+  line-height: 18px;
+}
+.menu-producto-rubro {
+  color: #575656;
+  padding: 10px 8px;
+  border-bottom: 1px solid #D8D8D8;
+  cursor: pointer;
+  display: inline-block;
+  width: 100%;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+          align-items: center;
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
+.menu-producto-rubro:hover {
+  text-decoration: none;
+}
+.menu-producto-rubro, .menu-producto-rubro * {
+  -webkit-transition: 0.3s all ease;
+  transition: 0.3s all ease;
+}
+.menu-producto-rubro:not(.collapsed) {
+  color: #F07D00;
+}
+.menu-producto-rubro:not(.collapsed) i {
+  color: #F07D00;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+.menu-producto-marca {
+  color: #595959;
+  padding-left: 18px;
+  cursor: pointer;
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 10px;
+  font-weight: 600;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+.menu-producto-marca:not(.collapsed) {
+  color: #575656;
+}
+.menu-producto-producto {
+  color: #595959;
+  padding: 0 28px;
+  cursor: pointer;
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.menu-producto-producto.active {
+  color: #575656;
+}
+.menu-producto .collapse {
+  padding-top: 10px;
+  background-color: #F7F7F7;
 }
 
 .contacto-info {

@@ -81,12 +81,19 @@ class WebsiteController extends Controller
             'active'   => 'website.familias',
         ]);
     }
-    public function familia($id)
+    public function familia($familia_id)
     {
-        $familia = Familia::find($id);
+        $familias = Familia::with('productos')->get();
+        // No repito busqueda en la base de datos, si no que se hace un filter a la coleccion obtenida arriba
+        $familia = $familias->filter(function($item) use ($familia_id) {
+            return $item->id == $familia_id;
+        })->first();
         return view('website.familia', [
-            'familia' => $familia,
-            'active'  => 'website.familia',
+            'producto_id' => '$producto_id',
+            'familia_id'  => $familia_id,
+            'familias'    => $familias,
+            'familia'     => $familia,
+            'active'      => 'website.familias',
         ]);
     }
     public function producto($id)
@@ -94,7 +101,7 @@ class WebsiteController extends Controller
         $producto = Producto::find($id);
         return view('website.producto', [
             'producto' => $producto,
-            'active'   => 'website.producto',
+            'active'   => 'website.familias',
         ]);
     }
 
