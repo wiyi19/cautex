@@ -7,14 +7,14 @@
 			<div class="col-md-8">
 				<div class="footer__title">Mapa del sitio</div>
 				<div class="row">
-					<div class="col-md-3"><a href="">Home</a></div>
+					<div class="col-md-3"><a href="{{ route('website.home') }}">Home</a></div>
 					<div class="col-md-3"><a href="">Productos</a></div>
-					<div class="col-md-3"><a href="">Matriceria propia</a></div>
+					<div class="col-md-3"><a href="{{ route('website.matriceria') }}">Matriceria propia</a></div>
 				</div>
 				<div class="row">
 					<div class="col-md-3"><a href="{{ route('website.empresa') }}">Empresa</a></div>
-					<div class="col-md-3"><a href="">Materiales</a></div>
-					<div class="col-md-3"><a href="">Contacto</a></div>
+					<div class="col-md-3"><a href="{{ route('website.materiales') }}">Materiales</a></div>
+					<div class="col-md-3"><a href="{{ route('website.contacto') }}">Contacto</a></div>
 				</div>
 			</div>
 		</div>
