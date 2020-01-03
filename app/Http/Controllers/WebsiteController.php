@@ -17,7 +17,8 @@ use App\Infoempresa;
 use App\Icono;
 use App\Solicitudpre;
 use App\Infomatriceria;
-use App\Producto;
+use App\Bannerempresa;
+use App\Bannermatriceria;
 
 class WebsiteController extends Controller
 {
@@ -62,7 +63,7 @@ class WebsiteController extends Controller
 
 
     public function empresa() {
-        $banner = Banner::get();
+        $banner = Bannerempresa::get();
         $empresa = Empresa::firstOrNew([]);
         $imagenempresa = Imagenempresa::firstOrNew([]);
 
@@ -113,7 +114,7 @@ class WebsiteController extends Controller
         ]);
     }
     public function matriceria() {
-        $banner = Banner::get();
+        $banner = Bannermatriceria::get();
         $iconos = Icono::get();
         $textos = Infomatriceria::firstOrNew([]);
         $pie    = Solicitudpre::firstOrNew([]);
