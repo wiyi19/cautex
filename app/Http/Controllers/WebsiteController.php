@@ -19,6 +19,7 @@ use App\Solicitudpre;
 use App\Infomatriceria;
 use App\Bannerempresa;
 use App\Bannermatriceria;
+use App\Producto;
 
 class WebsiteController extends Controller
 {
@@ -97,12 +98,17 @@ class WebsiteController extends Controller
             'active'      => 'website.familias',
         ]);
     }
-    public function producto($id)
+    public function producto($producto_id)
     {
-        $producto = Producto::find($id);
+        $familias = Familia::with('productos')->get();
+        $producto = Producto::find($producto_id);
+        //dd($producto->medidas);
         return view('website.producto', [
-            'producto' => $producto,
-            'active'   => 'website.familias',
+            'familia_id'  => $producto->familia_id,
+            'producto_id' => $producto_id,
+            'familias'    => $familias,
+            'producto'    => $producto,
+            'active'      => 'website.familias',
         ]);
     }
 

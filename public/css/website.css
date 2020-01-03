@@ -10418,6 +10418,15 @@ h3 {
     border-color: #dee2e6;
   }
 }
+.carousel-indicators li {
+  background-color: #B7B7B7;
+  opacity: 1;
+}
+.carousel-indicators li.active {
+  background-color: #D57C1B;
+  opacity: 1;
+}
+
 .carousel-inner .carousel-item {
   background-repeat: no-repeat;
   background-size: cover;
@@ -11052,6 +11061,15 @@ footer a:hover {
 .menu-producto .collapse {
   padding-top: 10px;
   background-color: #F7F7F7;
+}
+
+.producto-presentacion {
+  background-color: #F07D00;
+  text-align: center;
+  color: #FFF;
+  text-transform: uppercase;
+  padding: 15px 0;
+  font-size: 17px;
 }
 
 .contacto-info {
