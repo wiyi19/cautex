@@ -14,7 +14,7 @@
 	align-items: center;
 	white-space: nowrap;
     transition: all .1s;
-	&:hover {
+	&.active, &:hover {
 		color: rgba(255, 255, 255, 1);
 		background-color: #F07D00;
 		text-decoration: none;
@@ -30,13 +30,13 @@ ul.navbar-top-ul {
 	display: flex;
 	justify-content: space-between;
 	li {
-		a{
+		a {
 			padding: 7px 25px;
 			border-radius: 10px 10px 0 0;
 			color: rgba(255, 255, 255, .7);
 			text-decoration: none;
 			display: inline-block;
-			&:hover {
+			&.active, &:hover {
 				color: rgba(255, 255, 255, 1);
 				background-color: #F07D00;
 				text-decoration: none;

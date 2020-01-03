@@ -32,7 +32,7 @@ class AppServiceProvider extends ServiceProvider
         //dd(collect(Area::get(['id', 'nombre', 'slug'])->toArray())->where('slug.es', 'tubos-y-canos'));
         if (php_sapi_name() != 'cli') {
             view()->share([
-                //'active' => '',
+                'active' => '',
                 'assets_version' => $assets_version,
                 'query_search'   => '',
                 'infoempresa'   => Infoempresa::firstOrNew([])

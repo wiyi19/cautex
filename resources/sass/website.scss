@@ -16,6 +16,7 @@ $theme-orange: #F07D00;
 @import "website/home";
 @import "website/empresa";
 @import "website/contacto";
+@import "website/matriceria";
 
 .section-title {
 	color: #575656;
@@ -138,6 +139,16 @@ $spacers: map-merge(
     color: $theme-orange;
     &:hover {
         background-color: $theme-orange;
+        color: #FFF;
+    }
+}
+.btn--orange {
+    border-color: $theme-orange;
+    background-color: $theme-orange;
+    color: #ffffff;
+    &:hover {
+        border-color: darken($theme-orange, 10%);
+        background-color: darken($theme-orange, 10%);
         color: #FFF;
     }
 }

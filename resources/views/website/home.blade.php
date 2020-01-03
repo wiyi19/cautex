@@ -10,7 +10,7 @@
 <div class="container">
 	<div class="row mt-5">
 		@foreach ($familias as $item)
-		<a href="" class="col-md-4 home-familia-box" style="background-image: url({{ asset(Storage::url($item->imagen))}});">
+		<a href="" class="col-md-4 home-familia-box" style="background-image: url({{ asset(Storage::url($item->imagen)) }});">
 			<div class="home-familia-box-space"></div>
 			<div class="home-familia-box-overlay">
 				<i class="fas fa-search-plus"></i>

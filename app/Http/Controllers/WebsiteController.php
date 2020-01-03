@@ -14,7 +14,9 @@ use App\Matrides;
 use App\Soluciones;
 use App\Solucionest;
 use App\Infoempresa;
-
+use App\Icono;
+use App\Solicitudpre;
+use App\Infomatriceria;
 
 class WebsiteController extends Controller
 {
@@ -53,44 +55,60 @@ class WebsiteController extends Controller
             'matrices'            => $matrices,
             'soluciones_textos'   => $soluciones_textos,
             'soluciones_iconos'   => $soluciones_iconos,
+            'active'              => 'website.home',
         ]);
     }
 
 
-    public function empresa()
-    {
+    public function empresa() {
         $banner = Banner::get();
         $empresa = Empresa::firstOrNew([]);
         $imagenempresa = Imagenempresa::firstOrNew([]);
 
         return view('website.empresa', [
-            'banner'                 => $banner,
-            'empresa'                => $empresa,
-            'imagenempresa'          => $imagenempresa,
+            'banner'        => $banner,
+            'empresa'       => $empresa,
+            'imagenempresa' => $imagenempresa,
+            'active'        => 'website.empresa',
         ]);
     }
 
+    public function materiales() {
+        $materiales = Materiales::get();
+        return view('website.materiales', [
+            'materiales' => $materiales,
+            'active' => 'website.materiales',
+        ]);
+    }
+    public function matriceria() {
+        $banner = Banner::get();
+        $iconos = Icono::get();
+        $textos = Infomatriceria::firstOrNew([]);
+        $pie    = Solicitudpre::firstOrNew([]);
+        //dd($pie);
+        return view('website.matriceria', [
+            'banner' => $banner,
+            'iconos'   => $iconos,
+            'textos' => $textos,
+            'pie'    => $pie,
+            'active' => 'website.matriceria',
+        ]);
+    }
     public function presupuesto() {
-
-        return view('website.presupuesto');
+        return view('website.presupuesto', [
+            'active' => 'website.presupuesto',
+        ]);
     }
     public function presupuestoStore() {
         return true;
     }
     public function contacto() {
-        return view('website.contacto');
+        return view('website.contacto', [
+            'active' => 'website.contacto',
+        ]);
     }
     public function contactoStore() {
         return true;
-    }
-    public function materiales() {
-        $materiales = Materiales::get();
-        return view('website.materiales', [
-            'materiales' => $materiales
-        ]);
-    }
-    public function matriceria() {
-        return view('website.matriceria');
     }
 
 }

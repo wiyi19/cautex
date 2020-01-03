@@ -8,7 +8,7 @@
 				<a href="{{ route('website.home') }}"><img src="{{ asset('img/website/logo.png') }}"></a>
 			</div>
 			<div class="col d-none d-lg-flex justify-content-end align-items-end">
-				<a href="{{ route('website.presupuesto') }}" class="btn-header-presupuesto">
+				<a href="{{ route('website.presupuesto') }}" class="btn-header-presupuesto {{ __active($active, 'website.presupuesto') }}">
 					<img src="{{ asset('img/website/icon-calc.png') }}">
 					SOLICITUD DE PRESUPUESTO
 				</a>
@@ -21,12 +21,12 @@
 		<div class="row">
 			<div class="col-12">
 				<ul class="navbar-top-ul d-none d-lg-flex">
-					<li><a href="{{ route('website.home') }}">HOME</a></li>
-					<li><a href="{{ route('website.empresa') }}">EMPRESA</a></li>
+					<li><a href="{{ route('website.home') }}"  class="{{ __active($active, 'website.home') }}">HOME</a></li>
+					<li><a href="{{ route('website.empresa') }}"  class="{{ __active($active, 'website.empresa') }}">EMPRESA</a></li>
 					<li><a href="">PRODUCTOS</a></li>
-					<li><a href="{{ route('website.materiales') }}">MATERIALES</a></li>
-					<li><a href="{{ route('website.matriceria') }}">MATRICERIA PROPIA</a></li>
-					<li><a href="{{ route('website.contacto') }}">CONTACTO</a></li>
+					<li><a href="{{ route('website.materiales') }}"  class="{{ __active($active, 'website.materiales') }}">MATERIALES</a></li>
+					<li><a href="{{ route('website.matriceria') }}"  class="{{ __active($active, 'website.matriceria') }}">MATRICERIA PROPIA</a></li>
+					<li><a href="{{ route('website.contacto') }}"  class="{{ __active($active, 'website.contacto') }}">CONTACTO</a></li>
 				</ul>
 			</div>
 		</div>
@@ -43,12 +43,12 @@
       </div>
       <div class="modal-body">
 		<div id="navbar-modal-items">
-			<a href="{{ route('website.home') }}" class="navbar-item ">HOME</a>
-			<a href="{{ route('website.empresa') }}" class="navbar-item ">EMPRESA</a>
-			<a href="" class="navbar-item ">PRODUCTOS</a>
-			<a href="" class="navbar-item ">MATERIALES</a>
-			<a href="" class="navbar-item ">MATRICERIA PROPIA</a>
-			<a href="{{ route('website.contacto') }}" class="navbar-item ">CONTACTO</a>
+			<a href="{{ route('website.home') }}" class="navbar-item">HOME</a>
+			<a href="{{ route('website.empresa') }}" class="navbar-item">EMPRESA</a>
+			<a href="" class="navbar-item">PRODUCTOS</a>
+			<a href="{{ route('website.materiales') }}" class="navbar-item">MATERIALES</a>
+			<a href="{{ route('website.matriceria') }}" class="navbar-item">MATRICERIA PROPIA</a>
+			<a href="{{ route('website.contacto') }}" class="navbar-item">CONTACTO</a>
 		</div>
       </div>
     </div>
