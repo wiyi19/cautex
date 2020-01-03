@@ -72,6 +72,7 @@
         </a>
         <div id="collapseEmpresa" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="{{ route('adm.bannerempresa') }}">Banner</a>
             <a class="collapse-item" href="{{ route('adm.empresa') }}">Quienes Somos</a>
             <a class="collapse-item" href="{{ route('adm.imagenempresa') }}">Imagen</a>
           </div>
@@ -110,7 +111,7 @@
         </a>
         <div id="collapseMatriceria" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="{{ route('adm.imagenmatriceria') }}">Imagen</a>
+            <a class="collapse-item" href="{{ route('adm.bannermatriceria') }}">Banner</a>
             <a class="collapse-item" href="{{ route('adm.icono') }}">Iconos</a>
             <a class="collapse-item" href="{{ route('adm.infomatriceria') }}">Información</a>
             <a class="collapse-item" href="{{ route('adm.solicitudpre') }}">Presupuesto</a>

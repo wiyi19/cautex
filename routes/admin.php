@@ -154,6 +154,24 @@ Route::group([
 
 /////================================Matriceria Propia===============================================
 Route::group([
+    'prefix' => 'bannermatriceria',
+    'as' => 'bannermatriceria',
+], function() {
+    Route::get ('/', 'BannermatriceriaController@index');
+    Route::get ('/create', 'BannermatriceriaController@create')->name('.create');
+    Route::post('/', 'BannermatriceriaController@store')->name('.store');
+    Route::get ('/{id}/edit', 'BannermatriceriaController@edit')->name('.edit');
+    Route::post('/{id?}', 'BannermatriceriaController@store')->name('.update');
+    //
+    Route::get ('/{id}/delete', 'BannermatriceriaController@destroy')->name('.destroy');
+    Route::get ('/trash', 'BannermatriceriaController@trash')->name('.trash');
+    Route::get ('/{id}/restore', 'BannermatriceriaController@restore')->name('.restore');
+});
+
+
+
+
+Route::group([
     'prefix' => 'imagenmatriceria',
     'as' => 'imagenmatriceria',
 ], function() {

@@ -6,9 +6,9 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-use App\Imagenmatrices;
+use App\Bannermatriceria;
 
-class ImagenmatriceriaController extends Controller
+class BannermatriceriaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +17,9 @@ class ImagenmatriceriaController extends Controller
      */
     public function index()
     {
-        $textos = Imagenmatrices::firstOrNew([]);
-        return view('adm.imagenmatriceria.index', [
-            'textos' => $textos,
+        $data = Bannermatriceria::get();
+        return view('adm.bannermatriceria.index', [
+            'data'     => $data,
         ]);
     }
 
@@ -30,7 +30,7 @@ class ImagenmatriceriaController extends Controller
      */
     public function create()
     {
-        return view('adm.imagenmatriceria.create', [
+        return view('adm.bannermatriceria.create', [
             'category_id' => request()->category_id
         ]);
     }
@@ -45,12 +45,19 @@ class ImagenmatriceriaController extends Controller
     
     public function store(Request $request, $id = false)
     {
-        $item = Imagenmatrices::firstOrNew([]);
+
+        if($id){
+            $item = Bannermatriceria::find($id);
+        } else {
+            $item = new Bannermatriceria;
+        }
+        $item->texto1 = $request->texto1;
+        $item->texto2 = $request->texto2;
         if($request->imagen != null){
-             $item->imagen = $request->imagen->store('public/imagenes/matriceria/imagen');
+             $item->imagen = $request->imagen->store('public/imagenes/matriceria/');
         }
         $item->save();
-        return redirect()->route('adm.imagenmatriceria')->with('success', 'Se actualizo la <strong>Imagen</strong> con exitó.');
+        return redirect()->route('adm.bannermatriceria')->with('success', 'Se añadio un <strong>Banner</strong> con exitó.');
     }
 
     /**
@@ -61,8 +68,8 @@ class ImagenmatriceriaController extends Controller
      */
     public function edit($id)
     {
-        return view('adm.imagenmatriceria.edit', [
-            'element' => Imagenmatriceria::find($id),
+        return view('adm.bannermatriceria.edit', [
+            'element' => Bannermatriceria::find($id),
         ]);
     }
     /**
@@ -73,28 +80,28 @@ class ImagenmatriceriaController extends Controller
      */
     public function destroy($id)
     {
-        Imagenmatrices::find($id)->delete();
-        return redirect()->route('adm.imagenmatriceria')->with('success', 'Se han eliminado la <strong>Información</strong> con exitó.');
+        Bannermatriceria::find($id)->delete();
+        return redirect()->route('adm.bannermatriceria')->with('success', 'Se han eliminado la <strong>Información</strong> con exitó.');
     }
     public function trash()
     {
-        $data = Imagenmatrices::onlyTrashed()->get();
-        return view('adm.imagenmatriceria.index', [
+        $data = Bannermatriceria::onlyTrashed()->get();
+        return view('adm.bannermatriceria.index', [
             'data' => $data,
             'trash'=> true,
         ]);
     }
     public function restore($id)
     {
-        $item = Imagenmatrices::withTrashed()->find($id);
+        $item = Bannermatriceria::withTrashed()->find($id);
         $item->deleted_at = null;
         $item->save();
-        return redirect()->route('adm.imagenmatriceria.trash')->with('success', 'Se ha restaurado la <strong>Información</strong> con exitó.');
+        return redirect()->route('adm.bannermatriceria.trash')->with('success', 'Se ha restaurado la <strong>Información</strong> con exitó.');
     }
     public function copy($id)
     {
-        $new = Imagenmatrices::find($id)->replicate();
+        $new = Bannermatriceria::find($id)->replicate();
         $new->save();
-        return redirect()->route('adm.imagenmatriceria.edit', $new->id)->with('success', 'Se ha duplicado la <strong>Información</strong> con exitó.');
+        return redirect()->route('adm.bannermatriceria.edit', $new->id)->with('success', 'Se ha duplicado la <strong>Información</strong> con exitó.');
     }
 }

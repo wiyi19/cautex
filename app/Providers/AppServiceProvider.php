@@ -4,7 +4,6 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Infoempresa;
-use App\Banner;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -36,7 +35,6 @@ class AppServiceProvider extends ServiceProvider
                 'active' => '',
                 'assets_version' => $assets_version,
                 'query_search'   => '',
-                'banner'         => Banner::get(),
                 'infoempresa'   => Infoempresa::firstOrNew([])
             ]);
             /*view()->composer('*', function ($view)

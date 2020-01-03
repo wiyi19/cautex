@@ -3,7 +3,7 @@
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <div>
         @if (isset($trash) && $trash == true)
-        <a href="{{ route('adm.bannbannermatriceriaerempresa') }}" class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm">
+        <a href="{{ route('adm.bannermatriceria') }}" class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm">
             <i class="fas fa-step-backward fa-sm text-white-50"></i>
             Salir de la Papelera
         </a>
