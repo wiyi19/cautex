@@ -37,7 +37,7 @@
 		<div class="row home-soluciones">
 			<div class="col-md-6">
 				<div class="home-soluciones-titulo">{{$soluciones_textos->texto1}}</div>
-				<div>Contacte a nuestros especialistas (54 011) 7520-3572</div>
+				<div>{!! $soluciones_textos->texto2 !!}</div>
 			</div>
 			@foreach ($soluciones_iconos as $item)
 			<div class="col-md-6">

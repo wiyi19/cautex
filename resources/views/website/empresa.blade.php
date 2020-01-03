@@ -10,10 +10,10 @@
 	<div class="container py-7">
 		<div class="row empresa">
 			<div class="col-md-6">
-				<div>textooooooooooooooooooooooooooooooo</div>
+				<div>{!! $empresa->texto1 !!}</div>
 			</div>
 			<div class="col-md-6">
-				<div>textooooooooooooooooooooooooooooooo</div>
+				<div>{!! $empresa->texto2 !!}</div>
 			</div>
 		</div>
 	</div>
