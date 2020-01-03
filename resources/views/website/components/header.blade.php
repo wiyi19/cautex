@@ -23,7 +23,7 @@
 				<ul class="navbar-top-ul d-none d-lg-flex">
 					<li><a href="{{ route('website.home') }}"  class="{{ __active($active, 'website.home') }}">HOME</a></li>
 					<li><a href="{{ route('website.empresa') }}"  class="{{ __active($active, 'website.empresa') }}">EMPRESA</a></li>
-					<li><a href="">PRODUCTOS</a></li>
+					<li><a href="{{ route('website.familias') }}"  class="{{ __active($active, 'website.familias') }}">PRODUCTOS</a></li>
 					<li><a href="{{ route('website.materiales') }}"  class="{{ __active($active, 'website.materiales') }}">MATERIALES</a></li>
 					<li><a href="{{ route('website.matriceria') }}"  class="{{ __active($active, 'website.matriceria') }}">MATRICERIA PROPIA</a></li>
 					<li><a href="{{ route('website.contacto') }}"  class="{{ __active($active, 'website.contacto') }}">CONTACTO</a></li>

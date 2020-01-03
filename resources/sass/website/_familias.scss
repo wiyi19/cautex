@@ -1,0 +1,43 @@
+.producto-box{
+	position: relative;
+	background-size: cover;
+	background-repeat: no-repeat;
+    box-shadow: 0 0 3px rgba(100,100,100, .4);
+    display: flex;
+    margin: 7.5px;
+	&:nth-child(n+4) {
+		//margin-left: none;
+	}
+	.producto-box-space{
+		width: 100%;
+		padding-bottom: 70%;
+	}
+	.producto-box-text {
+		color: #F07D00;
+		position: absolute;
+		bottom: 10px;
+		width: calc(100% - 30px);
+		text-align: center;
+		font-size: 25px;
+	}
+	.producto-box-overlay {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		display: flex;
+	    justify-content: center;
+	    align-items: center;
+	    color: rgba(255, 255, 255, .8);
+	    font-size: 32px;
+		background-color: rgba(0, 0, 0, .3);
+		transition: all .1s;
+		opacity: 0;
+	}
+	&:hover {
+		.producto-box-overlay{
+			opacity: 1;
+		}
+	}
+}
