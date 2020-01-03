@@ -10532,15 +10532,16 @@ ul.navbar-top-ul li a.active, ul.navbar-top-ul li a:hover {
   text-decoration: none;
 }
 
-.navbar-fixed {
+.navbar--fixed {
   background-color: rgba(56, 56, 56, 0.84);
+  z-index: 9;
 }
 @media (min-width: 992px) {
-  .navbar-fixed {
+  .navbar--fixed {
     position: absolute;
     top: 0;
     width: 100%;
-    z-index: 1;
+    z-index: 9;
   }
 }
 

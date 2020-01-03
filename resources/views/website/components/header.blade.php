@@ -1,4 +1,4 @@
-<div class="navbar-top-bg {{ isset($navbar_fixed)&&$navbar_fixed==true?'navbar-fixed':'' }}">
+<div class="navbar-top-bg {{ isset($navbar_fixed)&&$navbar_fixed==true?'navbar--fixed':'' }}">
 	<div class="container position-relative">
 		<div class="row pt-3 mb-3">
 			<div class="col d-none d-lg-flex justify-content-start align-items-end">

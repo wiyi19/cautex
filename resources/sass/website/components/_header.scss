@@ -44,13 +44,14 @@ ul.navbar-top-ul {
 		}
 	}
 }
-.navbar-fixed {
+.navbar--fixed {
 	background-color: rgba(56, 56, 56, 0.84);
+	z-index: 9;
 	@include media-breakpoint-up(lg) {
 		position: absolute;
 		top: 0;
 		width: 100%;
-		z-index: 1;
+		z-index: 9;
 	}
 }
 .display-menu-mobile {
