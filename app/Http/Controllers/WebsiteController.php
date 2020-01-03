@@ -17,7 +17,8 @@ use App\Infoempresa;
 use App\Icono;
 use App\Solicitudpre;
 use App\Infomatriceria;
-use App\Producto;
+use App\Bannerempresa;
+use App\Bannermatriceria;
 
 class WebsiteController extends Controller
 {
@@ -62,7 +63,7 @@ class WebsiteController extends Controller
 
 
     public function empresa() {
-        $banner = Banner::get();
+        $banner = Bannerempresa::get();
         $empresa = Empresa::firstOrNew([]);
         $imagenempresa = Imagenempresa::firstOrNew([]);
 
@@ -71,30 +72,6 @@ class WebsiteController extends Controller
             'empresa'       => $empresa,
             'imagenempresa' => $imagenempresa,
             'active'        => 'website.empresa',
-        ]);
-    }
-    public function familias()
-    {
-        $familias = Familia::get();
-        return view('website.familias', [
-            'familias' => $familias,
-            'active'   => 'website.familias',
-        ]);
-    }
-    public function familia($id)
-    {
-        $familia = Familia::find($id);
-        return view('website.familia', [
-            'familia' => $familia,
-            'active'  => 'website.familia',
-        ]);
-    }
-    public function producto($id)
-    {
-        $producto = Producto::find($id);
-        return view('website.producto', [
-            'producto' => $producto,
-            'active'   => 'website.producto',
         ]);
     }
 
@@ -106,7 +83,7 @@ class WebsiteController extends Controller
         ]);
     }
     public function matriceria() {
-        $banner = Banner::get();
+        $banner = Bannermatriceria::get();
         $iconos = Icono::get();
         $textos = Infomatriceria::firstOrNew([]);
         $pie    = Solicitudpre::firstOrNew([]);
