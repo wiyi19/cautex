@@ -121,6 +121,12 @@
                         <textarea class="form-control" id="texto8" name="texto8">{{ old('texto8', isset($textos) ? $textos->texto8 : null) }}</textarea>
                     </div>
                 </div>
+                 <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="texto9">Email donde se envian formularios de Contacto y Presupuesto</label>
+                        <input type="text" class="form-control" id="texto9" name="texto9" value="{{ old('texto9', isset($textos) ? $textos->texto9 : null) }}">
+                    </div>
+                </div>
             </div>
          </div>
         </div>

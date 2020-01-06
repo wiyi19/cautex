@@ -19,7 +19,7 @@
 						<h6 class="m-0 font-weight-bold text-primary">Editar una Información</h6>
 					</div>
 					<!-- Card Body -->
-					@include('adm.matrides.form')
+					@include('adm.empresa.form')
 				</div>
 			</div>
 		</div>
