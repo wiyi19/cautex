@@ -106,7 +106,7 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMatriceria" aria-expanded="true" aria-controls="collapseMatriceria">
-          <i class="fas fa-cogs"></i>
+          <i class="fas fa-dolly-flatbed"></i>
           <span>Matriceria Propia</span>
         </a>
         <div id="collapseMatriceria" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -121,8 +121,8 @@
 
        <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInfoempresa" aria-expanded="true" aria-controls="collapseInfoempresa">
-          <i class="fas fa-edit"></i>
-          <span>Información Empresa</span>
+          <i class="fas fa-cogs"></i>
+          <span>Configuración</span>
         </a>
         <div id="collapseInfoempresa" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">

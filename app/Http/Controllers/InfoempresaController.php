@@ -62,6 +62,7 @@ class InfoempresaController extends Controller
              $item->imagen2 = $request->imagen2->store('public/imagenes/empresa');
         }
         $item->texto8 = $request->texto8;
+        $item->texto9 = $request->texto9;
         $item->save();
         return redirect()->route('adm.infoempresa')->with('success', 'Se actualizo la<strong>Información</strong> con exitó.');
     }
