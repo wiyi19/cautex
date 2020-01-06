@@ -5278,6 +5278,11 @@ readdirp@~3.3.0:
   dependencies:
     picomatch "^2.0.7"
 
+recaptcha-v3@^1.7.2:
+  version "1.7.2"
+  resolved "https://registry.yarnpkg.com/recaptcha-v3/-/recaptcha-v3-1.7.2.tgz#7de77a9e2f2023a8bbffd464773de02fcdc87ea7"
+  integrity sha512-cT5mlRGHg+SX3ARVv792XcjJFJEaoHqC3A/89927sojngKntxZhk7aabwTSIOLXqwF9oO0w5Jl+HOFAh6hKwfQ==
+
 recast@~0.11.12:
   version "0.11.23"
   resolved "https://registry.yarnpkg.com/recast/-/recast-0.11.23.tgz#451fd3004ab1e4df9b4e4b66376b2a21912462d3"
@@ -6420,10 +6425,12 @@ vue-loader@^15.4.2:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
-vue-recaptcha@^1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/vue-recaptcha/-/vue-recaptcha-1.3.0.tgz#e668e54f798c6333057ef38b4425a72f451ce478"
-  integrity sha512-9Qf1niyHq4QbEUhsvdUkS8BoOyhYwpp8v+imUSj67ffDo9RQ6h8Ekq8EGnw/GKViXCwWalp7EEY/n/fOtU0FyA==
+vue-recaptcha-v3@^1.8.0:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/vue-recaptcha-v3/-/vue-recaptcha-v3-1.8.0.tgz#b558895ce31498785a26c805ed871dd6d32b35ed"
+  integrity sha512-fc+K3WIyRvm9hZWiaZWNw/ErpYwTdPNxh6cDPpAzZL37INUoS7G7KzQKM/JAP0nyWX0q4V/iGdCSk2/ZcNFSCw==
+  dependencies:
+    recaptcha-v3 "^1.7.2"
 
 vue-style-loader@^4.1.0:
   version "4.1.2"

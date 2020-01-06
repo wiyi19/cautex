@@ -12,7 +12,9 @@
 					<img src="{{ asset('img/website/icon-calc.png') }}">
 					SOLICITUD DE PRESUPUESTO
 				</a>
-				<img src="{{ asset('img/website/icon-search.png') }}">
+				<a href="{{ route('website.familias') }}" class="btn btn--search">
+					<i class="fas fa-search"></i>
+				</a>
 			</div>
 			<div class="display-menu-mobile d-lg-none">
 				<div class="display-menu-mobile-btn" data-toggle="modal" data-target="#modalNavbarTop"><i class="fas fa-bars"></i> MENU</div>
@@ -45,7 +47,7 @@
 		<div id="navbar-modal-items">
 			<a href="{{ route('website.home') }}" class="navbar-item">HOME</a>
 			<a href="{{ route('website.empresa') }}" class="navbar-item">EMPRESA</a>
-			<a href="" class="navbar-item">PRODUCTOS</a>
+			<a href="{{ route('website.familias') }}" class="navbar-item">PRODUCTOS</a>
 			<a href="{{ route('website.materiales') }}" class="navbar-item">MATERIALES</a>
 			<a href="{{ route('website.matriceria') }}" class="navbar-item">MATRICERIA PROPIA</a>
 			<a href="{{ route('website.contacto') }}" class="navbar-item">CONTACTO</a>

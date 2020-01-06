@@ -91,7 +91,7 @@
 		<div class="home-matrices-container">
 			<div class="home-matrices-texto1">{{ $matrices->texto1 }}</div>
 			<div class="home-matrices-texto2">{{ $matrices->texto2 }}</div>
-			<a href="" class="btn btn-outline-light btn--style-custom">Ingresar</a>
+			<a href="{{ route('website.presupuesto') }}" class="btn btn-outline-light btn--style-custom">Ingresar</a>
 		</div>
 	</div>
 </div>

@@ -10433,14 +10433,25 @@ h3 {
   position: relative;
 }
 
-.carousel-content {
+.carousel-content-center {
   position: absolute;
-  bottom: 40px;
+  top: 0;
+  bottom: 0;
   left: 0;
+  right: 0;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+}
+.carousel-content-center .carousel-content {
+  /*position: absolute;
+  bottom: 40px;
+  left: 0;*/
   width: 100%;
 }
 @media (max-width: 991.98px) {
-  .carousel-content {
+  .carousel-content-center .carousel-content {
     top: 0;
     bottom: 0;
     display: -webkit-box;
@@ -10454,7 +10465,7 @@ h3 {
 
 .carousel-texto-1 {
   background-color: #F07D00;
-  font-size: 20px;
+  font-size: 22px;
   font-family: "Jura", sans-serif;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.7);
@@ -10476,7 +10487,8 @@ h3 {
   font-size: 38px;
   font-family: "Jura", sans-serif;
   color: white;
-  max-width: 50%;
+  max-width: 70%;
+  line-height: 1.3em;
 }
 @media (max-width: 991.98px) {
   .carousel-texto-2 {
@@ -10493,6 +10505,25 @@ h3 {
   background: #383838;
   color: rgba(255, 255, 255, 0.7);
   overflow: hidden;
+}
+
+.btn--search {
+  border: 1px solid #F07D00;
+  border-radius: 100%;
+  height: 37px;
+  width: 37px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  color: #F07D00;
+  font-size: 19px;
+}
+.btn--search:hover {
+  background-color: #F07D00;
+  color: #FFF;
 }
 
 .btn-header-presupuesto {
@@ -10639,7 +10670,7 @@ footer hr {
 }
 footer a {
   color: rgba(255, 255, 255, 0.6);
-  font-weight: 300;
+  font-weight: 400;
 }
 footer a:hover {
   color: rgba(255, 255, 255, 0.6);
@@ -10647,7 +10678,7 @@ footer a:hover {
 
 .footer__title {
   color: #F07D00;
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: 1px;
 }
 
@@ -35454,7 +35485,7 @@ $spacers: map-merge(
   padding-right: 30px;
   border-width: 3px;
   letter-spacing: 2px;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 17px;
 }
 

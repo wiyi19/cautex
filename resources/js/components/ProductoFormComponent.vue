@@ -35,7 +35,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="form-group col-md-12">
-                                <label :for="'texto1'">Texto1</label>
+                                <label :for="'texto1'">Nombre</label>
                                 <input
                                     type="text"
                                     class="form-control"
@@ -47,14 +47,14 @@
                         </div>
                         <div class="row">
                             <div class="form-group col-md-12">
-                                <label :for="'texto2'">Texto2</label>
-                                <input
-                                    type="text"
-                                    class="form-control"
+                                <label :for="'texto2'">Descripción</label>
+                                <textarea
+                                    class="ckeditor"
                                     :id="'texto2'"
                                     :name="'texto2'"
                                     v-model="content.texto2"
                                 >
+                                </textarea>
                             </div>
                         </div>
                         <div class="row">
@@ -168,15 +168,15 @@
                     this.content.lang = Object.keys(response.data.languages)
                     this.loaded       = 1
                 });
+                setTimeout(function(){
+                    var elems = document.querySelectorAll(".ckeditor")
+                    elems.forEach(el => {
+                        CKEDITOR.replace(el.id);
+                    });
+                }.bind(this), 1000)
             });
         },
-        updated: function () {
-            this.$nextTick(function () {
-                /*$('.custom-file-input').on('change', function() { 
-                    let fileName = $(this).val().split('\\').pop(); 
-                    $(this).next('.custom-file-label').addClass("selected").html(fileName); 
-                });*/
-            })
+        mounted: function () {
         },
         methods: {
             postForm() {

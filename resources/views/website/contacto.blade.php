@@ -32,7 +32,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-md-8"><form-contacto></form-contacto></div>
+		<div class="col-md-8"><form-contacto url-action="{{ route('website.contacto') }}"></form-contacto></div>
 	</div>
 </div>
 @endsection

@@ -2181,16 +2181,15 @@ var publicPATH = document.head.querySelector('meta[name="public-path"]').content
         _this.content.lang = Object.keys(response.data.languages);
         _this.loaded = 1;
       });
+      setTimeout(function () {
+        var elems = document.querySelectorAll(".ckeditor");
+        elems.forEach(function (el) {
+          CKEDITOR.replace(el.id);
+        });
+      }.bind(_this), 1000);
     });
   },
-  updated: function updated() {
-    this.$nextTick(function () {
-      /*$('.custom-file-input').on('change', function() { 
-          let fileName = $(this).val().split('\\').pop(); 
-          $(this).next('.custom-file-label').addClass("selected").html(fileName); 
-      });*/
-    });
-  },
+  mounted: function mounted() {},
   methods: {
     postForm: function postForm() {
       var _this2 = this;
@@ -42817,7 +42816,7 @@ var render = function() {
                     _c("div", { staticClass: "row" }, [
                       _c("div", { staticClass: "form-group col-md-12" }, [
                         _c("label", { attrs: { for: "texto1" } }, [
-                          _vm._v("Texto1")
+                          _vm._v("Nombre")
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -42851,10 +42850,10 @@ var render = function() {
                     _c("div", { staticClass: "row" }, [
                       _c("div", { staticClass: "form-group col-md-12" }, [
                         _c("label", { attrs: { for: "texto2" } }, [
-                          _vm._v("Texto2")
+                          _vm._v("Descripción")
                         ]),
                         _vm._v(" "),
-                        _c("input", {
+                        _c("textarea", {
                           directives: [
                             {
                               name: "model",
@@ -42863,8 +42862,8 @@ var render = function() {
                               expression: "content.texto2"
                             }
                           ],
-                          staticClass: "form-control",
-                          attrs: { type: "text", id: "texto2", name: "texto2" },
+                          staticClass: "ckeditor",
+                          attrs: { id: "texto2", name: "texto2" },
                           domProps: { value: _vm.content.texto2 },
                           on: {
                             input: function($event) {

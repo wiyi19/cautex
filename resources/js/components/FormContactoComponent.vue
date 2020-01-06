@@ -10,6 +10,7 @@
                         :id="nombre"
                         :name="nombre"
                         v-model="nombre"
+                        :disabled="disabledForm"
                     >
                 </div>
                 <div class="form-group col-md-6">
@@ -20,6 +21,7 @@
                         :id="empresa"
                         :name="empresa"
                         v-model="empresa"
+                        :disabled="disabledForm"
                     >
                 </div>
             </div>
@@ -32,6 +34,7 @@
                         :id="telefono"
                         :name="telefono"
                         v-model="telefono"
+                        :disabled="disabledForm"
                     >
                 </div>
                 <div class="form-group col-md-6">
@@ -42,6 +45,7 @@
                         :id="email"
                         :name="email"
                         v-model="email"
+                        :disabled="disabledForm"
                     >
                 </div>
             </div>
@@ -53,6 +57,7 @@
                         :id="consulta"
                         :name="consulta"
                         v-model="consulta"
+                        :disabled="disabledForm"
                         rows="5"
                     ></textarea>
                 </div>
@@ -67,14 +72,15 @@
                         v-model.number="accept_conditions"
                         class="custom-control-input"
                         id="customCheck1"
+                        :disabled="disabledForm"
                         >
                         <label class="custom-control-label" for="customCheck1">Acepto los términos y condiciones de privacidad</label>
                     </div>
                 </div>
-                <div class="col-md-4 d-flex align-items-end justify-content-end">
-                    <vue-recaptcha sitekey="6LctaZkUAAAAAHIb3UhjrSgDNxtVa_ye3Ut1UwWY">
-                        <button class="btn btn--outline-orange btn--style-custom">Enviar</button>
-                    </vue-recaptcha>
+                <div class="col-md-4 d-flex align-items-end justify-content-end" v-if="accept_conditions == 1">
+                    <button class="btn btn--outline-orange btn--style-custom" v-if="saving == 0" @click="recaptcha">Enviar</button>
+                    <div class="btn-message" v-if="saving == 1"><i class="fas fa-spinner fa-pulse"></i> Guardando</div>
+                    <div class="btn-message btn-message--success" v-if="saving == 2"><i class="fas fa-check"></i> Enviado con éxito</div>
                 </div>
             </div>
         </div>
@@ -83,7 +89,7 @@
 
 <script>
     var publicPATH = document.head.querySelector('meta[name="public-path"]').content;
-    import VueRecaptcha from 'vue-recaptcha';
+
     export default {
         props: {
             urlData: '',
@@ -91,22 +97,19 @@
             urlAction: '',
             formName: '',
         },
-        components: {
-            VueRecaptcha
-        },
+        components: {},
         data(){
             return{
                 publicPATH: publicPATH,
-                step: 1,
-                step1: 'orange',
-                step2: 'orange',
                 nombre: '',
                 empresa: '',
                 telefono: '',
-                direccion: '',
                 email: '',
                 consulta: '',
+                recaptcha_token: '',
                 accept_conditions: 0,
+                saving: 0,
+                disabledForm: false
             }
         },
         created() {
@@ -117,64 +120,34 @@
             })
         },
         methods: {
-            goStep2() {
-                this.step1 = 'gray'
-                this.step = 2
+            async recaptcha() {
+                this.saving = 1
+                this.disabledForm = true
+                try {
+                    // (optional) Wait until recaptcha has been loaded.
+                    await this.$recaptchaLoaded()
+
+                    // Execute reCAPTCHA with action "login".
+                    const token = await this.$recaptcha('login')
+                    this.recaptcha_token = token
+                } catch(e) {
+                    this.saving = 0
+                }
+                this.postForm()
             },
             postForm() {
-                this.loaded = 2
+                console.log(this.recaptcha_token)
                 var form = new FormData();
-                if (this.content.imagenes.length) {
-                    this.content.imagenes.forEach(function(file, index){
-                        if (file && file instanceof File) {
-                            form.append('imagenes['+index+']', file);
-                        }
-                        if (typeof file === 'string' || file instanceof String) {
-                            form.append('imagenes['+index+']', file);
-                        }
-                        if (typeof file === 'object' || file instanceof Object) {
-                            form.append('imagenes['+index+']', file.path);
-                        }
-                    })
-                }
-                if (this.content.imagen) {
-                    if (this.content.imagen instanceof File) {
-                        form.append('imagen', this.content.imagen);
-                    }
-                    if (this.content.imagen instanceof Object && this.content.imagen.remove) {
-                        form.append('imagen', '--remove--');
-                    }
-                }
-                // medidas
-                if (this.content.medidas.length) {
-                    this.content.medidas.forEach(function(presentacion, pindex){
-                        form.append('medidas['+pindex+'][titulo]', presentacion.titulo);
-                        if (presentacion.elementos.length) {
-                            presentacion.elementos.forEach(function(medida, mindex){
-                                form.append('medidas['+pindex+'][elementos]['+mindex+'][texto]', medida.texto);
-                                if (medida.imagen && medida.imagen instanceof File) {
-                                    form.append('medidas['+pindex+'][elementos]['+mindex+'][imagen]', medida.imagen);
-                                }
-                                if (typeof medida.imagen === 'string' || medida.imagen instanceof String) {
-                                    form.append('medidas['+pindex+'][elementos]['+mindex+'][imagen]', medida.imagen);
-                                }
-                                if (typeof medida.imagen === 'object' || medida.imagen instanceof Object) {
-                                    form.append('medidas['+pindex+'][elementos]['+mindex+'][imagen]', medida.imagen.path);
-                                }
-                            })
-                        }
-                    })
-                }
-                // end medidas
-                form.append('orden',      this.content.orden);
-                form.append('texto1',     this.content.texto1);
-                form.append('texto2',     this.content.texto2);
-                form.append('familia_id', this.content.familia_id);
+                form.append('nombre',          this.nombre);
+                form.append('empresa',         this.empresa);
+                form.append('telefono',        this.telefono);
+                form.append('email',           this.email);
+                form.append('consulta',        this.consulta);
+                form.append('recaptcha_token', this.recaptcha_token);
                 axios.post(this.urlAction, form).then((response) => {
-                    this.loaded = 3
+                    this.saving = 2
                     setTimeout(function(){
-                        //this.loaded = 1
-                       window.location.href = this.urlBack
+                       // window.location.href = this.urlBack
                     }.bind(this), 1000)
                 })
                 //this.loaded = 1
@@ -222,6 +195,25 @@ $theme-orange: #F07D00;
     color: $theme-gray;
     &.color--orange {
         color: $theme-orange;
+    }
+}
+.btn-message {
+    padding: 6px 30px;
+    border: 3px solid #CCC;
+    border-radius: 100px;
+    color: #CCC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    white-space: nowrap;
+    i {
+        margin-right: 10px;
+        font-size: 23px;
+    }
+    &.btn-message--success {
+        border-color: #28a745;
+        color: #28a745;
     }
 }
 </style>

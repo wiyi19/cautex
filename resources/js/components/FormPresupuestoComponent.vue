@@ -114,9 +114,7 @@
                     </div>
                 </div>
                 <div class="col-md-4 d-flex align-items-end justify-content-end">
-                    <vue-recaptcha sitekey="6LctaZkUAAAAAHIb3UhjrSgDNxtVa_ye3Ut1UwWY">
                         <button class="btn btn--outline-orange btn--style-custom">Enviar</button>
-                    </vue-recaptcha>
                 </div>
             </div>
         </div>
@@ -126,7 +124,6 @@
 
 <script>
     var publicPATH = document.head.querySelector('meta[name="public-path"]').content;
-    import VueRecaptcha from 'vue-recaptcha';
     export default {
         props: {
             urlData: '',
@@ -134,9 +131,7 @@
             urlAction: '',
             formName: '',
         },
-        components: {
-            VueRecaptcha
-        },
+        components: {},
         data(){
             return{
                 publicPATH: publicPATH,
