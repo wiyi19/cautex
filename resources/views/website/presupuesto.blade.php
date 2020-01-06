@@ -6,6 +6,6 @@
 
 @section('content')
 <div class="container">
-	<form-presupuesto class="my-5"></form-presupuesto>
+	<form-presupuesto class="my-5" url-action="{{ route('website.presupuesto') }}"></form-presupuesto>
 </div>
 @endsection

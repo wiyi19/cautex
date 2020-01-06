@@ -79,7 +79,7 @@
                 </div>
                 <div class="col-md-4 d-flex align-items-end justify-content-end" v-if="accept_conditions == 1">
                     <button class="btn btn--outline-orange btn--style-custom" v-if="saving == 0" @click="recaptcha">Enviar</button>
-                    <div class="btn-message" v-if="saving == 1"><i class="fas fa-spinner fa-pulse"></i> Guardando</div>
+                    <div class="btn-message" v-if="saving == 1"><i class="fas fa-spinner fa-pulse"></i> Enviando</div>
                     <div class="btn-message btn-message--success" v-if="saving == 2"><i class="fas fa-check"></i> Enviado con éxito</div>
                 </div>
             </div>
@@ -195,25 +195,6 @@ $theme-orange: #F07D00;
     color: $theme-gray;
     &.color--orange {
         color: $theme-orange;
-    }
-}
-.btn-message {
-    padding: 6px 30px;
-    border: 3px solid #CCC;
-    border-radius: 100px;
-    color: #CCC;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 16px;
-    white-space: nowrap;
-    i {
-        margin-right: 10px;
-        font-size: 23px;
-    }
-    &.btn-message--success {
-        border-color: #28a745;
-        color: #28a745;
     }
 }
 </style>

@@ -35508,3 +35508,26 @@ $spacers: map-merge(
   background-color: #bd6200;
   color: #FFF;
 }
+
+.btn-message {
+  padding: 6px 30px;
+  border: 3px solid #CCC;
+  border-radius: 100px;
+  color: #CCC;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  font-size: 16px;
+  white-space: nowrap;
+}
+.btn-message i {
+  margin-right: 10px;
+  font-size: 23px;
+}
+.btn-message.btn-message--success {
+  border-color: #28a745;
+  color: #28a745;
+}

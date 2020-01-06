@@ -2062,8 +2062,18 @@ var publicPATH = document.head.querySelector('meta[name="public-path"]').content
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2209,7 +2219,10 @@ var publicPATH = document.head.querySelector('meta[name="public-path"]').content
       direccion: '',
       email: '',
       consulta: '',
-      accept_conditions: 0
+      recaptcha_token: '',
+      accept_conditions: 0,
+      saving: 0,
+      disabledForm: false
     };
   },
   created: function created() {
@@ -2223,73 +2236,58 @@ var publicPATH = document.head.querySelector('meta[name="public-path"]').content
       this.step1 = 'gray';
       this.step = 2;
     },
+    recaptcha: function recaptcha() {
+      var token;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function recaptcha$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              this.saving = 1;
+              this.disabledForm = true;
+              _context.prev = 2;
+              _context.next = 5;
+              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(this.$recaptchaLoaded());
+
+            case 5:
+              _context.next = 7;
+              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(this.$recaptcha('login'));
+
+            case 7:
+              token = _context.sent;
+              this.recaptcha_token = token;
+              _context.next = 14;
+              break;
+
+            case 11:
+              _context.prev = 11;
+              _context.t0 = _context["catch"](2);
+              this.saving = 0;
+
+            case 14:
+              this.postForm();
+
+            case 15:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, null, this, [[2, 11]]);
+    },
     postForm: function postForm() {
       var _this = this;
 
-      this.loaded = 2;
+      console.log(this.recaptcha_token);
       var form = new FormData();
-
-      if (this.content.imagenes.length) {
-        this.content.imagenes.forEach(function (file, index) {
-          if (file && file instanceof File) {
-            form.append('imagenes[' + index + ']', file);
-          }
-
-          if (typeof file === 'string' || file instanceof String) {
-            form.append('imagenes[' + index + ']', file);
-          }
-
-          if (_typeof(file) === 'object' || file instanceof Object) {
-            form.append('imagenes[' + index + ']', file.path);
-          }
-        });
-      }
-
-      if (this.content.imagen) {
-        if (this.content.imagen instanceof File) {
-          form.append('imagen', this.content.imagen);
-        }
-
-        if (this.content.imagen instanceof Object && this.content.imagen.remove) {
-          form.append('imagen', '--remove--');
-        }
-      } // medidas
-
-
-      if (this.content.medidas.length) {
-        this.content.medidas.forEach(function (presentacion, pindex) {
-          form.append('medidas[' + pindex + '][titulo]', presentacion.titulo);
-
-          if (presentacion.elementos.length) {
-            presentacion.elementos.forEach(function (medida, mindex) {
-              form.append('medidas[' + pindex + '][elementos][' + mindex + '][texto]', medida.texto);
-
-              if (medida.imagen && medida.imagen instanceof File) {
-                form.append('medidas[' + pindex + '][elementos][' + mindex + '][imagen]', medida.imagen);
-              }
-
-              if (typeof medida.imagen === 'string' || medida.imagen instanceof String) {
-                form.append('medidas[' + pindex + '][elementos][' + mindex + '][imagen]', medida.imagen);
-              }
-
-              if (_typeof(medida.imagen) === 'object' || medida.imagen instanceof Object) {
-                form.append('medidas[' + pindex + '][elementos][' + mindex + '][imagen]', medida.imagen.path);
-              }
-            });
-          }
-        });
-      } // end medidas
-
-
-      form.append('orden', this.content.orden);
-      form.append('texto1', this.content.texto1);
-      form.append('texto2', this.content.texto2);
-      form.append('familia_id', this.content.familia_id);
+      form.append('nombre', this.nombre);
+      form.append('empresa', this.empresa);
+      form.append('telefono', this.telefono);
+      form.append('direccion', this.direccion);
+      form.append('email', this.email);
+      form.append('consulta', this.consulta);
+      form.append('recaptcha_token', this.recaptcha_token);
       axios.post(this.urlAction, form).then(function (response) {
-        _this.loaded = 3;
-        setTimeout(function () {
-          //this.loaded = 1
-          window.location.href = this.urlBack;
+        _this.saving = 2;
+        setTimeout(function () {// window.location.href = this.urlBack
         }.bind(_this), 1000);
       }); //this.loaded = 1
     }
@@ -6841,7 +6839,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".presupuesto-title[data-v-13d3c2af] {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n}\n.presupuesto-title .presupuesto-title__image[data-v-13d3c2af] {\n  border-radius: 100%;\n  border: 4px solid #575656;\n  width: 100px;\n  height: 100px;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n  background-color: #fff;\n}\n.presupuesto-title .presupuesto-title__image.color--orange[data-v-13d3c2af] {\n  border: 4px solid #F07D00;\n}\n.presupuesto-title .presupuesto-title__image img[data-v-13d3c2af] {\n  max-width: 55px;\n  max-height: 55px;\n}\n.presupuesto-title hr[data-v-13d3c2af] {\n  border-bottom: 4px solid #575656;\n  -webkit-box-flex: 1;\n          flex: 1;\n}\n.presupuesto-title hr.color--orange[data-v-13d3c2af] {\n  border-bottom: 4px solid #F07D00;\n}\n.presupuesto-title__text[data-v-13d3c2af] {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  font-weight: 700;\n  font-size: 25px;\n  color: #575656;\n}\n.presupuesto-title__text.color--orange[data-v-13d3c2af] {\n  color: #F07D00;\n}\n.btn-message[data-v-13d3c2af] {\n  padding: 6px 30px;\n  border: 3px solid #CCC;\n  border-radius: 100px;\n  color: #CCC;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n  font-size: 16px;\n  white-space: nowrap;\n}\n.btn-message i[data-v-13d3c2af] {\n  margin-right: 10px;\n  font-size: 23px;\n}\n.btn-message.btn-message--success[data-v-13d3c2af] {\n  border-color: #28a745;\n  color: #28a745;\n}", ""]);
+exports.push([module.i, ".presupuesto-title[data-v-13d3c2af] {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n}\n.presupuesto-title .presupuesto-title__image[data-v-13d3c2af] {\n  border-radius: 100%;\n  border: 4px solid #575656;\n  width: 100px;\n  height: 100px;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n  background-color: #fff;\n}\n.presupuesto-title .presupuesto-title__image.color--orange[data-v-13d3c2af] {\n  border: 4px solid #F07D00;\n}\n.presupuesto-title .presupuesto-title__image img[data-v-13d3c2af] {\n  max-width: 55px;\n  max-height: 55px;\n}\n.presupuesto-title hr[data-v-13d3c2af] {\n  border-bottom: 4px solid #575656;\n  -webkit-box-flex: 1;\n          flex: 1;\n}\n.presupuesto-title hr.color--orange[data-v-13d3c2af] {\n  border-bottom: 4px solid #F07D00;\n}\n.presupuesto-title__text[data-v-13d3c2af] {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  font-weight: 700;\n  font-size: 25px;\n  color: #575656;\n}\n.presupuesto-title__text.color--orange[data-v-13d3c2af] {\n  color: #F07D00;\n}", ""]);
 
 // exports
 
@@ -39592,7 +39590,7 @@ var render = function() {
                 _vm.saving == 1
                   ? _c("div", { staticClass: "btn-message" }, [
                       _c("i", { staticClass: "fas fa-spinner fa-pulse" }),
-                      _vm._v(" Guardando")
+                      _vm._v(" Enviando")
                     ])
                   : _vm._e(),
                 _vm._v(" "),
@@ -39678,7 +39676,12 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: { type: "text", id: _vm.nombre, name: _vm.nombre },
+              attrs: {
+                type: "text",
+                id: _vm.nombre,
+                name: _vm.nombre,
+                disabled: _vm.disabledForm
+              },
               domProps: { value: _vm.nombre },
               on: {
                 input: function($event) {
@@ -39704,7 +39707,12 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: { type: "text", id: _vm.empresa, name: _vm.empresa },
+              attrs: {
+                type: "text",
+                id: _vm.empresa,
+                name: _vm.empresa,
+                disabled: _vm.disabledForm
+              },
               domProps: { value: _vm.empresa },
               on: {
                 input: function($event) {
@@ -39732,7 +39740,12 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: { type: "text", id: _vm.telefono, name: _vm.telefono },
+              attrs: {
+                type: "text",
+                id: _vm.telefono,
+                name: _vm.telefono,
+                disabled: _vm.disabledForm
+              },
               domProps: { value: _vm.telefono },
               on: {
                 input: function($event) {
@@ -39760,7 +39773,12 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: { type: "text", id: _vm.direccion, name: _vm.direccion },
+              attrs: {
+                type: "text",
+                id: _vm.direccion,
+                name: _vm.direccion,
+                disabled: _vm.disabledForm
+              },
               domProps: { value: _vm.direccion },
               on: {
                 input: function($event) {
@@ -39788,7 +39806,12 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: { type: "text", id: _vm.email, name: _vm.email },
+              attrs: {
+                type: "text",
+                id: _vm.email,
+                name: _vm.email,
+                disabled: _vm.disabledForm
+              },
               domProps: { value: _vm.email },
               on: {
                 input: function($event) {
@@ -39879,7 +39902,12 @@ var render = function() {
                     }
                   ],
                   staticClass: "form-control",
-                  attrs: { id: _vm.consulta, name: _vm.consulta, rows: "5" },
+                  attrs: {
+                    id: _vm.consulta,
+                    name: _vm.consulta,
+                    rows: "5",
+                    disabled: _vm.disabledForm
+                  },
                   domProps: { value: _vm.consulta },
                   on: {
                     input: function($event) {
@@ -39911,7 +39939,8 @@ var render = function() {
                       type: "checkbox",
                       "true-value": 1,
                       "false-value": 0,
-                      id: "customCheck1"
+                      id: "customCheck1",
+                      disabled: _vm.disabledForm
                     },
                     domProps: {
                       checked: Array.isArray(_vm.accept_conditions)
@@ -39953,31 +39982,53 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _vm._m(0)
+              _vm.accept_conditions == 1
+                ? _c(
+                    "div",
+                    {
+                      staticClass:
+                        "col-md-4 d-flex align-items-end justify-content-end"
+                    },
+                    [
+                      _vm.saving == 0
+                        ? _c(
+                            "button",
+                            {
+                              staticClass:
+                                "btn btn--outline-orange btn--style-custom",
+                              on: { click: _vm.recaptcha }
+                            },
+                            [_vm._v("Enviar")]
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.saving == 1
+                        ? _c("div", { staticClass: "btn-message" }, [
+                            _c("i", { staticClass: "fas fa-spinner fa-pulse" }),
+                            _vm._v(" Enviando")
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.saving == 2
+                        ? _c(
+                            "div",
+                            { staticClass: "btn-message btn-message--success" },
+                            [
+                              _c("i", { staticClass: "fas fa-check" }),
+                              _vm._v(" Enviado con éxito")
+                            ]
+                          )
+                        : _vm._e()
+                    ]
+                  )
+                : _vm._e()
             ])
           ])
         ])
       : _vm._e()
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "col-md-4 d-flex align-items-end justify-content-end" },
-      [
-        _c(
-          "button",
-          { staticClass: "btn btn--outline-orange btn--style-custom" },
-          [_vm._v("Enviar")]
-        )
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

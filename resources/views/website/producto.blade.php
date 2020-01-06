@@ -41,17 +41,21 @@
 				</div>
 			</div>
 			<div class="row">
-				@foreach ($producto->medidas as $presentacion)
-				<div class="col-md-12 producto-presentacion mt-5">
-					{{ $presentacion['titulo'] }}
-				</div>
-					@foreach ($presentacion['elementos'] as $medida)
-					<div class="col-md-4" style="background-color: {{ $loop->odd?'#F7F7F7':'#DBDBDB' }}">
-						{{ $medida['texto'] }}
-						<img src="{{ asset(Storage::url($medida['imagen'])) }}">
+				@if (is_array($producto->medidas))
+					@foreach ($producto->medidas as $presentacion)
+					<div class="col-md-12 producto-presentacion mt-5">
+						{{ $presentacion['titulo'] }}
 					</div>
+						@if (is_array($presentacion['elementos']))
+							@foreach ($presentacion['elementos'] as $medida)
+							<div class="col-md-4" style="background-color: {{ $loop->odd?'#F7F7F7':'#DBDBDB' }}">
+								{{ $medida['texto'] }}
+								<img src="{{ asset(Storage::url($medida['imagen'])) }}">
+							</div>
+							@endforeach
+						@endif
 					@endforeach
-				@endforeach
+				@endif
 			</div>
 		</div>
 	</div>

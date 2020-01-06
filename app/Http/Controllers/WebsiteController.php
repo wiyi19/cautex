@@ -23,6 +23,7 @@ use App\Producto;
 
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendMailContacto;
+use App\Mail\SendMailPresupuesto;
 
 class WebsiteController extends Controller
 {
@@ -141,8 +142,17 @@ class WebsiteController extends Controller
             'active' => 'website.presupuesto',
         ]);
     }
-    public function presupuestoStore() {
-        return true;
+    public function presupuestoStore(Request $request) {
+        $secret = '6LctaZkUAAAAAMujRm0fydSY4M-21cYS2Pv4Ik89';
+        $response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$secret."&response=".$request->recaptcha_token."&remoteip=".$_SERVER['REMOTE_ADDR']);
+        $g_response = json_decode($response);
+
+        if($g_response->success==true) {
+            Mail::to('alfonzodiez@gmail.com')->send(new SendMailPresupuesto($request->all()));
+            return ['status' => 'send'];
+        }else{
+            return ['status' => 'error'];
+        }
     }
     public function contacto() {
         return view('website.contacto', [
