@@ -102,6 +102,24 @@ class WebsiteController extends Controller
             'active'      => 'website.familias',
         ]);
     }
+    public function search()
+    {
+        $familias = Familia::with('productos')->get();
+        // No repito busqueda en la base de datos, si no que se hace un filter a la coleccion obtenida arriba
+        $search = request()->has('q')?request()->q:'no';
+        $productos = Producto::where(function ($query) use ($search) {
+            $query->orWhere('texto1', 'like', '%'.$search.'%');
+            $query->orWhere('texto2', 'like', '%'.$search.'%');
+        })->get();
+        return view('website.search', [
+            'producto_id' => '$producto_id',
+            'familia_id'  => 0,
+            'familias'    => $familias,
+            'productos'   => $productos,
+            'search'      => $search,
+            'active'      => 'website.familias',
+        ]);
+    }
     public function producto($producto_id)
     {
         $familias = Familia::with('productos')->get();

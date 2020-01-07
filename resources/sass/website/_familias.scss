@@ -1,3 +1,36 @@
+.form-search {
+	display: flex;
+	font-size: 16px;
+	.form-search__icon {
+		border: 2px solid #F8F4F7;
+		padding: 8px 5px 8px 20px;
+		border-top-left-radius: 100px;
+		border-bottom-left-radius: 100px;
+		border-right: none;
+		background-color: #FFFFFF;
+		color: #d4d1d1;
+	}
+	input {
+		border: 2px solid #F8F4F7;
+		padding: 8px 5px 8px 5px;
+		border-right: none;
+		border-left: none;
+		flex: 1;
+		background-color: #FFFFFF;
+		outline: none;
+	}
+	button {
+		outline: none;
+		border: 2px solid #F8F4F7;
+		padding: 8px 20px 8px 15px;
+		border-left: none;
+		border-top-right-radius: 100px;
+		border-bottom-right-radius: 100px;
+		color: white;
+		background-color: #F07D00;
+		text-decoration: none;
+	}
+}
 .producto-box{
 	position: relative;
 	background-size: cover;

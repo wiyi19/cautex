@@ -16,8 +16,9 @@ Route::get('/', 'WebsiteController@home')->name('website.home');
 Route::get('/empresa', 'WebsiteController@empresa')->name('website.empresa');
 
 Route::get('/productos', 'WebsiteController@familias')->name('website.familias');
-Route::get('/productos/{id}', 'WebsiteController@familia')->name('website.familia');
+Route::get('/productos/{id?}', 'WebsiteController@familia')->name('website.familia');
 Route::get('/producto/{id}', 'WebsiteController@producto')->name('website.producto');
+Route::get('/busqueda', 'WebsiteController@search')->name('website.search');
 
 Route::get('/presupuesto', 'WebsiteController@presupuesto')->name('website.presupuesto');
 Route::post('/presupuesto', 'WebsiteController@presupuestoStore');

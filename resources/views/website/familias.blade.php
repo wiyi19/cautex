@@ -6,7 +6,16 @@
 
 @section('content')
 <div class="container">
-	<div class="row my-5">
+	<div class="row mt-5 mb-2 d-flex justify-content-center">
+		<form class="form-search col-md-12 col-lg-6" action="{{ route('website.search') }}">
+			<div class="form-search__icon">
+				<i class="fas fa-search"></i>
+			</div>
+			<input type="text" class="" id="" name="q">
+			<button type="submit" class="">Submit</button>
+		</form>
+	</div>
+	<div class="row mb-5">
 		@foreach ($familias as $item)
 		<div class="col-md-4 p-0">
 			<a href="{{ route('website.familia', $item->id) }}" class="producto-box" style="background-image: url({{ asset(Storage::url($item->imagen)) }});">

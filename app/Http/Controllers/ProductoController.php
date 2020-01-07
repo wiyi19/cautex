@@ -172,6 +172,19 @@ class ProductoController extends Controller
                             'type' => Storage::mimeType($value)
                         ];
                     }
+                } elseif($key == 'medidas') {
+                    //$content[$key] = json_decode($value, $assoc_array = true);
+                    foreach (json_decode($value, $assoc_array = true) as $pkey => $presentacion) {
+                        $content[$key][$pkey]['titulo'] = $presentacion['titulo'];
+                        foreach ($presentacion['elementos'] as $mkey => $medida) {
+                            $content[$key][$pkey]['elementos'][$mkey]['texto'] = $medida['texto'];
+                            $content[$key][$pkey]['elementos'][$mkey]['imagen'] = [
+                                'url'  => asset(Storage::url($medida['imagen'])),
+                                'path' => $medida['imagen'],
+                                'type' => Storage::mimeType($medida['imagen'])
+                            ];
+                        }
+                    }
                 } else {
                     $content[$key] = $value;
                 }
