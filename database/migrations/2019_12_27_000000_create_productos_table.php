@@ -22,6 +22,7 @@ class CreateProductosTable extends Migration
             $table->json('imagenes')->nullable();
             $table->json('medidas')->nullable();
             $table->bigInteger('familia_id', false, true)->nullable();
+            $table->string('medidas_img')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
