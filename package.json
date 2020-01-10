@@ -29,6 +29,7 @@
         "select2": "^4.0.8",
         "sweetalert2": "^8.15.2",
         "vee-validate": "^2.2.13",
+        "vue-ckeditor2": "^2.1.5",
         "vue-recaptcha-v3": "^1.8.0",
         "vuedraggable": "^2.21.0"
     }

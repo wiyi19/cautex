@@ -74,6 +74,16 @@ class ProductoController extends Controller
                 $item->imagen = $path;
             }
         }
+        if($request->medidas_img != null){
+            if(is_string($request->medidas_img)) {
+                if ($request->medidas_img == '--remove--') {
+                    $item->medidas_img = null;
+                }
+            } else {
+                $path = $request->medidas_img->store('public/productos/medidas_img/');
+                $item->medidas_img = $path;
+            }
+        }
         if($request->medidas != null){
             $medidas = [];
             foreach ($request->medidas as $pindex => $presentacion) {
@@ -172,17 +182,28 @@ class ProductoController extends Controller
                             'type' => Storage::mimeType($value)
                         ];
                     }
+                } elseif($key == 'medidas_img') {
+                    if($value != null && $value != '') {
+                        $content[$key] = [
+                            'url'  => asset(Storage::url($value)),
+                            'path' => $value,
+                            'type' => Storage::mimeType($value)
+                        ];
+                    }
                 } elseif($key == 'medidas') {
                     //$content[$key] = json_decode($value, $assoc_array = true);
-                    foreach (json_decode($value, $assoc_array = true) as $pkey => $presentacion) {
-                        $content[$key][$pkey]['titulo'] = $presentacion['titulo'];
-                        foreach ($presentacion['elementos'] as $mkey => $medida) {
-                            $content[$key][$pkey]['elementos'][$mkey]['texto'] = $medida['texto'];
-                            $content[$key][$pkey]['elementos'][$mkey]['imagen'] = [
-                                'url'  => asset(Storage::url($medida['imagen'])),
-                                'path' => $medida['imagen'],
-                                'type' => Storage::mimeType($medida['imagen'])
-                            ];
+                    $presentaciones = json_decode($value, $assoc_array = true);
+                    if (is_array($presentaciones)) {
+                        foreach ($presentaciones as $pkey => $presentacion) {
+                            $content[$key][$pkey]['titulo'] = $presentacion['titulo'];
+                            foreach ($presentacion['elementos'] as $mkey => $medida) {
+                                $content[$key][$pkey]['elementos'][$mkey]['texto'] = $medida['texto'];
+                                $content[$key][$pkey]['elementos'][$mkey]['imagen'] = [
+                                    'url'  => asset(Storage::url($medida['imagen'])),
+                                    'path' => $medida['imagen'],
+                                    'type' => Storage::mimeType($medida['imagen'])
+                                ];
+                            }
                         }
                     }
                 } else {

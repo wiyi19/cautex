@@ -48,13 +48,9 @@
                         <div class="row">
                             <div class="form-group col-md-12">
                                 <label :for="'texto2'">Descripción</label>
-                                <textarea
-                                    class="ckeditor"
-                                    :id="'texto2'"
-                                    :name="'texto2'"
-                                    v-model="content.texto2"
-                                >
-                                </textarea>
+                                <vue-ckeditor 
+                                  v-model="content.texto2" 
+                                  :config="ckconfig" />
                             </div>
                         </div>
                         <div class="row">
@@ -72,8 +68,8 @@
                                 </select>
                             </div>
                         </div>
-                        <input-file-image label="Fotos miniatura caja (Alto 200px)" :model.sync="content.imagen" class="mt-3"></input-file-image>
                         <custom-gallery label="Fotos del Producto" :model.sync="content.imagenes" class="mt-3"></custom-gallery>
+                        <input-file-image label="Imagen con medidas" :model.sync="content.medidas_img" class="mt-3"></input-file-image>
                         <fieldset>
                             <legend>Medidas</legend>
                             <fieldset v-for="(presentacion, index) in content.medidas" class="pb-5">
@@ -118,6 +114,7 @@
     import InputFileImage from '../hard/InputFileImageComponent';
     import InputFileImageCard from './InputFileImageCardComponent';
     import fichas from '../hard/FichaComponent'
+    import VueCkeditor from 'vue-ckeditor2';
 
     var publicPATH = document.head.querySelector('meta[name="public-path"]').content;
     export default {
@@ -131,17 +128,38 @@
             'custom-gallery': CustomGallery,
             'input-file-image': InputFileImage,
             'input-file-image-card': InputFileImageCard,
-            fichas
+            fichas,
+            VueCkeditor
         },
         data(){
             return{
                 config: {},
+                ckconfig: {
+                    toolbar: [
+                        { name: 'document', items: [ 'Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates' ] },
+                        { name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ] },
+                        { name: 'editing', items: [ 'Find', 'Replace', '-', 'SelectAll', '-', 'Scayt' ] },
+                        { name: 'forms', items: [ 'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField' ] },
+                        '/',
+                        { name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'CopyFormatting', 'RemoveFormat' ] },
+                        { name: 'paragraph', items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl', 'Language' ] },
+                        { name: 'links', items: [ 'Link', 'Unlink', 'Anchor' ] },
+                        { name: 'insert', items: [ 'Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe' ] },
+                        '/',
+                        { name: 'styles', items: [ 'Styles', 'Format', 'Font', 'FontSize' ] },
+                        { name: 'colors', items: [ 'TextColor', 'BGColor' ] },
+                        { name: 'tools', items: [ 'Maximize', 'ShowBlocks' ] },
+                        { name: 'about', items: [ 'About' ] }
+                    ],
+                    height: 300
+                },
                 content: {
                     lang: [],
                     orden: '',
                     texto1: '',
                     texto2: '',
                     imagen: '',
+                    medidas_img: '',
                     imagenes: [],
                     medidas: [],
                     familia_id: '',
@@ -168,12 +186,6 @@
                     this.content.lang = Object.keys(response.data.languages)
                     this.loaded       = 1
                 });
-                setTimeout(function(){
-                    var elems = document.querySelectorAll(".ckeditor")
-                    elems.forEach(el => {
-                        CKEDITOR.replace(el.id);
-                    });
-                }.bind(this), 1000)
             });
         },
         mounted: function () {
@@ -201,6 +213,14 @@
                     }
                     if (this.content.imagen instanceof Object && this.content.imagen.remove) {
                         form.append('imagen', '--remove--');
+                    }
+                }
+                if (this.content.medidas_img) {
+                    if (this.content.medidas_img instanceof File) {
+                        form.append('medidas_img', this.content.medidas_img);
+                    }
+                    if (this.content.medidas_img instanceof Object && this.content.medidas_img.remove) {
+                        form.append('medidas_img', '--remove--');
                     }
                 }
                 // medidas
