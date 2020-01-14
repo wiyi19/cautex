@@ -56,6 +56,7 @@ class BannermatriceriaController extends Controller
         if($request->imagen != null){
              $item->imagen = $request->imagen->store('public/imagenes/matriceria/');
         }
+        $item->orden = $request->orden;
         $item->save();
         return redirect()->route('adm.bannermatriceria')->with('success', 'Se añadio un <strong>Banner</strong> con exitó.');
     }

@@ -56,6 +56,7 @@ class MaterialesController extends Controller
              $item->imagen = $request->imagen->store('public/imagenes/materiales/');
         }
         $item->texto3 = $request->texto3;
+        $item->orden = $request->orden;
         $item->save();
         return redirect()->route('adm.materiales')->with('success', 'Se añadio un <strong>Material</strong> con exitó.');
     }

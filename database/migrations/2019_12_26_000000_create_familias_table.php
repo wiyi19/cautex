@@ -18,6 +18,7 @@ class CreateFamiliasTable extends Migration
             $table->string('orden')->nullable();
             $table->string('texto1')->nullable();
             $table->string('imagen')->nullable();
+            $table->boolean('destacado')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

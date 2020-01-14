@@ -32,6 +32,7 @@
                     <th>IMAGEN</th>
                     <th>TEXTO 1</th>
                     <th>TEXTO 2</th>
+                    <th>ORDEN</th>
                     <th class="no-sort"></th>
                 </tr>
             </thead>
@@ -42,6 +43,7 @@
                     <td><img src=" {{ asset(Storage::url($item->imagen))}}" width="200" height="100"></td>
                     <td>{{ $item->texto1 }}</td>
                     <td>{{ $item->texto2 }}</td>
+                    <td>{{ $item->orden }}</td>
                     <td>
                         @if (!$item->trashed())
                         <a href="{{ route('adm.bannerempresa.edit', [$item->id]) }}" class="btn btn-primary btn-sm">

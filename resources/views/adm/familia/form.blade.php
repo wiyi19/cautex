@@ -12,5 +12,11 @@
 				<input type="file" class="form-control" id="imagen" name="imagen" value="{{ old('imagen', isset($element) ? $element->imagen : null) }}">
 			</div>
 		</div>
+		<div class="col-md-12">
+			<div class="form-group">
+				<label for="orden">Orden</label>
+				<input type="text" class="form-control" id="orden" name="orden" value="{{ old('orden', isset($element) ? $element->orden : null) }}">
+			</div>
+		</div>
 	</div>
 </div>

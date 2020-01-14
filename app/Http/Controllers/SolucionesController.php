@@ -52,6 +52,7 @@ class SolucionesController extends Controller
         } else {
             $item = new solucionest;
         }
+        $item->orden = $request->orden;
         $item->texto1 = $request->texto1;
         if($request->imagen != null){
              $item->imagen = $request->imagen->store('public/imagenes/home/soluciones');
@@ -77,7 +78,7 @@ class SolucionesController extends Controller
     public function edit($id)
     {
         return view('adm.soluciones.edit', [
-            'element' => soluciones::find($id),
+            'element' => solucionest::find($id),
         ]);
     }
 

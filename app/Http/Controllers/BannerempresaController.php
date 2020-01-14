@@ -52,6 +52,7 @@ class BannerempresaController extends Controller
         }
         $item->texto1 = $request->texto1;
         $item->texto2 = $request->texto2;
+        $item->orden = $request->orden;
         if($request->imagen != null){
              $item->imagen = $request->imagen->store('public/imagenes/empresa/banner');
         }

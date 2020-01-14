@@ -19,7 +19,7 @@
 						<h6 class="m-0 font-weight-bold text-primary">Añadir</h6>
 					</div>
 					<!-- Card Body -->
-					@include('adm.imagenmatriceria.form')
+					@include('adm.bannermatriceria.form')
 				</div>
 			</div>
 		</div>

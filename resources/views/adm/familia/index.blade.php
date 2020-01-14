@@ -28,9 +28,11 @@
         <table class="data_table table table-striped table-bordered display">
             <thead>
                 <tr>
-                    <th>Id</th>
-                    <th>Nombre</th>
-                    <th>Imagen</th>
+                    <th>ID</th>
+                    <th>NOMBRE</th>
+                    <th>DESTACADO</th>
+                    <th>IMAGEN</th>
+                    <th>ORDEN</th>
                     <th class="no-sort"></th>
                 </tr>
             </thead>
@@ -39,7 +41,9 @@
                 <tr>
                     <td>{{ $item->id }}</td>
                     <td>{{ $item->texto1 }}</td>
+                    <td></td>
                     <td><img src=" {{ asset(Storage::url($item->imagen))}}" width="100" height="100"></td>
+                    <td>{{ $item->orden }}</td>
                     <td>
                         @if (!$item->trashed())
                         <a href="{{ route('adm.familia.edit', [$item->id]) }}" class="btn btn-primary btn-sm">

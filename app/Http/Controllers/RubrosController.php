@@ -53,6 +53,7 @@ class RubrosController extends Controller
             $item = new rubrost;
         }
         $item->texto1 = $request->texto1;
+        $item->orden = $request->orden;
         if($request->imagen != null){
              $item->imagen = $request->imagen->store('public/imagenes/home/rubros');
         }
@@ -76,7 +77,7 @@ class RubrosController extends Controller
     public function edit($id)
     {
         return view('adm.rubros.edit', [
-            'element' => rubros::find($id),
+            'element' => rubrost::find($id),
         ]);
     }
 

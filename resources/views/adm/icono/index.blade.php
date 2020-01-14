@@ -31,6 +31,7 @@
                     <th>ID</th>
                     <th>IMAGEN</th>
                     <th>TEXTO 1</th>
+                    <th>ORDEN</th>
                     <th class="no-sort"></th>
                 </tr>
             </thead>
@@ -40,6 +41,7 @@
                     <td>{{ $item->id }}</td>
                     <td><img src=" {{ asset(Storage::url($item->imagen))}}" width="100" height="100"></td>
                     <td>{{ $item->texto1 }}</td>
+                    <td>{{ $item->orden }}</td>
                     <td>
                         @if (!$item->trashed())
                         <a href="{{ route('adm.icono.edit', [$item->id]) }}" class="btn btn-primary btn-sm">

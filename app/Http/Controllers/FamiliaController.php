@@ -54,6 +54,7 @@ class FamiliaController extends Controller
         if($request->imagen != null){
              $item->imagen = $request->imagen->store('public/imagenes/productos/familia');
         }
+        $item->orden = $request->orden;
         $item->save();
         return redirect()->route('adm.familia')->with('success', 'Se añadio una <strong>Familia</strong> con exitó.');
     }

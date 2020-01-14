@@ -21,7 +21,13 @@
 		<div class="col-md-12">
 			<div class="form-group">
 				<label for="texto3">Caracteristicas</label>
-				<textarea class="ckeditor" id="texto3" name="texto3">{{ old('texto3', isset($textos) ? $textos->texto3 : null) }}</textarea>
+				<textarea class="ckeditor" id="texto3" name="texto3">{{ old('texto3', isset($element) ? $element->texto3 : null) }}</textarea>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="form-group">
+				<label for="orden">Orden</label>
+				<input type="text" class="form-control" id="orden" name="orden" value="{{ old('orden', isset($element) ? $element->orden : null) }}">
 			</div>
 		</div>
 	</div>

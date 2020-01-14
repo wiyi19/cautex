@@ -33,6 +33,7 @@
                     <th>ABREVIATURA</th>
                     <th>NOMBRE MATERIAL</th>
                     <th>CARACTERISTICA</th>
+                    <th>ORDEN</th>
                     <th class="no-sort"></th>
                 </tr>
             </thead>
@@ -44,6 +45,7 @@
                     <td>{{ $item->texto1 }}</td>
                     <td>{{ $item->texto2 }}</td>
                     <td>{{ $item->texto3 }}</td>
+                    <td>{{ $item->orden }}</td>
                     <td>
                         @if (!$item->trashed())
                         <a href="{{ route('adm.materiales.edit', [$item->id]) }}" class="btn btn-primary btn-sm">

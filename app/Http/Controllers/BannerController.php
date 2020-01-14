@@ -50,6 +50,7 @@ class BannerController extends Controller
         } else {
             $item = new Banner;
         }
+        $item->orden = $request->orden;
         $item->texto1 = $request->texto1;
         $item->texto2 = $request->texto2;
         if($request->imagen != null){

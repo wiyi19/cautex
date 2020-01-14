@@ -59,6 +59,7 @@
                     <th>ID</th>
                     <th>IMAGEN</th>
                     <th>TEXTO</th>
+                    <th>ORDEN</th>
                     <th class="no-sort"></th>
                 </tr>
             </thead>
@@ -68,6 +69,7 @@
                     <td>{{ $item->id }}</td>
                     <td><img src=" {{ asset(Storage::url($item->imagen))}}" width="200" height="100"></td>
                     <td>{{ $item->texto1 }}</td>
+                    <td>{{ $item->orden }}</td>
                     <td>
                         @if (!$item->trashed())
                         <a href="{{ route('adm.rubros.edit', [$item->id]) }}" class="btn btn-primary btn-sm">

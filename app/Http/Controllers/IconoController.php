@@ -51,6 +51,7 @@ class IconoController extends Controller
             $item = new Icono;
         }
         $item->texto1 = $request->texto1;
+        $item->orden = $request->orden;
         if($request->imagen != null){
              $item->imagen = $request->imagen->store('public/imagenes/matriceria/icono');
         }
