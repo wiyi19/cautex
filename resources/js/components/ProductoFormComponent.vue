@@ -45,6 +45,7 @@
                                 >
                             </div>
                         </div>
+                        <input-file-image label="Fotos miniatura caja (Alto 200px)" :model.sync="content.imagen" class="mt-3"></input-file-image>
                         <div class="row">
                             <div class="form-group col-md-12">
                                 <label :for="'texto2'">Descripción</label>
@@ -69,6 +70,7 @@
                             </div>
                         </div>
                         <custom-gallery label="Fotos del Producto" :model.sync="content.imagenes" class="mt-3"></custom-gallery>
+                        <hr>
                         <input-file-image label="Imagen con medidas" :model.sync="content.medidas_img" class="mt-3"></input-file-image>
                         <fieldset>
                             <legend>Medidas</legend>

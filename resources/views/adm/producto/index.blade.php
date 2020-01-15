@@ -43,7 +43,9 @@
                     <td>{{ $item->texto1 }}</td>
                     <td>{{ $item->familia->texto1 }}</td>
                     <td>{{ $item->texto2 }}</td>
-                    <td><img src=" {{ asset(Storage::url($item->imagen))}}" width="100" height="100"></td>
+                    <td>
+                        <img src="{{ asset(Storage::url($item->imagen)) }}" width="100" height="100">
+                    </td>
                     <td>
                         @if (!$item->trashed())
                         <a href="{{ route('adm.producto.edit', [$item->id]) }}" class="btn btn-primary btn-sm">
