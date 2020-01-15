@@ -1,0 +1,128 @@
+.navbar-top-bg {
+	background: #383838;
+	color: rgba(255, 255, 255, .7);
+	overflow: hidden;
+}
+.btn--search {
+	border: 1px solid #F07D00;
+    border-radius: 100%;
+    height: 37px;
+    width: 37px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #F07D00;
+    font-size: 19px;
+    &:hover {
+    	background-color: #F07D00;
+    	color: #FFF;
+    }
+}
+.btn-header-presupuesto {
+	border: 1px solid #F07D00;
+	padding: 6px 15px;
+	border-radius: 15px;
+	margin-right: 15px;
+	color: rgba(255, 255, 255, .7);
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+	white-space: nowrap;
+    transition: all .1s;
+	&.active, &:hover {
+		color: rgba(255, 255, 255, 1);
+		background-color: #F07D00;
+		text-decoration: none;
+	}
+	img {
+		margin-right: 11px;
+	}
+}
+ul.navbar-top-ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	display: flex;
+	justify-content: space-between;
+	li {
+		a {
+			padding: 7px 25px;
+			border-radius: 10px 10px 0 0;
+			color: rgba(255, 255, 255, .7);
+			text-decoration: none;
+			display: inline-block;
+			&.active, &:hover {
+				color: rgba(255, 255, 255, 1);
+				background-color: #F07D00;
+				text-decoration: none;
+			}
+		}
+	}
+}
+.navbar--fixed {
+	background-color: rgba(56, 56, 56, 0.84);
+	z-index: 9;
+	@include media-breakpoint-up(lg) {
+		position: absolute;
+		top: 0;
+		width: 100%;
+		z-index: 9;
+	}
+}
+.display-menu-mobile {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.display-menu-mobile-btn {
+	cursor: pointer;
+	user-select: none;
+	font-size: 18px;
+	border: 1px solid #F07D00;
+    padding: 5px 15px;
+    border-radius: 10px;
+    transition: all .1s;
+	&:hover {
+		color: rgba(255, 255, 255, 1);
+		background-color: #F07D00;
+		text-decoration: none;
+	}
+	i {
+		margin-right: 5px;
+	}
+}
+#modalNavbarTop {
+    .modal-header {
+        border-bottom: 1px solid #F07D00;
+        background-color: rgba(56, 56, 56, 1);
+        #modalNavbarTopTitle {
+            font-weight: 500;
+            color: #fff;
+            font-size: 23px;
+            color: #ffffffbd;
+        }
+        button {
+            span {
+                font-size: 36px;
+                color: #ffffffbd;
+            }
+        }
+    }
+    .modal-body {
+        padding: 0;
+    }
+    #navbar-modal-items {
+        .navbar-item {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 12px 0;
+            background-color: rgba(56, 56, 56, 1);
+            color: #FFF;
+            font-size: 22px;
+            font-weight: 400;
+            margin: 0;
+            border-bottom: 1px solid #F07D00;
+        }
+    }
+}

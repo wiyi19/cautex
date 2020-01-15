@@ -1,0 +1,143 @@
+.form-search {
+	display: flex;
+	font-size: 16px;
+	.form-search__icon {
+		border: 2px solid #F8F4F7;
+		padding: 8px 5px 8px 20px;
+		border-top-left-radius: 100px;
+		border-bottom-left-radius: 100px;
+		border-right: none;
+		background-color: #FFFFFF;
+		color: #d4d1d1;
+	}
+	input {
+		border: 2px solid #F8F4F7;
+		padding: 8px 5px 8px 5px;
+		border-right: none;
+		border-left: none;
+		flex: 1;
+		background-color: #FFFFFF;
+		outline: none;
+	}
+	button {
+		outline: none;
+		border: 2px solid #F8F4F7;
+		padding: 8px 20px 8px 15px;
+		border-left: none;
+		border-top-right-radius: 100px;
+		border-bottom-right-radius: 100px;
+		color: white;
+		background-color: #F07D00;
+		text-decoration: none;
+	}
+}
+.producto-box{
+	position: relative;
+	background-size: cover;
+	background-repeat: no-repeat;
+	box-shadow: 0 0 3px rgba(100,100,100, .4);
+	display: flex;
+	margin: 7.5px;
+	&:nth-child(n+4) {
+		//margin-left: none;
+	}
+	.producto-box-space{
+		width: 100%;
+		padding-bottom: 70%;
+	}
+	.producto-box-text {
+		color: #383838;
+		position: absolute;
+		bottom: 10px;
+		width: 100%;
+		text-align: center;
+		font-size: 20px;
+		font-weight: 700;
+	}
+	.producto-box-overlay {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		color: rgba(255, 255, 255, .8);
+		font-size: 32px;
+		background-color: rgba(0, 0, 0, .3);
+		transition: all .1s;
+		opacity: 0;
+	}
+	&:hover {
+		.producto-box-overlay{
+			opacity: 1;
+		}
+	}
+}
+
+
+//
+
+
+.menu-producto {
+	background-color: #F9F9F9;
+	padding: 3px;
+	font-size: 16px;
+	line-height: 18px;
+	&-rubro {
+		color: $theme-gray;
+		padding: 10px 8px;
+		border-bottom: 1px solid #D8D8D8;
+		cursor: pointer;
+		display: inline-block;
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 0;
+		text-transform: uppercase;
+		&:hover {
+			text-decoration: none;
+		}
+		&, * {
+			transition: 0.3s all ease;
+		}
+		&:not(.collapsed) {
+			color: $theme-orange;
+			i {
+				color: $theme-orange;
+				transform: rotate(90deg);
+			}
+		}
+	}
+	&-marca {
+		color: #595959;
+		padding-left: 18px;
+		cursor: pointer;
+		display: inline-block;
+		width: 100%;
+		margin-bottom: 10px;
+		font-weight: 600;
+		padding-top: 7px;
+		padding-bottom: 7px;
+		&:not(.collapsed) {
+			color: $theme-gray;
+		}
+	}
+	&-producto {
+		color: #595959;
+		padding: 0 28px;
+		cursor: pointer;
+		display: inline-block;
+		width: 100%;
+		margin-bottom: 10px;
+		&.active{
+			color: $theme-gray;
+		}
+	}
+	.collapse {
+		padding-top: 10px;
+		background-color: #F7F7F7;
+	}
+}

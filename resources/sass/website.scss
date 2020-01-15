@@ -1,0 +1,187 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+$font-family-sans-serif: 'Jura', sans-serif;
+$theme-gray: #575656;
+$theme-orange: #F07D00;
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+
+.carousel-indicators li {
+    background-color: #B7B7B7;
+    opacity: 1;
+    &.active {
+        background-color: #D57C1B;
+        opacity: 1;
+    }
+}
+
+@import "website/components/banner";
+@import "website/components/header";
+@import "website/components/footer";
+
+@import "website/home";
+@import "website/empresa";
+@import "website/familias";
+@import "website/familia";
+@import "website/producto";
+@import "website/contacto";
+@import "website/matriceria";
+
+.section-title {
+	color: #575656;
+    text-align: center;
+    letter-spacing: 2px;
+    font-size: 27px;
+    font-weight: 500;
+}
+$spacers: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+/*
+$spacers: map-merge(
+  (
+    0: 0,
+    1: ($spacer * .25),
+    2: ($spacer * .5),
+    3: $spacer,
+    4: ($spacer * 1.5),
+    5: ($spacer * 3)
+  ),
+  $spacers
+);
+*/
+@for $i from 6 through 100 {
+	$spacers: map-merge(
+		(
+			$i: ($spacer * (.5 * $i)),
+		),
+		$spacers
+	);
+}
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    @each $prop, $abbrev in (margin: m, padding: p) {
+      @each $size, $length in $spacers {
+        .#{$abbrev}#{$infix}-#{$size} { #{$prop}: $length !important; }
+        .#{$abbrev}t#{$infix}-#{$size},
+        .#{$abbrev}y#{$infix}-#{$size} {
+          #{$prop}-top: $length !important;
+        }
+        .#{$abbrev}r#{$infix}-#{$size},
+        .#{$abbrev}x#{$infix}-#{$size} {
+          #{$prop}-right: $length !important;
+        }
+        .#{$abbrev}b#{$infix}-#{$size},
+        .#{$abbrev}y#{$infix}-#{$size} {
+          #{$prop}-bottom: $length !important;
+        }
+        .#{$abbrev}l#{$infix}-#{$size},
+        .#{$abbrev}x#{$infix}-#{$size} {
+          #{$prop}-left: $length !important;
+        }
+      }
+    }
+    // // Negative margins (e.g., where `.mb-n1` is negative version of `.mb-1`)
+    // @each $size, $length in $spacers {
+    //   @if $size != 0 {
+    //     .m#{$infix}-n#{$size} { margin: -$length !important; }
+    //     .mt#{$infix}-n#{$size},
+    //     .my#{$infix}-n#{$size} {
+    //       margin-top: -$length !important;
+    //     }
+    //     .mr#{$infix}-n#{$size},
+    //     .mx#{$infix}-n#{$size} {
+    //       margin-right: -$length !important;
+    //     }
+    //     .mb#{$infix}-n#{$size},
+    //     .my#{$infix}-n#{$size} {
+    //       margin-bottom: -$length !important;
+    //     }
+    //     .ml#{$infix}-n#{$size},
+    //     .mx#{$infix}-n#{$size} {
+    //       margin-left: -$length !important;
+    //     }
+    //   }
+    // }
+    // // Some special margin utils
+    // .m#{$infix}-auto { margin: auto !important; }
+    // .mt#{$infix}-auto,
+    // .my#{$infix}-auto {
+    //   margin-top: auto !important;
+    // }
+    // .mr#{$infix}-auto,
+    // .mx#{$infix}-auto {
+    //   margin-right: auto !important;
+    // }
+    // .mb#{$infix}-auto,
+    // .my#{$infix}-auto {
+    //   margin-bottom: auto !important;
+    // }
+    // .ml#{$infix}-auto,
+    // .mx#{$infix}-auto {
+    //   margin-left: auto !important;
+    // }
+  }
+}
+
+// .rounded-100 {
+//     border-radius: 1000px;
+// }
+// @for $i from 0 through 10 {
+//     .border-width-#{$i} {
+//         border-width: $i * 1px !important;
+//     }
+// }
+
+.btn--style-custom {
+    border-radius: 1000px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-width: 3px;
+    letter-spacing: 2px;
+    font-weight: 400;
+    font-size: 17px;
+}
+.btn--outline-orange {
+    border-color: $theme-orange;
+    color: $theme-orange;
+    &:hover {
+        background-color: $theme-orange;
+        color: #FFF;
+    }
+}
+.btn--orange {
+    border-color: $theme-orange;
+    background-color: $theme-orange;
+    color: #ffffff;
+    &:hover {
+        border-color: darken($theme-orange, 10%);
+        background-color: darken($theme-orange, 10%);
+        color: #FFF;
+    }
+}
+
+.btn-message {
+    padding: 6px 30px;
+    border: 3px solid #CCC;
+    border-radius: 100px;
+    color: #CCC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    white-space: nowrap;
+    i {
+        margin-right: 10px;
+        font-size: 23px;
+    }
+    &.btn-message--success {
+        border-color: #28a745;
+        color: #28a745;
+    }
+}
