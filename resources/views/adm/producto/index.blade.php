@@ -31,7 +31,6 @@
                     <th>Id</th>
                     <th>Nombre Prodcuto</th>
                     <th>Familia Producto</th>
-                    <th>Caracteristica</th>
                     <th>Imagen</th>
                     <th class="no-sort"></th>
                 </tr>
@@ -41,8 +40,7 @@
                 <tr>
                     <td>{{ $item->id }}</td>
                     <td>{{ $item->texto1 }}</td>
-                    <td>{{ $item->familia->texto1 }}</td>
-                    <td>{{ $item->texto2 }}</td>
+                    <td>{{ optional($item->familia)->texto1 }}</td>
                     <td>
                         <img src="{{ asset(Storage::url($item->imagen)) }}" width="100" height="100">
                     </td>

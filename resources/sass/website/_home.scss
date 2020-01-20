@@ -14,13 +14,16 @@
 		padding-bottom: 58%;
 	}
 	.home-familia-box-text {
-		color: #F07D00;
+		color: #000;
 		position: absolute;
 		bottom: 10px;
 		width: calc(100% - 30px);
 		text-align: center;
-		font-size: 25px;
-		transition: all .1s;
+		font-size: 22px;
+		-webkit-transition: all 0.1s;
+		transition: all 0.1s;
+		line-height: 1em;
+		padding: 0 15px 15px 15px;
 	}
 	.home-familia-box-overlay {
 		position: absolute;

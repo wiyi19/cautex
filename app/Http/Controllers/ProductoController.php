@@ -56,8 +56,8 @@ class ProductoController extends Controller
         } else {
             $item = new Producto;
         }
+        $imagenes = [];
         if($request->imagenes != null){
-            $imagenes = [];
             foreach ($request->imagenes as $key => $value) {
                 if(is_string($value)) {
                     $imagenes[$key] = $value;
@@ -66,8 +66,8 @@ class ProductoController extends Controller
                     $imagenes[$key] = $path;
                 }
             }
-            $item->imagenes = $imagenes;
         }
+        $item->imagenes = $imagenes;
         if($request->imagen != null){
             if(is_string($request->imagen)) {
                 if ($request->imagen == '--remove--') {
@@ -185,6 +185,8 @@ class ProductoController extends Controller
                             'path' => $value,
                             'type' => Storage::mimeType($value)
                         ];
+                    } else {
+                        $content[$key] = '';
                     }
                 } elseif($key == 'medidas_img') {
                     if($value != null && $value != '') {
@@ -193,6 +195,8 @@ class ProductoController extends Controller
                             'path' => $value,
                             'type' => Storage::mimeType($value)
                         ];
+                    } else {
+                        $content[$key] = '';
                     }
                 } elseif($key == 'medidas') {
                     //$content[$key] = json_decode($value, $assoc_array = true);
@@ -209,6 +213,8 @@ class ProductoController extends Controller
                                 ];
                             }
                         }
+                    } else {
+                        $content[$key] = [];
                     }
                 } else {
                     $content[$key] = $value;

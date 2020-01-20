@@ -16,25 +16,29 @@
 					<div id="carouselProductoIndicators" class="carousel slide" data-ride="carousel" style="box-shadow: 0 0 3px rgba(100, 100, 100, 0.4);">
 						<ol class="carousel-indicators">
 							<li data-target="#carouselProductoIndicators" data-slide-to="0" class="active"></li>
-							@for ($i = 1; $i <= count($producto->imagenes); $i++)
-							<li data-target="#carouselProductoIndicators" data-slide-to="{{ $i }}"></li>
-							@endfor
+							@if (is_array($producto->imagenes))
+								@for ($i = 1; $i <= count($producto->imagenes); $i++)
+									<li data-target="#carouselProductoIndicators" data-slide-to="{{ $i }}"></li>
+								@endfor
+							@endif
 						</ol>
 						<div class="carousel-inner">
 							<div class="carousel-item active" style="background-image: url({{ asset(Storage::url($producto->imagen))}});">
 								<div style="padding-bottom: 100%;"></div>
 							</div>
-							@foreach ($producto->imagenes as $imagen)
-							<div class="carousel-item" style="background-image: url({{ asset(Storage::url($imagen))}});">
-								<div style="padding-bottom: 100%;"></div>
-							</div>
-							@endforeach
+							@if (is_array($producto->imagenes))
+								@foreach ($producto->imagenes as $imagen)
+								<div class="carousel-item" style="background-image: url({{ asset(Storage::url($imagen))}});">
+									<div style="padding-bottom: 100%;"></div>
+								</div>
+								@endforeach
+							@endif
 						</div>
 					</div>
 				</div>
 				<div class="col-sm-12 col-md-6 col-lg-6">
-					<div>{{ $producto->texto1 }}</div>
-					<div>{!! $producto->texto2 !!}</div>
+					<div class="producto-texto1">{{ $producto->texto1 }}</div>
+					<div class="producto-texto2">{!! $producto->texto2 !!}</div>
 					<div>
 						<a href="{{ route('website.presupuesto') }}" class="btn btn--orange btn--style-custom">Solicitar presupuesto</a>
 					</div>
