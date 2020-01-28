@@ -37,7 +37,7 @@
 					</div>
 				</div>
 				<div class="col-sm-12 col-md-6 col-lg-6">
-					<div class="producto-texto1">{{ $producto->texto1 }}</div>
+					<h1 class="producto-texto1">{{ $producto->texto1 }}</h1>
 					<div class="producto-texto2">{!! $producto->texto2 !!}</div>
 					<div>
 						<a href="{{ route('website.presupuesto') }}" class="btn btn--orange btn--style-custom">Solicitar presupuesto</a>

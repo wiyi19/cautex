@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
         if (config('app.debug')){
             $assets_version = hash('md5', rand());
         } else {
-            $assets_version = '4';
+            $assets_version = '6';
         }
         //dd(collect(Area::get(['id', 'nombre', 'slug'])->toArray())->where('slug.es', 'tubos-y-canos'));
         if (php_sapi_name() != 'cli') {

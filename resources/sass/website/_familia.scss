@@ -2,27 +2,29 @@
 	position: relative;
 	background-size: cover;
 	background-repeat: no-repeat;
+	background-position: center;
 	box-shadow: 0 0 3px rgba(100,100,100, .4);
 	display: flex;
 	margin: 7.5px;
 	&:nth-child(n+4) {
 		//margin-left: none;
 	}
-	.producto-box-space{
+	&-space{
 		width: 100%;
-		padding-bottom: 70%;
+		padding-bottom: 100%;
 	}
-	.producto-box-text {
+	&-text {
 		color: #383838;
 		position: absolute;
 		bottom: 10px;
 		width: 100%;
 		text-align: center;
-		font-size: 15px;
+		font-size: 12px;
+		line-height: 12px;
 		font-weight: 700;
 		padding: 0 10px;
 	}
-	.producto-box-overlay {
+	&-overlay {
 		position: absolute;
 		top: 0;
 		bottom: 0;
@@ -38,7 +40,7 @@
 		opacity: 0;
 	}
 	&:hover {
-		.producto-box-overlay{
+		&-overlay{
 			opacity: 1;
 		}
 	}
